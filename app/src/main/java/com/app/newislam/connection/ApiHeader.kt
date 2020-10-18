@@ -13,7 +13,7 @@ class ApiHeader {
     @SerializedName(value = "device-token") var deviceToken: String
     @SerializedName(value = "x-api-key") var apiKey = "NWRjYWY1NTYzZjkwOGVlNzNjYjliZWJiMzA4NWFlZWNjODU5ZGNjMzQ4ZDBiOThmMTE0NjczMjBmMzI5MzQxZDNkZDdkNWE4ODI5YWI3YzRkNjJjYjQwODJkODA1YmI0ZGMxNWZhMmI3YmMwODk3OTFlY2VkODQwMjUwNGU2YWI="
 
-
+    //add new comments
     constructor(authorization: String = "", countryId: Int = 0,
                 deviceUUID: String = "", deviceId: String = "", deviceToken: String = "", languageId: String = "1",language: String) {
         this.authorization = String.format("Bearer %s", authorization)
