@@ -20,17 +20,17 @@ class Resource<T> private constructor() {
 
     class ResourceBuilder<T> {
         private val resource: Resource<T> = Resource<T>()
-        fun withMessage(@NonNull msg: String): ResourceBuilder<T> {
+        fun withMessage( msg: String): ResourceBuilder<T> {
             resource.message = msg
             return this
         }
 
-        fun holdingData(@NonNull data: T): ResourceBuilder<T> {
+        fun holdingData( data: T): ResourceBuilder<T> {
             resource.data = data
             return this
         }
 
-        fun withStatus(@NonNull status: ResourceStatus): ResourceBuilder<T> {
+        fun withStatus( status: ResourceStatus): ResourceBuilder<T> {
             resource.resourceStatus = status
             return this
         }
@@ -46,7 +46,7 @@ class Resource<T> private constructor() {
     }
 
     companion object {
-        fun <T> success(@NonNull msg: String?, @NonNull data: T): Resource<T> {
+        fun <T> success( msg: String?,  data: T): Resource<T> {
             return ResourceBuilder<T>()
                 .withStatus(ResourceStatus.SUCCESS)
                 .withMessage(msg!!)
@@ -54,14 +54,14 @@ class Resource<T> private constructor() {
                 .build()
         }
 
-        fun <T> failed(@NonNull msg: String?): Resource<T> {
+        fun <T> failed( msg: String?): Resource<T> {
             return ResourceBuilder<T>()
                 .withStatus(ResourceStatus.FAILED)
                 .withMessage(msg!!)
                 .build()
         }
 
-        fun <T> noConnection(@NonNull msg: String?): Resource<T> {
+        fun <T> noConnection( msg: String?): Resource<T> {
             return ResourceBuilder<T>()
                 .withStatus(ResourceStatus.NO_CONNECTION)
                 .withMessage(msg!!)
