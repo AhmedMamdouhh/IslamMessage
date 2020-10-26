@@ -60,25 +60,36 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/bg_text_input"
                 android:layout_height="@dimen/dp50h"
+                app:passwordToggleEnabled="true"
                 android:textColorHint="@color/colorBlackTransparent"
                 app:error="@{userObject.loginErrors.passwordError}"
                 app:errorEnabled="true">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:paddingStart="@dimen/dp8w"
                     android:paddingEnd="@dimen/dp8w"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/login_enter_password"
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:maxLines="1"
+
                     android:background="@android:color/transparent"
                     android:text="@={userObject.password}"
                     android:textColor="@color/colorBlack" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
+            <com.airbnb.lottie.LottieAnimationView
+                android:visibility="gone"
+                android:id="@+id/loadingView"
+                android:elevation="@dimen/dp5w"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/dp100w"
+                android:layout_height="@dimen/dp100h"
+                app:lottie_rawRes="@raw/loading"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
 
             <TextView
                 android:id="@+id/tv_forgot_password"
@@ -86,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp20h"
                 android:layout_marginEnd="@dimen/dp24h"
+                android:layout_marginStart="0dp"
                 android:text="@string/login_forgot_password"
                 android:textColor="#000"
                 android:textStyle="bold"
@@ -96,9 +108,9 @@
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp40h"
-                android:layout_marginStart="@dimen/dp24h"
+                android:layout_marginStart="@dimen/dp8w"
                 android:layout_marginTop="@dimen/dp20h"
-                android:layout_marginEnd="@dimen/dp24h"
+                android:layout_marginEnd="@dimen/dp8w"
                 android:background="@drawable/bg_button_password"
                 android:text="@string/login_login"
                 android:onClick="@{() -> viewModel.getLoginData(userObject)}"
