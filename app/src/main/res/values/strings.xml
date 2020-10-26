@@ -24,4 +24,9 @@
     <string name="forget_email_address">Email address</string>
     <string name="forget_please_enter_your_email_address_to_rese_nyour_password">Please enter your email address to rese\nyour password.</string>
 
+    <!--Errors -->
+    <!--Login Errors -->
+    <string name="error_login_email_empty">Please enter your email!</string>
+    <string name="error_login_password_empty">Please enter your password!</string>
+
 </resources>
