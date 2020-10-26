@@ -73,7 +73,6 @@
                     android:hint="@string/login_enter_password"
                     android:inputType="textPassword"
                     android:maxLines="1"
-
                     android:background="@android:color/transparent"
                     android:text="@={userObject.password}"
                     android:textColor="@color/colorBlack" />
