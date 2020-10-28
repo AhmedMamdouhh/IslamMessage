@@ -1,9 +1,8 @@
 package com.app.newislam.ui.auth.login
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.app.newislam.model.Resource
+import com.app.newislam.manager.connection.Resource
 import com.app.newislam.model.entities.User
 import com.app.newislam.model.requests.auth.login.LoginRequest
 import com.app.newislam.repository.auth.LoginRepository
@@ -16,12 +15,7 @@ class LoginViewModel : ViewModel(), KoinComponent {
 
 
     fun getLoginData(loginRequest: LoginRequest) {
-        resource.value = Resource.loading()
-        loginRepository.composit.add(loginRepository.getLoginData(loginRequest).subscribe({
-            resource.value = Resource.success(it.message,it.data)
-        }, {
-            resource.value = Resource.failed(it.message)
-        }))
+
     }
 
 }

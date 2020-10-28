@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.app.newislam.R
 import com.app.newislam.databinding.FragmentLoginBinding
-import com.app.newislam.model.Resource
+import com.app.newislam.manager.connection.Resource
 import com.app.newislam.model.requests.auth.login.LoginRequest
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.toolbar.view.*

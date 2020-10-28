@@ -1,6 +1,5 @@
-package com.app.newislam.connection
+package com.app.newislam.manager.connection
 
-import com.app.newislam.model.Resource
 import com.app.newislam.model.entities.User
 import com.app.newislam.model.requests.auth.login.LoginRequest
 import io.reactivex.Flowable

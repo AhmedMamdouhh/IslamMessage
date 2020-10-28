@@ -1,13 +1,10 @@
 package com.app.newislam.di
 
-import androidx.multidex.BuildConfig.DEBUG
-import com.app.newislam.connection.*
+import com.app.newislam.manager.connection.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.readystatesoftware.chuck.BuildConfig
 import com.readystatesoftware.chuck.ChuckInterceptor
 import io.reactivex.disposables.CompositeDisposable
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

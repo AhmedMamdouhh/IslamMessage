@@ -29,4 +29,8 @@
     <string name="error_login_email_empty">Please enter your email!</string>
     <string name="error_login_password_empty">Please enter your password!</string>
 
+    <string name="error_no_connection">Oops , there\'s no Network connection</string>
+    <string name="error_message_title">Error!</string>
+    <string name="success_message_title">Success</string>
+
 </resources>

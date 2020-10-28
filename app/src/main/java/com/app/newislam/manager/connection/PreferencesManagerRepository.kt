@@ -1,4 +1,4 @@
-package com.app.newislam.connection
+package com.app.newislam.manager.connection
 
 import android.content.Context
 import com.google.gson.Gson

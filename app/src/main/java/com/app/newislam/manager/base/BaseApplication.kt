@@ -1,4 +1,4 @@
-package com.app.newislam
+package com.app.newislam.manager.base
 
 import android.app.Application
 import com.app.newislam.di.apiModule

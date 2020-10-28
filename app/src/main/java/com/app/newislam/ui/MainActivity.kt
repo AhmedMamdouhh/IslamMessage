@@ -1,8 +1,9 @@
-package com.app.newislam
+package com.app.newislam.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import com.app.newislam.R
 import com.app.newislam.ui.auth.login.LoginFragment
 
 

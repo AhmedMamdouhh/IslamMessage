@@ -1,4 +1,4 @@
-package com.app.newislam.connection
+package com.app.newislam.manager.connection
 object ApiEndPoints {
 
     const val BASE_URL = "http://174.138.103.162:4000/Api/"

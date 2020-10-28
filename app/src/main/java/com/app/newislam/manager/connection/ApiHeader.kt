@@ -1,4 +1,4 @@
-package com.app.newislam.connection
+package com.app.newislam.manager.connection
 
 import com.google.gson.annotations.SerializedName
 

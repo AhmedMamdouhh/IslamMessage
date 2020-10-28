@@ -1,4 +1,4 @@
-package com.app.newislam.connection
+package com.app.newislam.manager.connection
 
 import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
