@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app.newislam"
+    android:targetSandboxVersion="2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <application
+        android:name="com.app.newislam.BaseApplication"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name="com.app.newislam.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.readystatesoftware.chuck.internal.data.ChuckContentProvider"
+            android:authorities="com.app.newislam.chuck.provider"
+            android:exported="false" />
+
+        <activity
+            android:name="com.readystatesoftware.chuck.internal.ui.MainActivity"
+            android:label="@string/chuck_name"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.readystatesoftware.chuck.task"
+            android:theme="@style/Chuck.Theme" />
+        <activity
+            android:name="com.readystatesoftware.chuck.internal.ui.TransactionActivity"
+            android:parentActivityName="com.readystatesoftware.chuck.internal.ui.MainActivity"
+            android:theme="@style/Chuck.Theme" />
+
+        <service
+            android:name="com.readystatesoftware.chuck.internal.support.ClearTransactionsService"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.app.newislam.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>

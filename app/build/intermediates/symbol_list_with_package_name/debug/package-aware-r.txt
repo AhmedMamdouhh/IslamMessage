@@ -2827,6 +2827,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id abl_coins_toolbar
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2910,6 +2911,7 @@ id beginning
 id blocking
 id body
 id bottom
+id bottomSheet
 id bounce
 id browse_sql
 id btn_action
@@ -2919,6 +2921,7 @@ id btn_register
 id btn_send_email
 id buttonPanel
 id cache_measures
+id cancelBtn
 id cancel_button
 id center
 id center_horizontal
@@ -2985,6 +2988,7 @@ id enterAlways
 id enterAlwaysCollapsed
 id et_confirm_password
 id et_email
+id et_forgot_email
 id et_new_password
 id exitUntilCollapsed
 id expand_activities_button
@@ -2999,7 +3003,7 @@ id fixed
 id flip
 id floating
 id forever
-id forgotPasswordFragment
+id forgotPasswordFragmentSheet
 id fragment_container_view_tag
 id ghost_view
 id ghost_view_holder
@@ -3088,6 +3092,7 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
+id nameToolbar
 id nav_controller_view_tag
 id nav_host_fragment_container
 id navigation_header_container
@@ -3364,6 +3369,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_forgot_password
 layout fragment_forgot_password
 layout fragment_home
 layout fragment_login
@@ -3522,11 +3528,14 @@ string forget_email_address
 string forget_enter_your_email
 string forget_please_enter_your_email_address_to_rese_nyour_password
 string forget_send
+string forgot_password_email
+string forgot_password_title
 string hello_first_fragment
 string hello_second_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string label_submit
 string login_don_t_have_an_account
 string login_email_address
 string login_enter_password

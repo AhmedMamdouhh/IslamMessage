@@ -59,6 +59,9 @@
     <string name="welcome_continue_as_a_guest">Continue as a guest</string>
     <string name="register_fullname">Full name</string>
     <string name="register_have_account">Already have account? </string>
+    <string name="forgot_password_title">Forget password</string>
+    <string name="label_submit">Submit</string>
+    <string name="forgot_password_email">enter email address</string>
 
 
 </resources>
