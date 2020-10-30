@@ -13,6 +13,7 @@ open class BaseViewModel : ViewModel(), KoinComponent {
     val disposable :CompositeDisposable by inject ()
     val application :Application by inject ()
     var isUserAuthenticated = MutableLiveData<Boolean>()
+    var observeError = MutableLiveData<String>()
     init {
         isUserAuthenticated.value =  responseManager.isAuthenticated()
     }

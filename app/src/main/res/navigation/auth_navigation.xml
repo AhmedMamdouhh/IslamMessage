@@ -32,7 +32,7 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
+            app:destination="@id/forgotPasswordFragmentSheet" />
         <action
             app:popUpTo="@id/loginFragment"
             app:popEnterAnim="@android:anim/slide_in_left"
@@ -42,11 +42,11 @@
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
     </fragment>
-    <fragment
-        tools:layout="@layout/fragment_forgot_password"
-        android:id="@+id/forgotPasswordFragment"
-        android:name="com.app.newislam.ui.auth.password.ForgotPasswordFragment"
-        android:label="ForgotPasswordFragment" />
+    <dialog
+        tools:layout="@layout/dialog_forgot_password"
+        android:id="@+id/forgotPasswordFragmentSheet"
+        android:name="com.app.newislam.ui.auth.password.ForgotPasswordSheet"
+        android:label="ForgotPasswordFragmentSheet" />
     <fragment
         tools:layout="@layout/fragment_register"
         android:id="@+id/registrationFragment"

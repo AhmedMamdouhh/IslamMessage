@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.readystatesoftware.chuck.ChuckInterceptor
 import io.reactivex.disposables.CompositeDisposable
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
@@ -53,30 +54,30 @@ val dataModule = module {
 
     single {
         val client = OkHttpClient.Builder()
-        // if (BuildConfig.DEBUG) {
-        client.addInterceptor(
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        )
-        client.addInterceptor(ChuckInterceptor(get()))
-        // }
+        //if (BuildConfig.BUILD_TYPE == "debug") {
+            client.addInterceptor(
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            )
+            client.addInterceptor(ChuckInterceptor(get()))
+        //}
 
 
-//        client.addInterceptor(Interceptor { chain ->
-//            val original = chain.request()
-//            val apiHeader = (get() as ApiHeader)
-//            val request =
-//                    original.newBuilder()
-//                           .header("Content-Type", "application/json")
-//                        //   .header("Accept", "*/*")
-//////                            .header("language-id", apiHeader.languageId)
-////                            .header("language", apiHeader.language)
-////                            .header("country-id", apiHeader.countryId.toString())
-////                            .header("device-token", apiHeader.deviceToken)
-////                            .header("Authorization","_")
-//                            .method(original.method, original.body).build()
-//
-//            return@Interceptor chain.proceed(request)
-//        })
+        client.addInterceptor(Interceptor { chain ->
+            val original = chain.request()
+            val apiHeader = (get() as ApiHeader)
+            val request =
+                original.newBuilder()
+                    .header("Content-Type", "application/json")
+                    //   .header("Accept", "*/*")
+////                            .header("language-id", apiHeader.languageId)
+//                            .header("language", apiHeader.language)
+//                            .header("country-id", apiHeader.countryId.toString())
+//                            .header("device-token", apiHeader.deviceToken)
+//                            .header("Authorization","_")
+                    .method(original.method, original.body).build()
+
+            return@Interceptor chain.proceed(request)
+        })
 
         client.connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)

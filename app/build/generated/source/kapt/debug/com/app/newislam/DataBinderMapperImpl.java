@@ -7,6 +7,7 @@ import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.app.newislam.databinding.ActivitySplashBindingImpl;
+import com.app.newislam.databinding.DialogForgotPasswordBindingImpl;
 import com.app.newislam.databinding.FragmentForgotPasswordBindingImpl;
 import com.app.newislam.databinding.FragmentLoginBindingImpl;
 import com.app.newislam.databinding.FragmentRegisterBindingImpl;
@@ -24,18 +25,21 @@ import java.util.List;
 public class DataBinderMapperImpl extends DataBinderMapper {
   private static final int LAYOUT_ACTIVITYSPLASH = 1;
 
-  private static final int LAYOUT_FRAGMENTFORGOTPASSWORD = 2;
+  private static final int LAYOUT_DIALOGFORGOTPASSWORD = 2;
 
-  private static final int LAYOUT_FRAGMENTLOGIN = 3;
+  private static final int LAYOUT_FRAGMENTFORGOTPASSWORD = 3;
 
-  private static final int LAYOUT_FRAGMENTREGISTER = 4;
+  private static final int LAYOUT_FRAGMENTLOGIN = 4;
 
-  private static final int LAYOUT_FRAGMENTWELCOME = 5;
+  private static final int LAYOUT_FRAGMENTREGISTER = 5;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(5);
+  private static final int LAYOUT_FRAGMENTWELCOME = 6;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(6);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.app.newislam.R.layout.activity_splash, LAYOUT_ACTIVITYSPLASH);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.app.newislam.R.layout.dialog_forgot_password, LAYOUT_DIALOGFORGOTPASSWORD);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.app.newislam.R.layout.fragment_forgot_password, LAYOUT_FRAGMENTFORGOTPASSWORD);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.app.newislam.R.layout.fragment_login, LAYOUT_FRAGMENTLOGIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.app.newislam.R.layout.fragment_register, LAYOUT_FRAGMENTREGISTER);
@@ -56,6 +60,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new ActivitySplashBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_splash is invalid. Received: " + tag);
+        }
+        case  LAYOUT_DIALOGFORGOTPASSWORD: {
+          if ("layout/dialog_forgot_password_0".equals(tag)) {
+            return new DialogForgotPasswordBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for dialog_forgot_password is invalid. Received: " + tag);
         }
         case  LAYOUT_FRAGMENTFORGOTPASSWORD: {
           if ("layout/fragment_forgot_password_0".equals(tag)) {
@@ -144,10 +154,11 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(5);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(6);
 
     static {
       sKeys.put("layout/activity_splash_0", com.app.newislam.R.layout.activity_splash);
+      sKeys.put("layout/dialog_forgot_password_0", com.app.newislam.R.layout.dialog_forgot_password);
       sKeys.put("layout/fragment_forgot_password_0", com.app.newislam.R.layout.fragment_forgot_password);
       sKeys.put("layout/fragment_login_0", com.app.newislam.R.layout.fragment_login);
       sKeys.put("layout/fragment_register_0", com.app.newislam.R.layout.fragment_register);
