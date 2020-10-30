@@ -1,0 +1,45 @@
+com/app/newislam/databinding/FragmentLoginBinding.java
+ com.app.newislam.databinding.FragmentLoginBinding
+com/app/newislam/databinding/ActivitySplashBinding.java
+ com.app.newislam.databinding.ActivitySplashBinding
+com/app/newislam/databinding/FragmentWelcomeBinding.java
+ com.app.newislam.databinding.FragmentWelcomeBinding
+com/app/newislam/DataBindingTriggerClass.java
+ com.app.newislam.DataBindingTriggerClass
+com/app/newislam/BuildConfig.java
+ com.app.newislam.BuildConfig
+com/app/newislam/DataBinderMapperImpl.java
+ com.app.newislam.DataBinderMapperImpl
+ com.app.newislam.DataBinderMapperImpl$InnerBrLookup
+ com.app.newislam.DataBinderMapperImpl$InnerLayoutIdLookup
+androidx/databinding/DataBinderMapperImpl.java
+ androidx.databinding.DataBinderMapperImpl
+com/app/newislam/databinding/FragmentLoginBindingImpl.java
+ com.app.newislam.databinding.FragmentLoginBindingImpl
+ com.app.newislam.databinding.FragmentLoginBindingImpl$1
+ com.app.newislam.databinding.FragmentLoginBindingImpl$2
+com/app/newislam/generated/callback/OnClickListener.java
+ com.app.newislam.generated.callback.OnClickListener
+ com.app.newislam.generated.callback.OnClickListener$Listener
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/app/newislam/databinding/FragmentWelcomeBindingImpl.java
+ com.app.newislam.databinding.FragmentWelcomeBindingImpl
+com/app/newislam/databinding/FragmentForgotPasswordBinding.java
+ com.app.newislam.databinding.FragmentForgotPasswordBinding
+com/app/newislam/databinding/FragmentRegisterBinding.java
+ com.app.newislam.databinding.FragmentRegisterBinding
+com/app/newislam/BR.java
+ com.app.newislam.BR
+com/app/newislam/databinding/FragmentRegisterBindingImpl.java
+ com.app.newislam.databinding.FragmentRegisterBindingImpl
+ com.app.newislam.databinding.FragmentRegisterBindingImpl$1
+ com.app.newislam.databinding.FragmentRegisterBindingImpl$2
+ com.app.newislam.databinding.FragmentRegisterBindingImpl$3
+com/app/newislam/databinding/ActivitySplashBindingImpl.java
+ com.app.newislam.databinding.ActivitySplashBindingImpl
+com/app/newislam/databinding/FragmentForgotPasswordBindingImpl.java
+ com.app.newislam.databinding.FragmentForgotPasswordBindingImpl
+ com.app.newislam.databinding.FragmentForgotPasswordBindingImpl$1
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">New Islam</string>
+
+    <!--Welcome-->
+    <string name="welcome_to_islam_message">Welcome to\nIslam Message</string>
     <!--    Fragment Reset Passsword-->
     <string name="reset_save_password">Save password</string>
     <string name="reset_confirm_your_password">Confirm your password</string>
@@ -28,5 +31,24 @@
     <!--Login Errors -->
     <string name="error_login_email_empty">Please enter your email!</string>
     <string name="error_login_password_empty">Please enter your password!</string>
+
+    <string name="error_no_connection">Oops , there\'s no Network connection</string>
+    <string name="error_message_title">Error!</string>
+    <string name="success_message_title">Success</string>
+    <string name="title_activity_home">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="welcome_message_second">It is a long established fact that a reader\nwill be distracted by the readable</string>
+    <string name="welcome_create_new_account">Create new account</string>
+    <string name="welcome_continue_as_a_guest">Continue as a guest</string>
+    <string name="register_fullname">Full name</string>
+    <string name="register_have_account">Already have account? </string>
+
 
 </resources>

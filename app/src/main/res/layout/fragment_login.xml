@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.app.newislam.ui.auth.login.LoginViewModel" />
@@ -98,6 +97,7 @@
                 android:layout_marginEnd="@dimen/dp24h"
                 android:layout_marginStart="0dp"
                 android:text="@string/login_forgot_password"
+                android:onClick="@{()->viewModel.goToForgotPassword()}"
                 android:textColor="#000"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

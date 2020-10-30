@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.app.newislam.ui.auth.register.RegisterViewModel" />
+        <variable
+            name="userObject"
+            type="com.app.newislam.model.requests.auth.register.RegistrationRequest" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50h"
+                android:layout_marginTop="@dimen/dp16w"
+                android:layout_marginBottom="@dimen/dp16w"
+                android:background="@drawable/bg_text_input"
+                android:textColorHint="@color/colorBlackTransparent"
+                app:error="@{userObject.registerErrors.emailError}"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/login_email_address"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="@dimen/dp8w"
+                    android:paddingEnd="@dimen/dp8w"
+                    android:maxLines="1"
+                    android:background="@android:color/transparent"
+                    android:text="@={userObject.email}"
+                    android:textColor="@color/colorBlack" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50h"
+                android:layout_marginTop="@dimen/dp16w"
+                android:layout_marginBottom="@dimen/dp16w"
+                android:background="@drawable/bg_text_input"
+                android:textColorHint="@color/colorBlackTransparent"
+                app:error="@{userObject.registerErrors.fullNameError}"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/register_fullname"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/dp8w"
+                    android:paddingEnd="@dimen/dp8w"
+                    android:maxLines="1"
+                    android:background="@android:color/transparent"
+                    android:text="@={userObject.fullName}"
+                    android:textColor="@color/colorBlack" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_text_input"
+                android:layout_height="@dimen/dp50h"
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/colorBlackTransparent"
+                app:error="@{userObject.registerErrors.passwordError}"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:paddingStart="@dimen/dp8w"
+                    android:paddingEnd="@dimen/dp8w"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/login_enter_password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:background="@android:color/transparent"
+                    android:text="@={userObject.password}"
+                    android:textColor="@color/colorBlack" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:visibility="gone"
+                android:id="@+id/loadingView"
+                android:elevation="@dimen/dp5w"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/dp100w"
+                android:layout_height="@dimen/dp100h"
+                app:lottie_rawRes="@raw/loading"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40h"
+                android:layout_marginStart="@dimen/dp8w"
+                android:layout_marginTop="@dimen/dp20h"
+                android:layout_marginEnd="@dimen/dp8w"
+                android:background="@drawable/bg_button_password"
+                android:text="@string/login_register"
+                android:onClick="@{() -> viewModel.createNewUser(userObject)}"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password" />
+
+            <LinearLayout
+                android:id="@+id/layout_ask_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp24h"
+                android:gravity="center"
+                android:onClick="@{()->viewModel.goToLogin()}"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp2h"
+                    android:text="@string/register_have_account"
+                    android:textColor="#000"
+                    android:textSize="@dimen/sp14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_login"
+                    android:textColor="#37B34A"
+                    android:textSize="@dimen/sp14" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
