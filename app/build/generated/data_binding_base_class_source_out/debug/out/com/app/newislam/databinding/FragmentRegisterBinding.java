@@ -11,10 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import com.airbnb.lottie.LottieAnimationView;
 import com.app.newislam.R;
-import com.app.newislam.model.requests.auth.register.RegistrationRequest;
+import com.app.newislam.model.requests.auth.register.RegisterRequest;
 import com.app.newislam.ui.auth.register.RegisterViewModel;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -26,7 +26,13 @@ public abstract class FragmentRegisterBinding extends ViewDataBinding {
   public final LinearLayout layoutAskRegister;
 
   @NonNull
-  public final LottieAnimationView loadingView;
+  public final TextInputLayout tilRegisterEmail;
+
+  @NonNull
+  public final TextInputLayout tilRegisterName;
+
+  @NonNull
+  public final TextInputLayout tilRegisterPassword;
 
   @NonNull
   public final View toolbar;
@@ -35,15 +41,17 @@ public abstract class FragmentRegisterBinding extends ViewDataBinding {
   protected RegisterViewModel mViewModel;
 
   @Bindable
-  protected RegistrationRequest mUserObject;
+  protected RegisterRequest mUserObject;
 
   protected FragmentRegisterBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button btnRegister, LinearLayout layoutAskRegister, LottieAnimationView loadingView,
-      View toolbar) {
+      Button btnRegister, LinearLayout layoutAskRegister, TextInputLayout tilRegisterEmail,
+      TextInputLayout tilRegisterName, TextInputLayout tilRegisterPassword, View toolbar) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnRegister = btnRegister;
     this.layoutAskRegister = layoutAskRegister;
-    this.loadingView = loadingView;
+    this.tilRegisterEmail = tilRegisterEmail;
+    this.tilRegisterName = tilRegisterName;
+    this.tilRegisterPassword = tilRegisterPassword;
     this.toolbar = toolbar;
   }
 
@@ -54,10 +62,10 @@ public abstract class FragmentRegisterBinding extends ViewDataBinding {
     return mViewModel;
   }
 
-  public abstract void setUserObject(@Nullable RegistrationRequest userObject);
+  public abstract void setUserObject(@Nullable RegisterRequest userObject);
 
   @Nullable
-  public RegistrationRequest getUserObject() {
+  public RegisterRequest getUserObject() {
     return mUserObject;
   }
 

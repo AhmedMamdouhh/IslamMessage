@@ -15,18 +15,13 @@ public class FragmentLoginBindingImpl extends FragmentLoginBinding implements co
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 7);
-        sViewsWithIds.put(R.id.loadingView, 8);
-        sViewsWithIds.put(R.id.layout_ask_register, 9);
+        sViewsWithIds.put(R.id.layout_ask_register, 8);
     }
     // views
     @NonNull
     private final android.widget.LinearLayout mboundView0;
     @NonNull
-    private final com.google.android.material.textfield.TextInputLayout mboundView1;
-    @NonNull
     private final android.widget.EditText mboundView2;
-    @NonNull
-    private final com.google.android.material.textfield.TextInputLayout mboundView3;
     @NonNull
     private final com.google.android.material.textfield.TextInputEditText mboundView4;
     // variables
@@ -91,27 +86,26 @@ public class FragmentLoginBindingImpl extends FragmentLoginBinding implements co
     };
 
     public FragmentLoginBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 9, sIncludes, sViewsWithIds));
     }
     private FragmentLoginBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
             , (android.widget.Button) bindings[6]
-            , (android.widget.LinearLayout) bindings[9]
-            , (com.airbnb.lottie.LottieAnimationView) bindings[8]
+            , (android.widget.LinearLayout) bindings[8]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[1]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[3]
             , (android.view.View) bindings[7]
             , (android.widget.TextView) bindings[5]
             );
         this.btnLogin.setTag(null);
         this.mboundView0 = (android.widget.LinearLayout) bindings[0];
         this.mboundView0.setTag(null);
-        this.mboundView1 = (com.google.android.material.textfield.TextInputLayout) bindings[1];
-        this.mboundView1.setTag(null);
         this.mboundView2 = (android.widget.EditText) bindings[2];
         this.mboundView2.setTag(null);
-        this.mboundView3 = (com.google.android.material.textfield.TextInputLayout) bindings[3];
-        this.mboundView3.setTag(null);
         this.mboundView4 = (com.google.android.material.textfield.TextInputEditText) bindings[4];
         this.mboundView4.setTag(null);
+        this.tilLoginEmail.setTag(null);
+        this.tilLoginPassword.setTag(null);
         this.tvForgotPassword.setTag(null);
         setRootTag(root);
         // listeners
@@ -289,25 +283,25 @@ public class FragmentLoginBindingImpl extends FragmentLoginBinding implements co
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.mboundView4, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, mboundView4androidTextAttrChanged);
             this.tvForgotPassword.setOnClickListener(mCallback1);
         }
-        if ((dirtyFlags & 0x8bL) != 0) {
-            // api target 1
-
-            this.mboundView1.setError(userObjectLoginErrorsEmailError);
-        }
         if ((dirtyFlags & 0xa2L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.mboundView2, userObjectEmail);
         }
-        if ((dirtyFlags & 0x93L) != 0) {
-            // api target 1
-
-            this.mboundView3.setError(userObjectLoginErrorsPasswordError);
-        }
         if ((dirtyFlags & 0xc2L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.mboundView4, userObjectPassword);
+        }
+        if ((dirtyFlags & 0x8bL) != 0) {
+            // api target 1
+
+            this.tilLoginEmail.setError(userObjectLoginErrorsEmailError);
+        }
+        if ((dirtyFlags & 0x93L) != 0) {
+            // api target 1
+
+            this.tilLoginPassword.setError(userObjectLoginErrorsPasswordError);
         }
     }
     // Listener Stub Implementations
@@ -327,7 +321,7 @@ public class FragmentLoginBindingImpl extends FragmentLoginBinding implements co
                 if (viewModelJavaLangObjectNull) {
 
 
-                    viewModel.goToForgotPassword();
+                    viewModel.onForgotPasswordClicked();
                 }
                 break;
             }
@@ -347,7 +341,7 @@ public class FragmentLoginBindingImpl extends FragmentLoginBinding implements co
 
 
 
-                    viewModel.getLoginData(userObject);
+                    viewModel.onLoginClicked(userObject);
                 }
                 break;
             }

@@ -8,10 +8,10 @@ import com.app.newislam.model.requests.auth.login.LoginRequest
 import com.app.newislam.model.requests.auth.password.ForgetPasswordRequest
 import com.app.newislam.model.requests.auth.password.PasswordError
 import com.app.newislam.model.requests.auth.register.RegisterErrors
-import com.app.newislam.model.requests.auth.register.RegistrationRequest
+import com.app.newislam.model.requests.auth.register.RegisterRequest
 import com.app.newislam.repository.auth.ForgerPasswordRepository
 import com.app.newislam.repository.auth.LoginRepository
-import com.app.newislam.repository.auth.RegistrationRepository
+import com.app.newislam.repository.auth.RegisterRepository
 import org.koin.dsl.module
 
 
@@ -46,11 +46,11 @@ val apiModule = module {
         RegisterErrors()
     }
     single {
-        RegistrationRequest(get())
+        RegisterRequest(get())
     }
 
     single {
-        RegistrationRepository()
+        RegisterRepository()
     }
 
 }

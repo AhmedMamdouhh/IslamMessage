@@ -1,11 +1,11 @@
 [
   {
-    "name": "home_nav",
+    "name": "auth_navigation",
     "navigationXmlIds": [],
     "deepLinks": []
   },
   {
-    "name": "auth_navigation",
+    "name": "home_nav",
     "navigationXmlIds": [],
     "deepLinks": []
   }

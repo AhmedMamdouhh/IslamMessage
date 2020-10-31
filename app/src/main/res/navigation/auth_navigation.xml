@@ -50,7 +50,7 @@
     <fragment
         tools:layout="@layout/fragment_register"
         android:id="@+id/registrationFragment"
-        android:name="com.app.newislam.ui.auth.register.RegistrationFragment"
+        android:name="com.app.newislam.ui.auth.register.RegisterFragment"
         android:label="RegistrationFragment" >
         <action
             app:popEnterAnim="@android:anim/slide_in_left"

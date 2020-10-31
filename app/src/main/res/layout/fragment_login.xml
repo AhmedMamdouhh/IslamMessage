@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.app.newislam.ui.auth.login.LoginViewModel" />
+
         <variable
             name="userObject"
             type="com.app.newislam.model.requests.auth.login.LoginRequest" />
@@ -33,71 +35,67 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_login_email"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp50h"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp16w"
                 android:layout_marginBottom="@dimen/dp16w"
-                android:background="@drawable/bg_text_input"
                 android:textColorHint="@color/colorBlackTransparent"
                 app:error="@{userObject.loginErrors.emailError}"
                 app:errorEnabled="true">
 
+
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/dp50h"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_text_input"
                     android:hint="@string/login_email_address"
                     android:inputType="text"
+                    android:maxLines="1"
                     android:paddingStart="@dimen/dp8w"
                     android:paddingEnd="@dimen/dp8w"
-                    android:maxLines="1"
-                    android:background="@android:color/transparent"
                     android:text="@={userObject.email}"
-                    android:textColor="@color/colorBlack" />
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorGrey" />
+
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_login_password"
                 android:layout_width="match_parent"
-                android:background="@drawable/bg_text_input"
-                android:layout_height="@dimen/dp50h"
-                app:passwordToggleEnabled="true"
+                android:layout_height="wrap_content"
                 android:textColorHint="@color/colorBlackTransparent"
                 app:error="@{userObject.loginErrors.passwordError}"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:paddingStart="@dimen/dp8w"
-                    android:paddingEnd="@dimen/dp8w"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/dp50h"
+                    android:background="@drawable/bg_text_input"
                     android:hint="@string/login_enter_password"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:background="@android:color/transparent"
+                    android:paddingStart="@dimen/dp8w"
+                    android:paddingEnd="@dimen/dp8w"
                     android:text="@={userObject.password}"
                     android:textColor="@color/colorBlack" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:visibility="gone"
-                android:id="@+id/loadingView"
-                android:elevation="@dimen/dp5w"
-                android:layout_gravity="center"
-                android:layout_width="@dimen/dp100w"
-                android:layout_height="@dimen/dp100h"
-                app:lottie_rawRes="@raw/loading"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"/>
 
             <TextView
                 android:id="@+id/tv_forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="@dimen/dp20h"
                 android:layout_marginEnd="@dimen/dp24h"
-                android:layout_marginStart="0dp"
+                android:onClick="@{()->viewModel.onForgotPasswordClicked()}"
+                android:padding="@dimen/dp8w"
                 android:text="@string/login_forgot_password"
-                android:onClick="@{()->viewModel.goToForgotPassword()}"
                 android:textColor="#000"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -111,8 +109,8 @@
                 android:layout_marginTop="@dimen/dp20h"
                 android:layout_marginEnd="@dimen/dp8w"
                 android:background="@drawable/bg_button_password"
+                android:onClick="@{() -> viewModel.onLoginClicked(userObject)}"
                 android:text="@string/login_login"
-                android:onClick="@{() -> viewModel.getLoginData(userObject)}"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="16sp"

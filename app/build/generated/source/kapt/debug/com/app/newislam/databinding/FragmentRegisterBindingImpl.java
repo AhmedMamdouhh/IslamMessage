@@ -15,21 +15,14 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.toolbar, 9);
-        sViewsWithIds.put(R.id.loadingView, 10);
     }
     // views
     @NonNull
     private final android.widget.LinearLayout mboundView0;
     @NonNull
-    private final com.google.android.material.textfield.TextInputLayout mboundView1;
-    @NonNull
     private final android.widget.EditText mboundView2;
     @NonNull
-    private final com.google.android.material.textfield.TextInputLayout mboundView3;
-    @NonNull
     private final android.widget.EditText mboundView4;
-    @NonNull
-    private final com.google.android.material.textfield.TextInputLayout mboundView5;
     @NonNull
     private final com.google.android.material.textfield.TextInputEditText mboundView6;
     // variables
@@ -50,7 +43,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             // userObject.email
             java.lang.String userObjectEmail = null;
             // userObject
-            com.app.newislam.model.requests.auth.register.RegistrationRequest userObject = mUserObject;
+            com.app.newislam.model.requests.auth.register.RegisterRequest userObject = mUserObject;
             // userObject != null
             boolean userObjectJavaLangObjectNull = false;
 
@@ -69,16 +62,16 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
     private androidx.databinding.InverseBindingListener mboundView4androidTextAttrChanged = new androidx.databinding.InverseBindingListener() {
         @Override
         public void onChange() {
-            // Inverse of userObject.fullName
-            //         is userObject.setFullName((java.lang.String) callbackArg_0)
+            // Inverse of userObject.firstName
+            //         is userObject.setFirstName((java.lang.String) callbackArg_0)
             java.lang.String callbackArg_0 = androidx.databinding.adapters.TextViewBindingAdapter.getTextString(mboundView4);
             // localize variables for thread safety
+            // userObject.firstName
+            java.lang.String userObjectFirstName = null;
             // userObject
-            com.app.newislam.model.requests.auth.register.RegistrationRequest userObject = mUserObject;
+            com.app.newislam.model.requests.auth.register.RegisterRequest userObject = mUserObject;
             // userObject != null
             boolean userObjectJavaLangObjectNull = false;
-            // userObject.fullName
-            java.lang.String userObjectFullName = null;
 
 
 
@@ -88,7 +81,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
 
 
 
-                userObject.setFullName(((java.lang.String) (callbackArg_0)));
+                userObject.setFirstName(((java.lang.String) (callbackArg_0)));
             }
         }
     };
@@ -102,7 +95,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             // userObject.password
             java.lang.String userObjectPassword = null;
             // userObject
-            com.app.newislam.model.requests.auth.register.RegistrationRequest userObject = mUserObject;
+            com.app.newislam.model.requests.auth.register.RegisterRequest userObject = mUserObject;
             // userObject != null
             boolean userObjectJavaLangObjectNull = false;
 
@@ -120,31 +113,30 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
     };
 
     public FragmentRegisterBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
     }
     private FragmentRegisterBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
             , (android.widget.Button) bindings[7]
             , (android.widget.LinearLayout) bindings[8]
-            , (com.airbnb.lottie.LottieAnimationView) bindings[10]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[1]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[3]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[5]
             , (android.view.View) bindings[9]
             );
         this.btnRegister.setTag(null);
         this.layoutAskRegister.setTag(null);
         this.mboundView0 = (android.widget.LinearLayout) bindings[0];
         this.mboundView0.setTag(null);
-        this.mboundView1 = (com.google.android.material.textfield.TextInputLayout) bindings[1];
-        this.mboundView1.setTag(null);
         this.mboundView2 = (android.widget.EditText) bindings[2];
         this.mboundView2.setTag(null);
-        this.mboundView3 = (com.google.android.material.textfield.TextInputLayout) bindings[3];
-        this.mboundView3.setTag(null);
         this.mboundView4 = (android.widget.EditText) bindings[4];
         this.mboundView4.setTag(null);
-        this.mboundView5 = (com.google.android.material.textfield.TextInputLayout) bindings[5];
-        this.mboundView5.setTag(null);
         this.mboundView6 = (com.google.android.material.textfield.TextInputEditText) bindings[6];
         this.mboundView6.setTag(null);
+        this.tilRegisterEmail.setTag(null);
+        this.tilRegisterName.setTag(null);
+        this.tilRegisterPassword.setTag(null);
         setRootTag(root);
         // listeners
         mCallback7 = new com.app.newislam.generated.callback.OnClickListener(this, 1);
@@ -174,7 +166,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.userObject == variableId) {
-            setUserObject((com.app.newislam.model.requests.auth.register.RegistrationRequest) variable);
+            setUserObject((com.app.newislam.model.requests.auth.register.RegisterRequest) variable);
         }
         else if (BR.viewModel == variableId) {
             setViewModel((com.app.newislam.ui.auth.register.RegisterViewModel) variable);
@@ -185,7 +177,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             return variableSet;
     }
 
-    public void setUserObject(@Nullable com.app.newislam.model.requests.auth.register.RegistrationRequest UserObject) {
+    public void setUserObject(@Nullable com.app.newislam.model.requests.auth.register.RegisterRequest UserObject) {
         updateRegistration(1, UserObject);
         this.mUserObject = UserObject;
         synchronized(this) {
@@ -209,7 +201,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             case 0 :
                 return onChangeUserObjectRegisterErrors((com.app.newislam.model.requests.auth.register.RegisterErrors) object, fieldId);
             case 1 :
-                return onChangeUserObject((com.app.newislam.model.requests.auth.register.RegistrationRequest) object, fieldId);
+                return onChangeUserObject((com.app.newislam.model.requests.auth.register.RegisterRequest) object, fieldId);
         }
         return false;
     }
@@ -240,7 +232,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
         }
         return false;
     }
-    private boolean onChangeUserObject(com.app.newislam.model.requests.auth.register.RegistrationRequest UserObject, int fieldId) {
+    private boolean onChangeUserObject(com.app.newislam.model.requests.auth.register.RegisterRequest UserObject, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x2L;
@@ -253,7 +245,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             }
             return true;
         }
-        else if (fieldId == BR.fullName) {
+        else if (fieldId == BR.firstName) {
             synchronized(this) {
                     mDirtyFlags |= 0x80L;
             }
@@ -276,12 +268,12 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             mDirtyFlags = 0;
         }
         com.app.newislam.model.requests.auth.register.RegisterErrors userObjectRegisterErrors = null;
+        java.lang.String userObjectFirstName = null;
         java.lang.String userObjectRegisterErrorsEmailError = null;
         java.lang.String userObjectEmail = null;
         java.lang.String userObjectPassword = null;
-        com.app.newislam.model.requests.auth.register.RegistrationRequest userObject = mUserObject;
+        com.app.newislam.model.requests.auth.register.RegisterRequest userObject = mUserObject;
         java.lang.String userObjectRegisterErrorsFullNameError = null;
-        java.lang.String userObjectFullName = null;
         java.lang.String userObjectRegisterErrorsPasswordError = null;
         com.app.newislam.ui.auth.register.RegisterViewModel viewModel = mViewModel;
 
@@ -318,6 +310,13 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
                         }
                 }
             }
+            if ((dirtyFlags & 0x282L) != 0) {
+
+                    if (userObject != null) {
+                        // read userObject.firstName
+                        userObjectFirstName = userObject.getFirstName();
+                    }
+            }
             if ((dirtyFlags & 0x242L) != 0) {
 
                     if (userObject != null) {
@@ -332,13 +331,6 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
                         userObjectPassword = userObject.getPassword();
                     }
             }
-            if ((dirtyFlags & 0x282L) != 0) {
-
-                    if (userObject != null) {
-                        // read userObject.fullName
-                        userObjectFullName = userObject.getFullName();
-                    }
-            }
         }
         // batch finished
         if ((dirtyFlags & 0x200L) != 0) {
@@ -350,35 +342,35 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.mboundView4, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, mboundView4androidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.mboundView6, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, mboundView6androidTextAttrChanged);
         }
-        if ((dirtyFlags & 0x20bL) != 0) {
-            // api target 1
-
-            this.mboundView1.setError(userObjectRegisterErrorsEmailError);
-        }
         if ((dirtyFlags & 0x242L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.mboundView2, userObjectEmail);
         }
-        if ((dirtyFlags & 0x213L) != 0) {
-            // api target 1
-
-            this.mboundView3.setError(userObjectRegisterErrorsFullNameError);
-        }
         if ((dirtyFlags & 0x282L) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.mboundView4, userObjectFullName);
-        }
-        if ((dirtyFlags & 0x223L) != 0) {
-            // api target 1
-
-            this.mboundView5.setError(userObjectRegisterErrorsPasswordError);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.mboundView4, userObjectFirstName);
         }
         if ((dirtyFlags & 0x302L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.mboundView6, userObjectPassword);
+        }
+        if ((dirtyFlags & 0x20bL) != 0) {
+            // api target 1
+
+            this.tilRegisterEmail.setError(userObjectRegisterErrorsEmailError);
+        }
+        if ((dirtyFlags & 0x213L) != 0) {
+            // api target 1
+
+            this.tilRegisterName.setError(userObjectRegisterErrorsFullNameError);
+        }
+        if ((dirtyFlags & 0x223L) != 0) {
+            // api target 1
+
+            this.tilRegisterPassword.setError(userObjectRegisterErrorsPasswordError);
         }
     }
     // Listener Stub Implementations
@@ -388,7 +380,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
             case 1: {
                 // localize variables for thread safety
                 // userObject
-                com.app.newislam.model.requests.auth.register.RegistrationRequest userObject = mUserObject;
+                com.app.newislam.model.requests.auth.register.RegisterRequest userObject = mUserObject;
                 // viewModel
                 com.app.newislam.ui.auth.register.RegisterViewModel viewModel = mViewModel;
                 // viewModel != null
@@ -401,7 +393,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
 
 
 
-                    viewModel.createNewUser(userObject);
+                    viewModel.onRegisterClicked(userObject);
                 }
                 break;
             }
@@ -418,7 +410,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
                 if (viewModelJavaLangObjectNull) {
 
 
-                    viewModel.goToLogin();
+                    viewModel.onLoginClick();
                 }
                 break;
             }
@@ -434,7 +426,7 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding impleme
         flag 4 (0x5L): userObject.registerErrors.fullNameError
         flag 5 (0x6L): userObject.registerErrors.passwordError
         flag 6 (0x7L): userObject.email
-        flag 7 (0x8L): userObject.fullName
+        flag 7 (0x8L): userObject.firstName
         flag 8 (0x9L): userObject.password
         flag 9 (0xaL): null
     flag mapping end*/

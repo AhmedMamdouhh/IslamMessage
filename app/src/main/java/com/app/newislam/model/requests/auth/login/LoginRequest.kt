@@ -5,19 +5,27 @@ import androidx.databinding.Bindable
 import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
 
- class LoginRequest constructor( val loginErrors: LoginErrors): BaseObservable() {
-    @SerializedName("email") private var _email: String=""
-    @SerializedName("password") private var _password: String=""
-    var email: String
-        @Bindable get() = _email
+class LoginRequest constructor(val loginErrors: LoginErrors) : BaseObservable() {
+
+    @get:Bindable
+    @SerializedName("email")
+    var email: String = ""
         set(value) {
-            _email = value
+            loginErrors.emailError = ""
+            field = value
             notifyPropertyChanged(BR.email)
         }
-    var password:String
-        @Bindable get() = _password
+
+    @get:Bindable
+    @SerializedName("password")
+    var password: String = ""
         set(value) {
-            _password = value
+            loginErrors.passwordError = ""
+            field = value
             notifyPropertyChanged(BR.password)
         }
+
 }
+
+
+

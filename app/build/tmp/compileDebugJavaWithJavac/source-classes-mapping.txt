@@ -1,7 +1,9 @@
-com/app/newislam/databinding/FragmentLoginBinding.java
- com.app.newislam.databinding.FragmentLoginBinding
+com/app/newislam/manager/utilities/Validation.java
+ com.app.newislam.manager.utilities.Validation
 com/app/newislam/databinding/ActivitySplashBinding.java
  com.app.newislam.databinding.ActivitySplashBinding
+com/app/newislam/databinding/FragmentLoginBinding.java
+ com.app.newislam.databinding.FragmentLoginBinding
 com/app/newislam/databinding/FragmentWelcomeBinding.java
  com.app.newislam.databinding.FragmentWelcomeBinding
 com/app/newislam/DataBindingTriggerClass.java

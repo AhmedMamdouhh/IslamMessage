@@ -12,10 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import com.airbnb.lottie.LottieAnimationView;
 import com.app.newislam.R;
 import com.app.newislam.model.requests.auth.login.LoginRequest;
 import com.app.newislam.ui.auth.login.LoginViewModel;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -27,7 +27,10 @@ public abstract class FragmentLoginBinding extends ViewDataBinding {
   public final LinearLayout layoutAskRegister;
 
   @NonNull
-  public final LottieAnimationView loadingView;
+  public final TextInputLayout tilLoginEmail;
+
+  @NonNull
+  public final TextInputLayout tilLoginPassword;
 
   @NonNull
   public final View toolbar;
@@ -42,12 +45,13 @@ public abstract class FragmentLoginBinding extends ViewDataBinding {
   protected LoginRequest mUserObject;
 
   protected FragmentLoginBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button btnLogin, LinearLayout layoutAskRegister, LottieAnimationView loadingView,
-      View toolbar, TextView tvForgotPassword) {
+      Button btnLogin, LinearLayout layoutAskRegister, TextInputLayout tilLoginEmail,
+      TextInputLayout tilLoginPassword, View toolbar, TextView tvForgotPassword) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnLogin = btnLogin;
     this.layoutAskRegister = layoutAskRegister;
-    this.loadingView = loadingView;
+    this.tilLoginEmail = tilLoginEmail;
+    this.tilLoginPassword = tilLoginPassword;
     this.toolbar = toolbar;
     this.tvForgotPassword = tvForgotPassword;
   }

@@ -6,25 +6,25 @@ import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
 
 class RegisterErrors : BaseObservable() {
-    private var _emailError: String = ""
-    private var _fullNameError: String = ""
-    private var _passwordError: String = ""
-    var emailError: String
-        @Bindable get() = _emailError
+
+    @get:Bindable
+    var emailError: String = ""
         set(value) {
-            _emailError = value
+            field = value
             notifyPropertyChanged(BR.emailError)
         }
-    var passwordError: String
-        @Bindable get() = _passwordError
+
+    @get:Bindable
+    var fullNameError: String = ""
         set(value) {
-            _passwordError = value
-            notifyPropertyChanged(BR.passwordError)
-        }
-    var fullNameError:String
-        @Bindable get() = _fullNameError
-        set(value) {
-            _fullNameError = value
+            field = value
             notifyPropertyChanged(BR.fullNameError)
+        }
+
+    @get:Bindable
+    var passwordError: String = ""
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.passwordError)
         }
 }

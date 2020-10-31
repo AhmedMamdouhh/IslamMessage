@@ -63,7 +63,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     //Snack bar :
-    fun successMessage(message: String?) {
+    private fun successMessage(message: String?) {
         CookieBar.build(this@BaseActivity)
             .setCustomView(R.layout.layout_success)
             .setTitle(R.string.success_message_title)
@@ -72,7 +72,7 @@ abstract class BaseActivity : AppCompatActivity() {
             .show()
     }
 
-    fun failedMessage(message: String?) {
+    private fun failedMessage(message: String?) {
         CookieBar.build(this@BaseActivity)
             .setCustomView(R.layout.layout_error)
             .setTitle(R.string.error_message_title)
@@ -81,7 +81,7 @@ abstract class BaseActivity : AppCompatActivity() {
             .show()
     }
 
-    fun noConnection() {
+    private fun noConnection() {
         CookieBar.build(this@BaseActivity)
             .setCustomView(R.layout.layout_no_connection)
             .setCustomViewInitializer { view ->
@@ -106,11 +106,11 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
 
-    fun showProgress() {
+    private fun showProgress() {
         if (loadingBar != null && !this.isFinishing) loadingBar!!.show()
     }
 
-    fun hideProgress() {
+    private fun hideProgress() {
         if (loadingBar != null && loadingBar!!.isShowing && !this.isFinishing) loadingBar!!.dismiss()
     }
 

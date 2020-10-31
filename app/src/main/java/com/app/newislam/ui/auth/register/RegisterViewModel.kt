@@ -1,24 +1,39 @@
 package com.app.newislam.ui.auth.register
 
 import androidx.lifecycle.MutableLiveData
+import com.app.newislam.R
 import com.app.newislam.manager.base.BaseViewModel
 import com.app.newislam.manager.connection.Resource
+import com.app.newislam.manager.utilities.Validation
 import com.app.newislam.model.entities.User
-import com.app.newislam.model.requests.auth.register.RegistrationRequest
-import com.app.newislam.repository.auth.LoginRepository
-import com.app.newislam.repository.auth.RegistrationRepository
+import com.app.newislam.model.requests.auth.register.RegisterRequest
+import com.app.newislam.repository.auth.RegisterRepository
 import org.koin.core.inject
 
 class RegisterViewModel : BaseViewModel() {
-    val registrationRepository: RegistrationRepository by inject()
+    private val registerRepository: RegisterRepository by inject()
     val resource = MutableLiveData<Resource<User?>>()
     val navigateToLogin = MutableLiveData<Boolean>()
 
 
-    fun createNewUser(registrationRequest: RegistrationRequest) {
+    //click:
+    fun onRegisterClicked(registerRequest: RegisterRequest) {
+        if (validateRegisterRequest(registerRequest))
+            getRegisterData(registerRequest)
+    }
+
+    fun onLoginClick() {
+        navigateToLogin.value = true
+    }
+
+    fun reset() {
+        navigateToLogin.value = false
+    }
+
+    private fun getRegisterData(registerRequest: RegisterRequest) {
         responseManager.loading()
         disposable.add(
-            registrationRepository.createNewUser(registrationRequest).subscribe({ data ->
+            registerRepository.createNewUser(registerRequest).subscribe({ data ->
                 if (data == null) responseManager.failed("Error")
                 else {
                     responseManager.success(data.message)
@@ -31,11 +46,37 @@ class RegisterViewModel : BaseViewModel() {
         )
     }
 
-    fun goToLogin() {
-        navigateToLogin.value = true
-    }
+    private fun validateRegisterRequest(registerRequest: RegisterRequest): Boolean {
+        var valid = true
+        //name:
+        if (Validation.isNullOrEmpty(registerRequest.firstName)) {
+            registerRequest.registerErrors
+                .fullNameError = application.getString(R.string.error_register_name_empty)
+            valid = false
+        }
 
-    fun reset() {
-        navigateToLogin.value = false
+        //email:
+        if (Validation.isNullOrEmpty(registerRequest.email)) {
+            registerRequest.registerErrors
+                .emailError = application.getString(R.string.error_register_email_empty)
+            valid = false
+        } else if (!Validation.isEmail(registerRequest.email)) {
+            registerRequest.registerErrors
+                .emailError = application.getString(R.string.error_register_email_wrong)
+            valid = false
+        }
+
+        //password:
+        if (Validation.isNullOrEmpty(registerRequest.password)) {
+            registerRequest.registerErrors
+                .passwordError = application.getString(R.string.error_register_password_empty)
+            valid = false
+        } else if (!Validation.isPassword(registerRequest.password)) {
+            registerRequest.registerErrors
+                .passwordError = application.getString(R.string.error_register_password_wrong)
+            valid = false
+        }
+
+        return valid
     }
 }

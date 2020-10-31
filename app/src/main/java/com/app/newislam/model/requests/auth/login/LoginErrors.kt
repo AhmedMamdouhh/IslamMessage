@@ -6,18 +6,18 @@ import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
 
 class LoginErrors : BaseObservable() {
-    private var _emailError: String = ""
-    private var _passwordError: String = ""
-    var emailError: String
-        @Bindable get() = _emailError
+
+    @get:Bindable
+    var emailError: String = ""
         set(value) {
-            _emailError = value
+            field = value
             notifyPropertyChanged(BR.emailError)
         }
-    var passwordError: String
-        @Bindable get() = _passwordError
+
+    @get:Bindable
+    var passwordError: String = ""
         set(value) {
-            _passwordError = value
+            field = value
             notifyPropertyChanged(BR.passwordError)
         }
 }

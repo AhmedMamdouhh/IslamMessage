@@ -11,6 +11,7 @@
     <string name="reset_new_password">New password</string>
 
     <!--    Fragment Login-->
+    <string name="login_title">Login</string>
     <string name="login_email_address">Email Address</string>
     <string name="login_enter_your_email">Enter your email</string>
     <string name="login_enter_password">Enter password</string>
@@ -30,7 +31,16 @@
     <!--Errors -->
     <!--Login Errors -->
     <string name="error_login_email_empty">Please enter your email!</string>
+    <string name="error_login_email_valid">Please enter valid email!</string>
     <string name="error_login_password_empty">Please enter your password!</string>
+
+    <!-- register errors -->
+    <string name="error_register_name_empty">Please enter your name!</string>
+    <string name="error_register_email_empty">Please enter your email address!</string>
+    <string name="error_register_email_wrong">Please enter a valid email address!</string>
+    <string name="error_register_password_empty">Please enter your password!</string>
+    <string name="error_register_password_wrong">Password must be at least 5 characters long! </string>
+
 
     <string name="error_no_connection">Oops , there\'s no Network connection</string>
     <string name="error_message_title">Error!</string>
