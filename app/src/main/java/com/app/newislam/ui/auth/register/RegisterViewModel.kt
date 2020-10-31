@@ -6,7 +6,7 @@ import com.app.newislam.manager.base.BaseViewModel
 import com.app.newislam.manager.connection.Resource
 import com.app.newislam.manager.utilities.Validation
 import com.app.newislam.model.entities.User
-import com.app.newislam.model.requests.auth.register.RegisterRequest
+import com.app.newislam.model.requests.auth.register.RegistrationRequest
 import com.app.newislam.repository.auth.RegisterRepository
 import org.koin.core.inject
 
@@ -17,7 +17,7 @@ class RegisterViewModel : BaseViewModel() {
 
 
     //click:
-    fun onRegisterClicked(registerRequest: RegisterRequest) {
+    fun onRegisterClicked(registerRequest: RegistrationRequest) {
         if (validateRegisterRequest(registerRequest))
             getRegisterData(registerRequest)
     }
@@ -30,7 +30,7 @@ class RegisterViewModel : BaseViewModel() {
         navigateToLogin.value = false
     }
 
-    private fun getRegisterData(registerRequest: RegisterRequest) {
+    private fun getRegisterData(registerRequest: RegistrationRequest) {
         responseManager.loading()
         disposable.add(
             registerRepository.createNewUser(registerRequest).subscribe({ data ->
@@ -46,10 +46,10 @@ class RegisterViewModel : BaseViewModel() {
         )
     }
 
-    private fun validateRegisterRequest(registerRequest: RegisterRequest): Boolean {
+    private fun validateRegisterRequest(registerRequest: RegistrationRequest): Boolean {
         var valid = true
         //name:
-        if (Validation.isNullOrEmpty(registerRequest.firstName)) {
+        if (Validation.isNullOrEmpty(registerRequest.fullName)) {
             registerRequest.registerErrors
                 .fullNameError = application.getString(R.string.error_register_name_empty)
             valid = false
