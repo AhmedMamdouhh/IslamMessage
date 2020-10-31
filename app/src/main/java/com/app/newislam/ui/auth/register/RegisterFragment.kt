@@ -10,7 +10,7 @@ import com.app.newislam.R
 import com.app.newislam.databinding.FragmentRegisterBinding
 import com.app.newislam.manager.base.BaseFragment
 import com.app.newislam.manager.utilities.Constants
-import com.app.newislam.model.requests.auth.register.RegisterRequest
+import com.app.newislam.model.requests.auth.register.RegistrationRequest
 import kotlinx.android.synthetic.main.toolbar.view.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,7 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class RegisterFragment : BaseFragment() {
     lateinit var binding: FragmentRegisterBinding
     val viewModel: RegisterViewModel by viewModel()
-    private val registerRequest: RegisterRequest by inject()
+    private val registerRequest: RegistrationRequest by inject()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

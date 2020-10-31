@@ -9,7 +9,7 @@
             type="com.app.newislam.ui.auth.register.RegisterViewModel" />
         <variable
             name="userObject"
-            type="com.app.newislam.model.requests.auth.register.RegisterRequest" />
+            type="com.app.newislam.model.requests.auth.register.RegistrationRequest" />
     </data>
 
     <LinearLayout
@@ -75,7 +75,7 @@
                     android:paddingEnd="@dimen/dp8w"
                     android:maxLines="1"
                     android:background="@drawable/bg_text_input"
-                    android:text="@={userObject.firstName}"
+                    android:text="@={userObject.fullName}"
                     android:textColor="@color/colorBlack" />
 
             </com.google.android.material.textfield.TextInputLayout>
