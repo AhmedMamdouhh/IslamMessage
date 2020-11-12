@@ -12,14 +12,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/iv_logo"
+                android:id="@+id/iv_welcome_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp40h"
@@ -29,7 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_welcome"
+                android:id="@+id/tv_welcome_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp16w"
@@ -43,10 +44,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_welcome_logo" />
 
             <TextView
-                android:id="@+id/tv_welcome_second"
+                android:id="@+id/tv_welcome_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp16w"
@@ -59,27 +60,27 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_welcome_title" />
 
             <Button
-                android:id="@+id/btn_create_account"
+                android:id="@+id/btn_welcome_new_account"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp40h"
                 android:layout_marginStart="@dimen/dp8w"
-                android:layout_marginTop="@dimen/dp100h"
+                android:layout_marginTop="@dimen/dp70h"
                 android:layout_marginEnd="@dimen/dp8w"
-                android:background="@drawable/bg_button_password"
-                android:onClick="@{()->viewModel.createNewAccount()}"
+                android:background="@drawable/shape_green"
+                android:onClick="@{()->viewModel.onNewAccountClicked()}"
                 android:text="@string/welcome_create_new_account"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_welcome_second" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_welcome_description" />
 
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_welcome_login"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp40h"
                 android:layout_marginStart="@dimen/dp8w"
@@ -88,27 +89,28 @@
                 android:background="@drawable/bg_button_secondary"
                 android:text="@string/login_login"
                 android:textAllCaps="false"
-                android:onClick="@{()->viewModel.loginUser()}"
+                android:onClick="@{()->viewModel.onLoginClicked()}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_create_account" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_welcome_new_account" />
 
             <TextView
-                android:onClick="@{()->viewModel.continueAsGuest()}"
+                android:id="@+id/tv_welcome_guest"
+                android:onClick="@{()->viewModel.onContinueAsGuestClicked()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/welcome_continue_as_a_guest"
                 android:textColor="@color/colorPrimary"
-                android:layout_marginTop="@dimen/dp22h"
+                android:layout_marginTop="@dimen/dp8h"
                 android:textSize="@dimen/sp16"
                 android:layout_marginBottom="@dimen/dp22h"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_welcome_login" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

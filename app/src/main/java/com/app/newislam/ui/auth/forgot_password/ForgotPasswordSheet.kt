@@ -1,6 +1,5 @@
-package com.app.newislam.ui.auth.password
+package com.app.newislam.ui.auth.forgot_password
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +9,7 @@ import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.app.newislam.R
 import com.app.newislam.databinding.DialogForgotPasswordBinding
 import com.app.newislam.model.requests.auth.password.ForgetPasswordRequest
@@ -28,8 +27,17 @@ class ForgotPasswordSheet : BottomSheetDialogFragment() {
     private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        forgotPasswordBinding = DataBindingUtil.inflate(inflater, R.layout.dialog_forgot_password, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        forgotPasswordBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.dialog_forgot_password,
+            container,
+            false
+        )
         return forgotPasswordBinding.root
     }
 
@@ -48,7 +56,13 @@ class ForgotPasswordSheet : BottomSheetDialogFragment() {
 
     private fun observeError() {
         forgotPasswordViewModel.observeError.removeObservers(viewLifecycleOwner)
-        forgotPasswordViewModel.observeError.observe(viewLifecycleOwner, Observer<String?> { msg -> Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show() })
+        forgotPasswordViewModel.observeError.observe(viewLifecycleOwner, Observer<String?> { msg ->
+            Toast.makeText(
+                activity,
+                msg,
+                Toast.LENGTH_SHORT
+            ).show()
+        })
     }
 
     private fun observeSuccess() {
@@ -91,5 +105,13 @@ class ForgotPasswordSheet : BottomSheetDialogFragment() {
             bottomSheetBehavior!!.peekHeight = view.measuredHeight
             (finalBottomSheet!!.parent as View).setBackgroundColor(Color.TRANSPARENT)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Navigation.findNavController(requireActivity(), R.id.hostFragment)
+            .popBackStack(R.id.loginFragment, true)
+        Navigation.findNavController(requireActivity(), R.id.hostFragment)
+            .navigate(R.id.loginFragment)
     }
 }

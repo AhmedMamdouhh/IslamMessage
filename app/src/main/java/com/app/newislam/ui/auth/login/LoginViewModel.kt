@@ -59,7 +59,7 @@ class LoginViewModel : BaseViewModel(), KoinComponent {
             loginRequest.loginErrors.emailError =
                 application.getString(R.string.error_login_email_empty)
             valid = false
-        } else if (Validation.isEmail(loginRequest.email)) {
+        } else if (!Validation.isEmail(loginRequest.email)) {
             loginRequest.loginErrors.emailError =
                 application.getString(R.string.error_login_email_valid)
             valid = false

@@ -10,4 +10,11 @@ object Constants{
     const val DELAY_MEDIUM = 1500
     const val DELAY_BIG = 2000
 
+    const val MESSAGE = "message"
+
+    //sheet:
+    const val SUCCESS_SHEET = "successSheet"
+    const val ERROR_SHEET = "errorSheet"
+    const val NO_CONNECTION_SHEET = "noConnectionSheet"
+
 }

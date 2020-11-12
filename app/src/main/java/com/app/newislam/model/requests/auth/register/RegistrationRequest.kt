@@ -6,30 +6,41 @@ import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
 
 class RegistrationRequest constructor(val registerErrors: RegisterErrors) : BaseObservable() {
+
+
+    @get:Bindable
     @SerializedName("email")
-    private var _email: String = ""
-    @SerializedName("firstName")
-    private var _fullName: String = ""
-    @SerializedName("lastName")
-    private var _lastName: String = ""
-    @SerializedName("password")
-    private var _password: String = ""
-    var email: String
-        @Bindable get() = _email
+    var email: String = ""
         set(value) {
-            _email = value
+            registerErrors.emailError = ""
+            field = value
             notifyPropertyChanged(BR.email)
         }
-    var fullName: String
-        @Bindable get() = _fullName
+
+    @get:Bindable
+    @SerializedName("password")
+    var password: String = ""
         set(value) {
-            _fullName = value
-            notifyPropertyChanged(BR.fullName)
-        }
-    var password: String
-        @Bindable get() = _password
-        set(value) {
-            _password = value
+            registerErrors.passwordError = ""
+            field = value
             notifyPropertyChanged(BR.password)
+        }
+
+    @get:Bindable
+    @SerializedName("firstName")
+    var firstName: String = ""
+        set(value) {
+            registerErrors.fullNameError = ""
+            field = value
+            notifyPropertyChanged(BR.firstName)
+        }
+
+    @get:Bindable
+    @SerializedName("lastName")
+    var lastName: String = ""
+        set(value) {
+            registerErrors.fullNameError = ""
+            field = value
+            notifyPropertyChanged(BR.lastName)
         }
 }

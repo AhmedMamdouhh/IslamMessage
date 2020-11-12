@@ -12,8 +12,7 @@ import org.koin.core.inject
 
 class LoginRepository : KoinComponent {
     val api:Api by inject()
-    val appSchedulerProvider:AppSchedulerProvider by inject()
-    val composit:CompositeDisposable by inject()
+    private val appSchedulerProvider:AppSchedulerProvider by inject()
 
     fun getLoginData(loginRequest: LoginRequest):Flowable<Resource<User>>{
         return api.userLogin(loginRequest).compose(appSchedulerProvider.ioToMainFlowableScheduler())

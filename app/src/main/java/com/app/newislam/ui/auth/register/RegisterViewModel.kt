@@ -1,5 +1,6 @@
 package com.app.newislam.ui.auth.register
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.R
 import com.app.newislam.manager.base.BaseViewModel
@@ -14,6 +15,7 @@ class RegisterViewModel : BaseViewModel() {
     private val registerRepository: RegisterRepository by inject()
     val resource = MutableLiveData<Resource<User?>>()
     val navigateToLogin = MutableLiveData<Boolean>()
+    val observeSuccess = MutableLiveData<Boolean>()
 
 
     //click:
@@ -26,6 +28,7 @@ class RegisterViewModel : BaseViewModel() {
         navigateToLogin.value = true
     }
 
+
     fun reset() {
         navigateToLogin.value = false
     }
@@ -36,7 +39,8 @@ class RegisterViewModel : BaseViewModel() {
             registerRepository.createNewUser(registerRequest).subscribe({ data ->
                 if (data == null) responseManager.failed("Error")
                 else {
-                    responseManager.success(data.message)
+                    observeSuccess.value = true
+//                    responseManager.success(data.message)
                 }
                 responseManager.hideLoading()
             }, {
@@ -46,10 +50,14 @@ class RegisterViewModel : BaseViewModel() {
         )
     }
 
+    fun getObserveSuccess() : LiveData<Boolean> {
+        return observeSuccess
+    }
+
     private fun validateRegisterRequest(registerRequest: RegistrationRequest): Boolean {
         var valid = true
         //name:
-        if (Validation.isNullOrEmpty(registerRequest.fullName)) {
+        if (Validation.isNullOrEmpty(registerRequest.firstName)) {
             registerRequest.registerErrors
                 .fullNameError = application.getString(R.string.error_register_name_empty)
             valid = false

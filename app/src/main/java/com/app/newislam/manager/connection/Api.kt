@@ -1,6 +1,7 @@
 package com.app.newislam.manager.connection
 
 import com.app.newislam.model.entities.User
+import com.app.newislam.model.requests.auth.activation_code.ActivationCodeRequest
 import com.app.newislam.model.requests.auth.login.LoginRequest
 import com.app.newislam.model.requests.auth.password.ForgetPasswordRequest
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
@@ -17,4 +18,7 @@ interface Api {
 
     @POST(ApiEndPoints.FORGET_PASSWORD)
     fun forgetPassword(@Body forgetPasswordRequest: ForgetPasswordRequest):Flowable<Resource<User>>
+
+    @POST(ApiEndPoints.ACTIVATION_CODE)
+    fun activateCode(@Body activationCodeRequest: ActivationCodeRequest):Flowable<Resource<Void>>
 }
