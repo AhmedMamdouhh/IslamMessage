@@ -11,7 +11,7 @@ import org.koin.core.inject
 
 class ForgerPasswordRepository : KoinComponent {
     val api:Api by inject()
-    val appSchedulerProvider:AppSchedulerProvider by inject()
+    private val appSchedulerProvider:AppSchedulerProvider by inject()
 
     fun forgetPassword(forgetPasswordRequest: ForgetPasswordRequest):Flowable<Resource<User>>{
         return api.forgetPassword(forgetPasswordRequest).compose(appSchedulerProvider.ioToMainFlowableScheduler())

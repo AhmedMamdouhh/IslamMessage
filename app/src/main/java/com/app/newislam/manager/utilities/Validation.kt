@@ -13,7 +13,7 @@ object Validation {
     }
 
     fun isPassword(password: String): Boolean {
-        return password.length > Constants.PASSWORD_LENGTH
+        return password.length >= Constants.PASSWORD_LENGTH
     }
 
     fun isPasswordMatch(password: String, confirmPassword: String): Boolean {

@@ -1,4 +1,4 @@
-package com.app.newislam.ui.auth.password
+package com.app.newislam.ui.auth.forgot_password
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,6 @@ import com.app.newislam.manager.utilities.Validation
 import com.app.newislam.model.entities.User
 import com.app.newislam.model.requests.auth.password.ForgetPasswordRequest
 import com.app.newislam.repository.auth.ForgerPasswordRepository
-import com.app.newislam.repository.auth.LoginRepository
 import org.koin.core.inject
 
 class ForgotPasswordViewModel : BaseViewModel() {

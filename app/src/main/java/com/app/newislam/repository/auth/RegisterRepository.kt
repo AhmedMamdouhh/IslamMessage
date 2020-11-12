@@ -11,8 +11,7 @@ import org.koin.core.inject
 
 class RegisterRepository : KoinComponent {
     val api:Api by inject()
-    val appSchedulerProvider:AppSchedulerProvider by inject()
-    val composit:CompositeDisposable by inject()
+    private val appSchedulerProvider:AppSchedulerProvider by inject()
 
     fun createNewUser(registerRequest: RegistrationRequest):Flowable<Resource<Any>>{
         return api.createNewUser(registerRequest).compose(appSchedulerProvider.ioToMainFlowableScheduler())

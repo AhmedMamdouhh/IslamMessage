@@ -1,0 +1,125 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activationObject"
+            type="com.app.newislam.model.requests.auth.activation_code.ActivationCodeRequest" />
+
+        <variable
+            name="activationListener"
+            type="com.app.newislam.ui.auth.activation_code.ActivationCodeViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_bottom_sheet"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="@dimen/dp50w"
+            android:layout_height="@dimen/dp4h"
+            android:background="@color/colorLightGrey"
+            android:layout_marginTop="@dimen/dp8w"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp16w"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp16h"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/activation_code_title"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/sp30" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp8h"
+                android:layout_marginBottom="@dimen/dp16w"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/activation_code_description"
+                android:textColor="@color/colorGrey"
+                android:textSize="@dimen/sp15" />
+
+            <com.chaos.view.PinView
+                style="@style/PinWidget.PinView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="true"
+                android:gravity="center"
+                android:inputType="phone"
+                android:itemBackground="@color/colorLightGrey"
+                android:padding="@dimen/dp8w"
+                android:text="@={activationObject.confirmationToken}"
+                android:textColor="@color/colorBlack"
+                app:itemCount="6"
+                app:itemRadius="@dimen/dp8w"
+                app:itemSpacing="@dimen/dp8w"
+                app:lineColor="@color/colorWhite" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40h"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_green"
+                android:gravity="center"
+                android:layout_margin="@dimen/dp8w"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/activation_code_submit"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/sp16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp16w"
+                android:layout_marginBottom="@dimen/dp16w"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/activation_code_resend_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/sp16" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dp4w"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@string/activation_code_resend"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sp16" />
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,29 +1,20 @@
 package com.app.newislam.ui.auth.welcome
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.manager.base.BaseViewModel
 
 class WelcomeViewModel : BaseViewModel() {
 
-    val navigateToRegister = MutableLiveData<Boolean>()
-    val navigateToLoggin = MutableLiveData<Boolean>()
-    val navigateToHome = MutableLiveData<Boolean>()
-    fun createNewAccount() {
-        navigateToRegister.value = true
-    }
+    val observeRegisterClicked = MutableLiveData<Boolean>()
+    val observeLoginClicked = MutableLiveData<Boolean>()
+    val observeGuestClicked = MutableLiveData<Boolean>()
 
-    fun loginUser() {
-        navigateToLoggin.value = true
-    }
+    //click:
+    fun onNewAccountClicked() { observeRegisterClicked.value = true }
+    fun onLoginClicked() { observeLoginClicked.value = true }
+    fun onContinueAsGuestClicked() { observeGuestClicked.value = true }
 
-    fun continueAsGuest() {
-        navigateToHome.value = true
-    }
 
-     fun reset() {
-        super.onCleared()
-        navigateToRegister.value = false
-        navigateToLoggin.value = false
-        navigateToHome.value = false
-    }
+
 }

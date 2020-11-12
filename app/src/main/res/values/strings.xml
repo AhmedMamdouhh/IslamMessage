@@ -3,14 +3,15 @@
 
     <!--Welcome-->
     <string name="welcome_to_islam_message">Welcome to\nIslam Message</string>
-    <!--    Fragment Reset Passsword-->
+
+    <!--Reset password-->
     <string name="reset_save_password">Save password</string>
     <string name="reset_confirm_your_password">Confirm your password</string>
     <string name="reset_confirm_password">Confirm password</string>
     <string name="reset_enter_your_password">Enter your password</string>
     <string name="reset_new_password">New password</string>
 
-    <!--    Fragment Login-->
+    <!--Login-->
     <string name="login_title">Login</string>
     <string name="login_email_address">Email Address</string>
     <string name="login_enter_your_email">Enter your email</string>
@@ -21,12 +22,25 @@
     <string name="login_don_t_have_an_account">Don\'t have an account?</string>
     <string name="login_register">Register</string>
 
-    <!--Fragment Forget Password    -->
-
+    <!--Forget Password-->
     <string name="forget_send">Send</string>
     <string name="forget_enter_your_email">Enter your email</string>
     <string name="forget_email_address">Email address</string>
     <string name="forget_please_enter_your_email_address_to_rese_nyour_password">Please enter your email address to rese\nyour password.</string>
+
+    <!--Activation code-->
+    <string name="activation_code_title">Verify your email</string>
+    <string name="activation_code_description">Please enter the verification code we sent to your email.</string>
+    <string name="activation_code_submit">Verify code</string>
+    <string name="activation_code_resend_title">Don\'t receive the code?</string>
+    <string name="activation_code_resend">Resend</string>
+
+    <!--Bottom navigation-->
+    <string name="bottom_navigation_home">Home</string>
+    <string name="bottom_navigation_more">More</string>
+    <string name="bottom_navigation_notifications">Notifications</string>
+    <string name="bottom_navigation_services">Services</string>
+
 
     <!--Errors -->
     <!--Login Errors -->

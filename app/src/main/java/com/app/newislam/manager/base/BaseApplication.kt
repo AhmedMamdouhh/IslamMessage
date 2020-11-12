@@ -1,6 +1,9 @@
 package com.app.newislam.manager.base
 
 import android.app.Application
+import android.os.Build
+import androidx.core.content.ContextCompat
+import com.app.newislam.R
 import com.app.newislam.di.apiModule
 import com.app.newislam.di.dataModule
 import com.app.newislam.di.viewModelModule

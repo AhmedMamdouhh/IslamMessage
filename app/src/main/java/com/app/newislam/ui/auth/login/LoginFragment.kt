@@ -10,15 +10,18 @@ import com.app.newislam.R
 import com.app.newislam.databinding.FragmentLoginBinding
 import com.app.newislam.manager.base.BaseFragment
 import com.app.newislam.manager.utilities.Constants
+import com.app.newislam.manager.utilities.bottomNavigationVisibility
+import com.app.newislam.manager.utilities.toolBarVisibility
 import com.app.newislam.model.requests.auth.login.LoginRequest
+import com.app.newislam.ui.MainActivity
 import kotlinx.android.synthetic.main.toolbar.view.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LoginFragment : BaseFragment() {
-    val loginViewModel: LoginViewModel by viewModel()
-    val userRequest: LoginRequest by inject()
+    private val loginViewModel: LoginViewModel by viewModel()
+    private val userRequest: LoginRequest by inject()
     lateinit var binding: FragmentLoginBinding
 
 
@@ -27,13 +30,13 @@ class LoginFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as MainActivity).toolBarVisibility(true)
+        (activity as MainActivity).bottomNavigationVisibility(false)
+
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.userObject = userRequest
         binding.viewModel = loginViewModel
-        binding.toolbar.tv_title.text = getString(R.string.login_title)
-        binding.toolbar.iv_back.setOnClickListener {
-            getNavHost().popBackStack()
-        }
+
 
         binding.layoutAskRegister.setOnClickListener {
             getNavHost().navigate(R.id.action_loginFragment_to_registrationFragment)
@@ -50,7 +53,6 @@ class LoginFragment : BaseFragment() {
         loginViewModel.navigateToForgotPassword.observe(viewLifecycleOwner, Observer {
             if (it) {
                 getNavHost().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
-                loginViewModel.navigateToForgotPassword.value = false
             }
 
         })
@@ -60,7 +62,7 @@ class LoginFragment : BaseFragment() {
         val fromRight = AnimationUtils.loadAnimation(activity, R.anim.enter_from_right)
         fromRight.duration = Constants.DELAY_SMALL.toLong()
         binding.tilLoginPassword.animation = fromRight
-        binding.btnLogin.animation = fromRight
+        binding.btnLoginSubmit.animation = fromRight
         val fromLeft = AnimationUtils.loadAnimation(activity, R.anim.enter_from_left)
         fromLeft.duration = Constants.DELAY_SMALL.toLong()
         binding.tilLoginEmail.animation = fromLeft

@@ -8,14 +8,14 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import com.app.newislam.R
 import com.app.newislam.manager.connection.Resource
-import org.aviran.cookiebar2.CookieBar
+import com.app.newislam.manager.utilities.Constants
+import com.app.newislam.ui.resource_layout.error.ErrorSheet
+import com.app.newislam.ui.resource_layout.no_connection.NoConnectionSheet
+import com.app.newislam.ui.resource_layout.success.SuccessSheet
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -64,33 +64,25 @@ abstract class BaseActivity : AppCompatActivity() {
 
     //Snack bar :
     private fun successMessage(message: String?) {
-        CookieBar.build(this@BaseActivity)
-            .setCustomView(R.layout.layout_success)
-            .setTitle(R.string.success_message_title)
-            .setMessage(message)
-            .setCookiePosition(CookieBar.BOTTOM)
-            .show()
+        val successSheet = SuccessSheet()
+        val bundle = Bundle()
+        bundle.putString(Constants.MESSAGE, message)
+        successSheet.arguments = bundle
+
+        successSheet.show(supportFragmentManager, Constants.SUCCESS_SHEET)
     }
 
     private fun failedMessage(message: String?) {
-        CookieBar.build(this@BaseActivity)
-            .setCustomView(R.layout.layout_error)
-            .setTitle(R.string.error_message_title)
-            .setMessage(message)
-            .setCookiePosition(CookieBar.BOTTOM)
-            .show()
+        val errorSheet = ErrorSheet()
+        val bundle = Bundle()
+        bundle.putString(Constants.MESSAGE, message)
+        errorSheet.arguments = bundle
+
+        errorSheet.show(supportFragmentManager, Constants.ERROR_SHEET)
     }
 
     private fun noConnection() {
-        CookieBar.build(this@BaseActivity)
-            .setCustomView(R.layout.layout_no_connection)
-            .setCustomViewInitializer { view ->
-                val close = view.findViewById<ImageView>(R.id.iv_no_connection_close)
-                close.setOnClickListener { CookieBar.dismiss(this@BaseActivity) }
-            }
-            .setEnableAutoDismiss(false) // Cookie will stay on display until manually dismissed
-            .setCookiePosition(CookieBar.BOTTOM)
-            .show()
+        NoConnectionSheet().show(supportFragmentManager, Constants.NO_CONNECTION_SHEET)
     }
 
 

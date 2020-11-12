@@ -5,7 +5,7 @@ import androidx.databinding.Bindable
 import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
 
-class LoginRequest constructor(val loginErrors: LoginErrors) : BaseObservable() {
+data class LoginRequest constructor(val loginErrors: LoginErrors) : BaseObservable() {
 
     @get:Bindable
     @SerializedName("email")
