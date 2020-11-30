@@ -4,18 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.R
 import com.app.newislam.manager.base.BaseViewModel
-import com.app.newislam.manager.connection.Resource
+import com.app.newislam.manager.utilities.Event
 import com.app.newislam.manager.utilities.Validation
-import com.app.newislam.model.entities.User
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
 import com.app.newislam.repository.auth.RegisterRepository
 import org.koin.core.inject
 
 class RegisterViewModel : BaseViewModel() {
+
     private val registerRepository: RegisterRepository by inject()
-    val resource = MutableLiveData<Resource<User?>>()
-    val navigateToLogin = MutableLiveData<Boolean>()
-    val observeSuccess = MutableLiveData<Boolean>()
+    private val _observeLoginClicked = MutableLiveData<Event<Boolean>>()
+    private val _observeSuccess = MutableLiveData<Event<String>>()
 
 
     //click:
@@ -23,26 +22,23 @@ class RegisterViewModel : BaseViewModel() {
         if (validateRegisterRequest(registerRequest))
             getRegisterData(registerRequest)
     }
+    fun onLoginClick() { _observeLoginClicked.value = Event(true) }
 
-    fun onLoginClick() {
-        navigateToLogin.value = true
-    }
-
-
-    fun reset() {
-        navigateToLogin.value = false
-    }
 
     private fun getRegisterData(registerRequest: RegistrationRequest) {
         responseManager.loading()
+
         disposable.add(
-            registerRepository.createNewUser(registerRequest).subscribe({ data ->
-                if (data == null) responseManager.failed("Error")
-                else {
-                    observeSuccess.value = true
-//                    responseManager.success(data.message)
-                }
+            registerRepository.createNewUser(registerRequest).subscribe({ registerData ->
+
                 responseManager.hideLoading()
+
+                if(registerData!=null){
+                    _observeSuccess.value = Event(registerRequest.email)
+                    responseManager.success(registerData.message)
+                }else responseManager.noConnection()
+
+
             }, {
                 responseManager.hideLoading()
                 responseManager.failed(it.message)
@@ -50,10 +46,9 @@ class RegisterViewModel : BaseViewModel() {
         )
     }
 
-    fun getObserveSuccess() : LiveData<Boolean> {
-        return observeSuccess
-    }
 
+
+    //validation:
     private fun validateRegisterRequest(registerRequest: RegistrationRequest): Boolean {
         var valid = true
         //name:
@@ -87,4 +82,12 @@ class RegisterViewModel : BaseViewModel() {
 
         return valid
     }
+
+
+    //getters:
+    val observeSuccess: LiveData<Event<String>>
+        get() = _observeSuccess
+    val observeLoginClicked: LiveData<Event<Boolean>>
+        get() = _observeLoginClicked
+
 }

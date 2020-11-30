@@ -15,7 +15,7 @@ class ActivationCodeRepository : KoinComponent {
     val api: Api by inject()
     private val appSchedulerProvider: AppSchedulerProvider by inject()
 
-    fun getActivateCode(activationCodeRequest: ActivationCodeRequest): Flowable<Resource<Void>> {
+    fun getActivateCode(activationCodeRequest: ActivationCodeRequest): Flowable<Resource<User>> {
         return api.activateCode(activationCodeRequest)
             .compose(
                 appSchedulerProvider

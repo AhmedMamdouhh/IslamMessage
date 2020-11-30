@@ -4,7 +4,9 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -13,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.app.newislam.R
 import com.app.newislam.databinding.ActivityMainBinding
 import com.app.newislam.manager.base.BaseActivity
@@ -31,23 +34,7 @@ class MainActivity : BaseActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-        initializeStatusBar(R.color.colorPrimary)
         initializeAppBar()
-
-
-        userNavigation()
-    }
-
-
-
-    private fun userNavigation() {
-        Handler(Looper.getMainLooper()).postDelayed({
-
-            initializeStatusBar(R.color.colorWhite)
-            if (responseManager.isAuthenticated()) getNavHost().navigate(R.id.action_splashFragment_to_homeFragment)
-            else getNavHost().navigate(R.id.action_splashFragment_to_welcomeFragment)
-
-        }, 2000)
     }
 
     private fun getNavHost(): NavController {
@@ -56,18 +43,10 @@ class MainActivity : BaseActivity() {
         return navHostFragment.navController
     }
 
-    private fun initializeStatusBar(color: Int) {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-            window.statusBarColor = getColor(color)
-        }
-    }
-
-    private fun initializeAppBar(){
+    private fun initializeAppBar() {
         appBarConfiguration = AppBarConfiguration.Builder(getNavHost().graph).build()
-        setupActionBarWithNavController(getNavHost(), appBarConfiguration)
-        NavigationUI.setupActionBarWithNavController(this, getNavHost(), null)
+        findViewById<Toolbar>(R.id.toolbar).setupWithNavController(getNavHost(), appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -10,7 +10,7 @@
         android:id="@+id/splashFragment"
         tools:layout="@layout/fragment_splash"
         android:name="com.app.newislam.ui.splash.SplashFragment"
-        android:label="SplashFragment">
+        android:label="">
 
         <action
             app:popUpToInclusive="true"
@@ -22,7 +22,43 @@
             android:id="@+id/action_splashFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
         <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <!--welcome-->
+    <fragment
+        tools:layout="@layout/fragment_welcome"
+        android:id="@+id/welcomeFragment"
+        android:name="com.app.newislam.ui.auth.welcome.WelcomeFragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/welcomeFragment" />
+        <action
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/welcomeFragment"
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <!--login-->
@@ -32,7 +68,6 @@
         android:name="com.app.newislam.ui.auth.login.LoginFragment"
         android:label="Login" >
         <action
-            app:popUpTo="@id/loginFragment"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"
             app:enterAnim="@android:anim/slide_in_left"
@@ -40,22 +75,24 @@
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragmentSheet" />
         <action
-            app:popUpTo="@id/welcomeFragment"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginFragment"
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <!--forgot password-->
     <dialog
         tools:layout="@layout/dialog_forgot_password"
         android:id="@+id/forgotPasswordFragmentSheet"
-        android:name="com.app.newislam.ui.auth.forgot_password.ForgotPasswordSheet"
-        android:label="ForgotPasswordFragmentSheet" >
-
-    </dialog>
+        android:name="com.app.newislam.ui.auth.forgot_password.ForgotPasswordSheet" />
     <!--register-->
     <fragment
         tools:layout="@layout/fragment_register"
@@ -63,45 +100,36 @@
         android:name="com.app.newislam.ui.auth.register.RegisterFragment"
         android:label="Register" >
         <action
-            app:popUpTo="@id/welcomeFragment"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true"
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_registrationFragment_to_activationCodeSheet"
             app:destination="@id/activationCodeSheet" />
     </fragment>
-    <!--welcome-->
-    <fragment
-        tools:layout="@layout/fragment_welcome"
-        android:id="@+id/welcomeFragment"
-        android:name="com.app.newislam.ui.auth.welcome.WelcomeFragment"
-        android:label="WelcomeFragment" >
-        <action
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popUpTo="@layout/fragment_welcome"
-            android:id="@+id/action_welcomeFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
-        <action
-            app:popUpTo="@layout/fragment_welcome"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            android:id="@+id/action_welcomeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
     <!--activation code-->
     <dialog
         android:id="@+id/activationCodeSheet"
         android:name="com.app.newislam.ui.auth.activation_code.ActivationCodeSheet"
-        android:label="ActivationCodeSheet" />
+        android:label="ActivationCodeSheet" >
+        <argument
+            android:name="emailBundle"
+            app:argType="string"
+            android:defaultValue='' />
+        <action
+            android:id="@+id/action_activationCodeSheet_to_homeFragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:destination="@id/homeFragment" />
+    </dialog>
     <!--Home-->
     <fragment
         android:id="@+id/homeFragment"

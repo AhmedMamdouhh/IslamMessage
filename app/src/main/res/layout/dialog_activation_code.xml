@@ -13,18 +13,19 @@
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_bottom_sheet"
-        android:orientation="vertical">
+        android:background="@drawable/shape_bottom_sheet">
 
         <View
             android:layout_width="@dimen/dp50w"
             android:layout_height="@dimen/dp4h"
-            android:background="@color/colorLightGrey"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/dp8w"
-            android:layout_gravity="center"/>
+            android:background="@color/colorLightGrey" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,32 +54,43 @@
                 android:textColor="@color/colorGrey"
                 android:textSize="@dimen/sp15" />
 
-            <com.chaos.view.PinView
-                style="@style/PinWidget.PinView"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:cursorVisible="true"
-                android:gravity="center"
-                android:inputType="phone"
-                android:itemBackground="@color/colorLightGrey"
-                android:padding="@dimen/dp8w"
-                android:text="@={activationObject.confirmationToken}"
-                android:textColor="@color/colorBlack"
-                app:itemCount="6"
-                app:itemRadius="@dimen/dp8w"
-                app:itemSpacing="@dimen/dp8w"
-                app:lineColor="@color/colorWhite" />
+                app:error="@{activationObject.activationCodeErrors.confirmationTokenError}"
+                app:hintAnimationEnabled="true"
+                app:errorEnabled="true">
+
+                <com.chaos.view.PinView
+                    android:id="@+id/pv_activation_code"
+                    style="@style/PinWidget.PinView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:cursorVisible="true"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:layout_marginBottom="@dimen/dp8w"
+                    android:itemBackground="@color/colorLightGrey"
+                    android:padding="@dimen/dp8w"
+                    android:text="@={activationObject.confirmationToken}"
+                    android:textColor="@color/colorBlack"
+                    app:itemCount="6"
+                    app:itemRadius="@dimen/dp8w"
+                    app:itemSpacing="@dimen/dp8w"
+                    app:lineColor="@color/colorWhite" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp40h"
                 android:layout_gravity="center"
-                android:background="@drawable/shape_green"
-                android:gravity="center"
                 android:layout_margin="@dimen/dp8w"
+                android:background="@drawable/shape_green"
                 android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:onClick="@{()-> activationListener.onActivationCodeVerifyClicked(pvActivationCode,activationObject)}"
                 android:text="@string/activation_code_submit"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/sp16" />
@@ -108,6 +120,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/dp4w"
                     android:fontFamily="@font/montserrat_bold"
+                    android:onClick="@{()-> activationListener.onResendClicked(pvActivationCode,activationObject)}"
                     android:text="@string/activation_code_resend"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/sp16" />
@@ -116,10 +129,8 @@
             </LinearLayout>
 
 
-
-
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>

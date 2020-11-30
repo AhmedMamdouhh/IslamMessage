@@ -10,6 +10,8 @@ object Constants{
     const val DELAY_MEDIUM = 1500
     const val DELAY_BIG = 2000
 
+    const val ACTIVATION_CODE_LENGTH = 6
+
     const val MESSAGE = "message"
 
     //sheet:

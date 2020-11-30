@@ -1,17 +1,16 @@
-package com.app.newislam.ui.resource_layout.success
+package com.app.newislam.ui.response.success
 
-import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.coordinatorlayout.widget.CoordinatorLayout
+import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import com.app.newislam.R
-import com.app.newislam.databinding.LayoutNoConnectionBinding
 import com.app.newislam.databinding.LayoutSuccessBinding
 import com.app.newislam.manager.utilities.Constants
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class SuccessSheet : BottomSheetDialogFragment() {
@@ -28,6 +27,10 @@ class SuccessSheet : BottomSheetDialogFragment() {
         getBundleMessage()
         successBinding.lifecycleOwner = this
 
+        Handler(Looper.getMainLooper()).postDelayed({
+            dismiss()
+        },2000)
+
         return successBinding.root
     }
 
@@ -35,6 +38,11 @@ class SuccessSheet : BottomSheetDialogFragment() {
         if(arguments?.containsKey(Constants.MESSAGE) == true){
             successBinding.tvMessage.text = requireArguments().getString(Constants.MESSAGE)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
     }
 
 }

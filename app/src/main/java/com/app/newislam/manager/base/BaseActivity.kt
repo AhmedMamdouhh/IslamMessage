@@ -13,9 +13,9 @@ import androidx.lifecycle.Observer
 import com.app.newislam.R
 import com.app.newislam.manager.connection.Resource
 import com.app.newislam.manager.utilities.Constants
-import com.app.newislam.ui.resource_layout.error.ErrorSheet
-import com.app.newislam.ui.resource_layout.no_connection.NoConnectionSheet
-import com.app.newislam.ui.resource_layout.success.SuccessSheet
+import com.app.newislam.ui.response.error.ErrorSheet
+import com.app.newislam.ui.response.no_connection.NoConnectionSheet
+import com.app.newislam.ui.response.success.SuccessSheet
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 abstract class BaseActivity : AppCompatActivity() {

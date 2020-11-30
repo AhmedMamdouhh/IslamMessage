@@ -55,11 +55,16 @@
     <string name="error_register_password_empty">Please enter your password!</string>
     <string name="error_register_password_wrong">Password must be at least 5 characters long! </string>
 
+    <!-- activation code errors-->
+    <string name="error_activation_code_empty">Please enter your code!</string>
+    <string name="error_activation_code_wrong">Please enter your 6 digits code!</string>
 
+    <!-- base errors-->
     <string name="error_no_connection">Oops , there\'s no Network connection</string>
     <string name="error_message_title">Error!</string>
     <string name="success_message_title">Success</string>
     <string name="title_activity_home">MainActivity</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -76,6 +81,8 @@
     <string name="forgot_password_title">Forget password</string>
     <string name="label_submit">Submit</string>
     <string name="forgot_password_email">enter email address</string>
+
+
 
 
 </resources>

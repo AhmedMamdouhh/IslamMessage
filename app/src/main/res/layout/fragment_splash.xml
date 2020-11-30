@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <LinearLayout
-        android:id="@+id/ll_splash_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motionLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        app:layoutDescription="@xml/logo_scene">
 
         <ImageView
             android:id="@+id/iv_splash_logo"
-            android:layout_width="@dimen/dp137w"
-            android:layout_height="@dimen/dp137h"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:src="@drawable/ic_logo_white"
-            android:layout_gravity="center"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-
-    </LinearLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
