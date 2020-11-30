@@ -1,25 +1,32 @@
 package com.app.newislam.ui.auth.login
 
+import android.content.Context
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.app.newislam.R
 import com.app.newislam.databinding.FragmentLoginBinding
-import com.app.newislam.manager.base.BaseFragment
 import com.app.newislam.manager.utilities.Constants
+import com.app.newislam.manager.utilities.EventObserver
 import com.app.newislam.manager.utilities.bottomNavigationVisibility
 import com.app.newislam.manager.utilities.toolBarVisibility
 import com.app.newislam.model.requests.auth.login.LoginRequest
 import com.app.newislam.ui.MainActivity
-import kotlinx.android.synthetic.main.toolbar.view.*
+import com.app.newislam.ui.auth.forgot_password.ForgotPasswordSheet
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : Fragment() {
     private val loginViewModel: LoginViewModel by viewModel()
     private val userRequest: LoginRequest by inject()
     lateinit var binding: FragmentLoginBinding
@@ -29,7 +36,7 @@ class LoginFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         (activity as MainActivity).toolBarVisibility(true)
         (activity as MainActivity).bottomNavigationVisibility(false)
 
@@ -38,25 +45,33 @@ class LoginFragment : BaseFragment() {
         binding.viewModel = loginViewModel
 
 
-        binding.layoutAskRegister.setOnClickListener {
-            getNavHost().navigate(R.id.action_loginFragment_to_registrationFragment)
-        }
+        observeRegisterClick()
+        observeForgotPasswordClick()
+        observeSuccess()
 
-        navigation()
         animateScreen()
-
-
         return binding.root
     }
 
-    private fun navigation() {
-        loginViewModel.navigateToForgotPassword.observe(viewLifecycleOwner, Observer {
-            if (it) {
-                getNavHost().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
-            }
-
+    private fun observeSuccess() {
+        loginViewModel.observeSuccess.observe(viewLifecycleOwner, EventObserver {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         })
     }
+
+    private fun observeRegisterClick() {
+        loginViewModel.observeRegisterClick.observe(viewLifecycleOwner, EventObserver {
+            findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
+        })
+    }
+
+    private fun observeForgotPasswordClick() {
+        loginViewModel.observeForgotPasswordClick.observe(viewLifecycleOwner, EventObserver {
+            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+        })
+
+    }
+
 
     private fun animateScreen() {
         val fromRight = AnimationUtils.loadAnimation(activity, R.anim.enter_from_right)
@@ -66,10 +81,10 @@ class LoginFragment : BaseFragment() {
         val fromLeft = AnimationUtils.loadAnimation(activity, R.anim.enter_from_left)
         fromLeft.duration = Constants.DELAY_SMALL.toLong()
         binding.tilLoginEmail.animation = fromLeft
-        binding.layoutAskRegister.animation=fromLeft
+        binding.llLoginAskContainer.animation = fromLeft
         val fade = AnimationUtils.loadAnimation(activity, R.anim.bounce)
         fade.duration = Constants.DELAY_SMALL.toLong()
-        binding.tvForgotPassword.animation = fade
+        binding.tvLoginForgotPassword.animation = fade
 
     }
 

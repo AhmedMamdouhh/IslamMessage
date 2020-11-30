@@ -1,12 +1,12 @@
 package com.app.newislam.ui.auth.login
 
-import android.util.Log
-import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.app.newislam.R
 import com.app.newislam.manager.base.BaseViewModel
+import com.app.newislam.manager.base.ResponseManager
 import com.app.newislam.manager.connection.Resource
+import com.app.newislam.manager.utilities.Event
 import com.app.newislam.manager.utilities.Validation
 import com.app.newislam.model.entities.User
 import com.app.newislam.model.requests.auth.login.LoginRequest
@@ -14,35 +14,37 @@ import com.app.newislam.repository.auth.LoginRepository
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class LoginViewModel : BaseViewModel(), KoinComponent {
-    val loginRepository: LoginRepository by inject()
-    val user: User by inject()
-    val resource = MutableLiveData<Resource<User?>>()
-    val navigateToForgotPassword = MutableLiveData<Boolean>()
+class LoginViewModel : BaseViewModel() {
+    private val loginRepository: LoginRepository by inject()
+
+    private val _observeForgotPasswordClick = MutableLiveData<Event<Boolean>>()
+    private val _observeRegisterClick = MutableLiveData<Event<Boolean>>()
+    private val _observeSuccess = MutableLiveData<Event<Boolean>>()
 
 
     //click
-
-    fun onForgotPasswordClicked() {
-        navigateToForgotPassword.value = true
-    }
-
+    fun onForgotPasswordClicked() { _observeForgotPasswordClick.value = Event(true) }
+    fun onRegisterClicked(){ _observeRegisterClick.value = Event(true) }
     fun onLoginClicked(loginRequest: LoginRequest) {
-        if (validateLoginRequest(loginRequest)){
+        if (validateLoginRequest(loginRequest)) {
             getLoginData(loginRequest)
         }
     }
 
     private fun getLoginData(loginRequest: LoginRequest) {
         responseManager.loading()
+
         disposable.add(
-            loginRepository.getLoginData(loginRequest).subscribe({ data ->
-                if (data == null) responseManager.failed("Error")
-                else {
-                    responseManager.success(data.message)
-                    responseManager.authenticated(data.data ?: user)
-                }
+            loginRepository.getLoginData(loginRequest).subscribe({ loginData ->
+
                 responseManager.hideLoading()
+
+                if(loginData!=null){
+                    responseManager.authenticated(loginData.data)
+                    _observeSuccess.value = Event(true)
+                }else responseManager.noConnection()
+
+
             }, {
                 responseManager.hideLoading()
                 responseManager.failed(it.message)
@@ -51,7 +53,6 @@ class LoginViewModel : BaseViewModel(), KoinComponent {
     }
 
     //validation:
-
     private fun validateLoginRequest(loginRequest: LoginRequest): Boolean {
         var valid = true
 
@@ -72,5 +73,14 @@ class LoginViewModel : BaseViewModel(), KoinComponent {
 
         return valid
     }
+
+    //getters:
+    val observeForgotPasswordClick: LiveData<Event<Boolean>>
+        get() = _observeForgotPasswordClick
+    val observeRegisterClick: LiveData<Event<Boolean>>
+        get() = _observeRegisterClick
+    val observeSuccess: LiveData<Event<Boolean>>
+        get() = _observeSuccess
+
 
 }

@@ -26,24 +26,29 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/dp16w"
             android:layout_marginEnd="@dimen/dp16w"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_login_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp16w"
-                android:layout_marginBottom="@dimen/dp16w"
                 android:textColorHint="@color/colorBlackTransparent"
                 app:error="@{userObject.loginErrors.emailError}"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/colorPrimary">
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp50h"
+                    android:layout_height="@dimen/dp60h"
                     android:layout_gravity="center"
-                    android:background="@drawable/bg_text_input"
+                    android:layout_marginBottom="@dimen/dp8w"
+                    android:background="@drawable/border_black_empty"
                     android:hint="@string/login_email_address"
+                    android:importantForAutofill="no"
                     android:inputType="text"
                     android:maxLines="1"
                     android:paddingStart="@dimen/dp8w"
@@ -59,37 +64,40 @@
                 android:id="@+id/til_login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp8w"
                 android:textColorHint="@color/colorBlackTransparent"
                 app:error="@{userObject.loginErrors.passwordError}"
                 app:errorEnabled="true"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/colorPrimary"
                 app:passwordToggleEnabled="true">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp50h"
-                    android:background="@drawable/bg_text_input"
+                    android:layout_height="@dimen/dp60h"
+                    android:layout_marginBottom="@dimen/dp8w"
+                    android:background="@drawable/border_black_empty"
                     android:hint="@string/login_enter_password"
+                    android:importantForAutofill="no"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:paddingStart="@dimen/dp8w"
                     android:paddingEnd="@dimen/dp8w"
                     android:text="@={userObject.password}"
-                    android:textColor="@color/colorBlack" />
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorGrey" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
-                android:id="@+id/tv_forgot_password"
+                android:id="@+id/tv_login_forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="@dimen/dp20h"
-                android:layout_marginEnd="@dimen/dp24h"
                 android:onClick="@{()->viewModel.onForgotPasswordClicked()}"
                 android:padding="@dimen/dp8w"
                 android:text="@string/login_forgot_password"
-                android:textColor="#000"
+                android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_confirm_password" />
@@ -109,10 +117,10 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_forgot_password" />
 
             <LinearLayout
-                android:id="@+id/layout_ask_register"
+                android:id="@+id/ll_login_ask_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp24h"
@@ -133,6 +141,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/login_register"
                     android:textColor="#37B34A"
+                    android:onClick="@{()-> viewModel.onRegisterClicked()}"
                     android:textSize="@dimen/sp14" />
             </LinearLayout>
         </LinearLayout>

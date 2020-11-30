@@ -22,34 +22,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 @SuppressLint("RestrictedApi")
 fun AppCompatActivity.toolBarVisibility(isVisible: Boolean){
 
-    supportActionBar?.setBackgroundDrawable(
-         ColorDrawable(Color.WHITE)
-    )
-
-    supportActionBar?.elevation = 0F
-    supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_left_solid);
-    supportActionBar?.setShowHideAnimationEnabled(true)
-
-
-
-
-    val text: Spannable = SpannableString(supportActionBar?.title)
-    text.setSpan(
-        ForegroundColorSpan(Color.BLACK),
-        0,
-        text.length,
-        Spannable.SPAN_INCLUSIVE_INCLUSIVE
-    )
-    supportActionBar?.title = text
-
 
     when(isVisible){
         true ->{
-            supportActionBar?.show()
+            toolbar?.isVisible = true
             bottom_nav_view.isVisible = true
         }
         false ->{
-            supportActionBar?.hide()
+            toolbar?.isVisible = false
             bottom_nav_view.isVisible = false
         }
     }

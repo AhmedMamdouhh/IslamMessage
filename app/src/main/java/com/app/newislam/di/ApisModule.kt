@@ -7,8 +7,8 @@ import com.app.newislam.model.requests.auth.activation_code.ActivationCodeErrors
 import com.app.newislam.model.requests.auth.activation_code.ActivationCodeRequest
 import com.app.newislam.model.requests.auth.login.LoginErrors
 import com.app.newislam.model.requests.auth.login.LoginRequest
-import com.app.newislam.model.requests.auth.password.ForgetPasswordRequest
-import com.app.newislam.model.requests.auth.password.PasswordError
+import com.app.newislam.model.requests.auth.forgot_password.ForgetPasswordRequest
+import com.app.newislam.model.requests.auth.forgot_password.ForgotPasswordErrors
 import com.app.newislam.model.requests.auth.register.RegisterErrors
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
 import com.app.newislam.repository.auth.ActivationCodeRepository
@@ -19,47 +19,28 @@ import org.koin.dsl.module
 
 
 val apiModule = module {
-    factory {
-        LoginRequest(get())
-    }
 
-    factory {
-        LoginErrors()
-    }
+    //login
+    factory { LoginRequest(get()) }
+    factory { LoginErrors() }
+    single { LoginRepository() }
 
-    single { ActivationCodeRequest(get()) }
-    single { ActivationCodeErrors() }
+    //activation code
+    factory { ActivationCodeRequest(get()) }
+    factory { ActivationCodeErrors() }
     single { ActivationCodeRepository() }
 
+    //forgot password
+    factory { ForgetPasswordRequest(get()) }
+    factory { ForgotPasswordErrors() }
+    single { ForgerPasswordRepository() }
 
-    single {
-        LoginRepository()
-    }
-    single {
-        ForgerPasswordRepository()
-    }
-    single {
-        ResponseManager(Resource(), get(), get())
-    }
-    single {
-        User()
-    }
-    single {
-        PasswordError()
-    }
-    single {
-        ForgetPasswordRequest(get())
-    }
+    //register
+    factory { RegisterErrors() }
+    factory { RegistrationRequest(get()) }
+    single { RegisterRepository() }
 
-    single {
-        RegisterErrors()
-    }
-    single {
-        RegistrationRequest(get())
-    }
-
-    single {
-        RegisterRepository()
-    }
+    single { ResponseManager(Resource(), get(), get()) }
+    single { User() }
 
 }

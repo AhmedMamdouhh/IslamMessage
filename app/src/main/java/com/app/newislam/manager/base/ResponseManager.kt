@@ -22,7 +22,7 @@ data class ResponseManager constructor(
         }else false
     }
 
-    fun authenticated(currentUser: User){
+    fun authenticated(currentUser: User?){
         this.currentUser = currentUser
         saveUser()
         setResponseObject(Resource.ResourceStatus.AUTHENTICATED, null)

@@ -1,21 +1,21 @@
-package com.app.newislam.ui.resource_layout.error
+package com.app.newislam.ui.response.error
 
-import android.graphics.Color
+import android.animation.Animator
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.coordinatorlayout.widget.CoordinatorLayout
+import android.os.Handler
+import android.os.Looper
+import android.view.*
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.app.newislam.R
 import com.app.newislam.databinding.LayoutErrorBinding
-import com.app.newislam.databinding.LayoutNoConnectionBinding
-import com.app.newislam.databinding.LayoutSuccessBinding
 import com.app.newislam.manager.utilities.Constants
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class ErrorSheet : BottomSheetDialogFragment() {
+
+class ErrorSheet : BottomSheetDialogFragment()  {
+
     private lateinit var errorBinding: LayoutErrorBinding
 
 
@@ -29,13 +29,25 @@ class ErrorSheet : BottomSheetDialogFragment() {
         getBundleMessage()
         errorBinding.lifecycleOwner = this
 
+        Handler(Looper.getMainLooper()).postDelayed({
+            dismiss()
+        },2000)
+
         return errorBinding.root
     }
 
-    private fun getBundleMessage(){
-        if(arguments?.containsKey(Constants.MESSAGE) == true){
+    private fun getBundleMessage() {
+        if (arguments?.containsKey(Constants.MESSAGE) == true) {
             errorBinding.tvMessage.text = requireArguments().getString(Constants.MESSAGE)
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+    }
+
+
+
 }
 

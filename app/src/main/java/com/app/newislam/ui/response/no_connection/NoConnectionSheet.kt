@@ -1,10 +1,11 @@
-package com.app.newislam.ui.resource_layout.no_connection
+package com.app.newislam.ui.response.no_connection
 
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.databinding.DataBindingUtil
 import com.app.newislam.R
@@ -40,6 +41,8 @@ class NoConnectionSheet : BottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
+        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+
         val dialog = dialog
         var bottomSheet: View? = null
         if (dialog != null) {
@@ -58,5 +61,6 @@ class NoConnectionSheet : BottomSheetDialogFragment() {
             (finalBottomSheet!!.parent as View).setBackgroundColor(Color.TRANSPARENT)
         }
     }
+
 }
 

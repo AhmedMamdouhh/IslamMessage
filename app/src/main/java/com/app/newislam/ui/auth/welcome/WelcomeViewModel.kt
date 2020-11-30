@@ -3,18 +3,26 @@ package com.app.newislam.ui.auth.welcome
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.manager.base.BaseViewModel
+import com.app.newislam.manager.utilities.Event
 
 class WelcomeViewModel : BaseViewModel() {
 
-    val observeRegisterClicked = MutableLiveData<Boolean>()
-    val observeLoginClicked = MutableLiveData<Boolean>()
-    val observeGuestClicked = MutableLiveData<Boolean>()
+    private val _observeRegisterClicked = MutableLiveData<Event<Boolean>>()
+    private val _observeLoginClicked = MutableLiveData<Event<Boolean>>()
+    private val _observeGuestClicked = MutableLiveData<Event<Boolean>>()
 
     //click:
-    fun onNewAccountClicked() { observeRegisterClicked.value = true }
-    fun onLoginClicked() { observeLoginClicked.value = true }
-    fun onContinueAsGuestClicked() { observeGuestClicked.value = true }
+    fun onNewAccountClicked() { _observeRegisterClicked.value = Event(true) }
+    fun onLoginClicked() { _observeLoginClicked.value = Event(true) }
+    fun onContinueAsGuestClicked() { _observeGuestClicked.value = Event(true) }
 
 
+    //getters:
+    val observeLoginClicked: LiveData<Event<Boolean>>
+        get() = _observeLoginClicked
+    val observeRegisterClicked: LiveData<Event<Boolean>>
+        get() = _observeRegisterClicked
+    val observeGuestClicked: LiveData<Event<Boolean>>
+        get() = _observeGuestClicked
 
 }
