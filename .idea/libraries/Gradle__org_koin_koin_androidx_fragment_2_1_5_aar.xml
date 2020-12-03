@@ -4,12 +4,18 @@
       <root url="jar://$PROJECT_DIR$/.gradle/6.5/caches/transforms-2/files-2.1/9c7dec7a623017b12d10f259a7451cb6/jetified-koin-androidx-fragment-2.1.5/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/.gradle/6.5/caches/transforms-2/files-2.1/9c7dec7a623017b12d10f259a7451cb6/jetified-koin-androidx-fragment-2.1.5/res" />
       <root url="file://$PROJECT_DIR$/.gradle/6.5/caches/transforms-2/files-2.1/9c7dec7a623017b12d10f259a7451cb6/jetified-koin-androidx-fragment-2.1.5/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c7dec7a623017b12d10f259a7451cb6/jetified-koin-androidx-fragment-2.1.5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d879b7e578fe9c603ebe898214cc2e69/jetified-koin-androidx-fragment-2.1.5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d879b7e578fe9c603ebe898214cc2e69/jetified-koin-androidx-fragment-2.1.5/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d879b7e578fe9c603ebe898214cc2e69/jetified-koin-androidx-fragment-2.1.5/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/.gradle/6.5/caches/modules-2/files-2.1/org.koin/koin-androidx-fragment/2.1.5/2f47011759ad72cf622b34f0ab4e0bca67c35247/koin-androidx-fragment-2.1.5-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.koin/koin-androidx-fragment/2.1.5/2f47011759ad72cf622b34f0ab4e0bca67c35247/koin-androidx-fragment-2.1.5-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/.gradle/6.5/caches/modules-2/files-2.1/org.koin/koin-androidx-fragment/2.1.5/81c8f505d8687e3b551c86fb38a54d032172ea43/koin-androidx-fragment-2.1.5-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.koin/koin-androidx-fragment/2.1.5/81c8f505d8687e3b551c86fb38a54d032172ea43/koin-androidx-fragment-2.1.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

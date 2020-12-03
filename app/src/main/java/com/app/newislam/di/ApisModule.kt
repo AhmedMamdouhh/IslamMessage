@@ -15,6 +15,7 @@ import com.app.newislam.repository.auth.ActivationCodeRepository
 import com.app.newislam.repository.auth.ForgerPasswordRepository
 import com.app.newislam.repository.auth.LoginRepository
 import com.app.newislam.repository.auth.RegisterRepository
+import com.app.newislam.ui.home.centers.CentersRepository
 import org.koin.dsl.module
 
 
@@ -42,5 +43,9 @@ val apiModule = module {
 
     single { ResponseManager(Resource(), get(), get()) }
     single { User() }
+
+    //Home
+    //centers
+    single { CentersRepository()}
 
 }

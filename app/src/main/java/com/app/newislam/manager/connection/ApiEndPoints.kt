@@ -7,5 +7,6 @@ object ApiEndPoints {
     const val REGISTER = "${BASE_URL}${USERS}Register"
     const val FORGET_PASSWORD = "${BASE_URL}${USERS}Reset"
     const val ACTIVATION_CODE = "${BASE_URL}${USERS}Confirm"
-
+    const val ISLAMIC_CENTERS = "${BASE_URL}IslamicCenters"
+    const val ARTICLES = "${BASE_URL}Articles"
 }
