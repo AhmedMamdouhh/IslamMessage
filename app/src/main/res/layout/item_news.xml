@@ -1,53 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tool="http://schemas.android.com/tools"
-    android:layout_marginStart="@dimen/dp16w"
-    android:layout_marginEnd="@dimen/dp13w"
-    android:id="@+id/layout_news"
-    android:layout_width="@dimen/dp250w"
-    android:layout_height="wrap_content">
+<layout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_news"
+    <data>
+
+        <variable
+            name="article"
+            type="com.app.newislam.model.requests.home.Articles" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:id="@+id/layout_news"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp120h"
-        app:cardBackgroundColor="@null"
-        app:cardCornerRadius="@dimen/dp8w"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16w"
+        android:layout_marginEnd="@dimen/dp13w">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_news"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_news"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="@dimen/dp160h"
+            app:cardBackgroundColor="@null"
+            app:cardCornerRadius="@dimen/dp8w"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_news_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp8h"
-        android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/sp16"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv_news"
-        tool:text="West London Islamic center" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_news"
+                bind:image="@{article.image}"
+                bind:placeholder="@{@drawable/ic_logo_green}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tv_news_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp2h"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/sp15"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_news_name"
-        tool:text="England, London city" />
+        <TextView
+            android:id="@+id/tv_news_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp8h"
+            android:text="@{article.title.trim()}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_news"
+            tool:text="West London Islamic center" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_news_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp2h"
+            android:text='@{article.summary ??  ""}'
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_news_name"
+            tool:text="England, London city" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

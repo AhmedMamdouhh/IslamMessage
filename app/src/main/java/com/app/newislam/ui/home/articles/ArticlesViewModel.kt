@@ -1,46 +1,44 @@
-package com.app.newislam.ui.home.centers
+package com.app.newislam.ui.home.articles
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.manager.base.BaseViewModel
 import com.app.newislam.manager.utilities.Event
-import com.app.newislam.model.requests.home.Centers
-import com.app.newislam.model.requests.home.IslamicCentersResponse
-import com.app.newislam.repository.auth.LoginRepository
+import com.app.newislam.model.requests.home.Articles
 import org.koin.core.inject
 
-class CentersViewModel : BaseViewModel() {
+class ArticlesViewModel : BaseViewModel() {
 
     private var page = 1
     private var hasNextPage = false
-    private val items = arrayListOf<Centers>()
+    private val items = arrayListOf<Articles>()
 
-    private val centersRepository: CentersRepository by inject()
+    private val articlesRepository: ArticlesRepository by inject()
 
     private val _observeSuccess = MutableLiveData<Event<Boolean>>()
     val observeSuccess: LiveData<Event<Boolean>>
         get() = _observeSuccess
 
-    private val _islamicCenters = MutableLiveData<Event<List<Centers>>>()
-    val islamicCenters: LiveData<Event<List<Centers>>>
-        get() = _islamicCenters
+    private val _islamicArticles = MutableLiveData<Event<List<Articles>>>()
+    val islamicArticles: LiveData<Event<List<Articles>>>
+        get() = _islamicArticles
 
-    private val _moreIslamicCenters = MutableLiveData<Event<List<Centers>>>()
-    val moreIslamicCenters: LiveData<Event<List<Centers>>>
-        get() = _moreIslamicCenters
+    private val _moreIslamicArticles = MutableLiveData<Event<List<Articles>>>()
+    val moreIslamicArticles: LiveData<Event<List<Articles>>>
+        get() = _moreIslamicArticles
 
     init {
-        getIslamicCenters()
+        getIslamicArticles()
     }
 
-    fun getIslamicCenters() {
+    fun getIslamicArticles() {
         responseManager.loading()
         disposable.add(
-            centersRepository.getIslamicCenters(page, 10).subscribe({ data ->
+            articlesRepository.getArticles(page, 10).subscribe({ data ->
                 responseManager.hideLoading()
                 if (data != null) {
                     _observeSuccess.value = Event(true)
-                    _islamicCenters.value = Event(data.data?.items!!)
+                    _islamicArticles.value = Event(data.data?.items!!)
                     items.addAll(data.data?.items!!)
                     hasNextPage = data.data?.hasNextPage ?: false
                 }
@@ -53,12 +51,12 @@ class CentersViewModel : BaseViewModel() {
     fun loadMoreItems() {
         if (hasNextPage)
             disposable.add(
-                centersRepository.getIslamicCenters(page++, 10).subscribe({ data ->
+                articlesRepository.getArticles(page++, 10).subscribe({ data ->
                     responseManager.hideLoading()
                     if (data != null) {
                         if (data.data?.items!!.isNotEmpty()) {
                             items.addAll(data.data?.items!!)
-                            _moreIslamicCenters.value = Event(items)
+                            _moreIslamicArticles.value = Event(items)
                             hasNextPage = data.data?.hasNextPage ?: false
                         }
                     }

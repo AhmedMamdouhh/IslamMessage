@@ -47,7 +47,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_centers"
+            android:id="@+id/rv_articles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"

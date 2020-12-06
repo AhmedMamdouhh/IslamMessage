@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_islamic_center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp150h"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[11]" />
+
+        <TextView
+            android:id="@+id/tv_islamic_center_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp12h"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_islamic_center"
+            tools:text="Islamic Name" />
+
+        <TextView
+            android:id="@+id/tv_islamic_center_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp8h"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:drawableStart="@drawable/ic_map_marker"
+            android:drawablePadding="@dimen/dp8w"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_islamic_center_name"
+            tools:text="England, London City" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_subscribe"
+            android:layout_width="@dimen/dp160w"
+            android:layout_height="@dimen/dp35h"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp16h"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/center_details_subscribe_now"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp13"
+            app:cornerRadius="@dimen/dp24w"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_islamic_center_address" />
+
+        <View
+            android:id="@+id/sectionOne_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp2h"
+            android:layout_marginTop="@dimen/dp16h"
+            android:background="#eeeeee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_subscribe" />
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginTop="@dimen/dp4h"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/center_details_about"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sectionOne_divider" />
+
+        <TextView
+            android:id="@+id/tv_about_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginTop="@dimen/dp6h"
+            android:layout_marginEnd="@dimen/dp16h"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about"
+            tools:text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." />
+
+        <View
+            android:id="@+id/sectionTwo_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp2h"
+            android:layout_marginTop="@dimen/dp16h"
+            android:background="#eeeeee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_details" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginTop="@dimen/dp4h"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/center_details_location"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sectionTwo_divider" />
+
+        <TextView
+            android:id="@+id/tv_location_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginTop="@dimen/dp6h"
+            android:layout_marginEnd="@dimen/dp16h"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location"
+            tools:text="England, London, street 502, Building 23" />
+
+        <View
+            android:id="@+id/sectionThree_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp2h"
+            android:layout_marginTop="@dimen/dp16h"
+            android:background="#eeeeee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location_details" />
+
+        <TextView
+            android:drawableStart="@drawable/ic_map_marker"
+            android:id="@+id/iv_map"
+            android:drawablePadding="@dimen/dp8w"
+            android:paddingStart="@dimen/dp100h"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp100h"
+            android:layout_margin="@dimen/dp16w"
+            android:background="@drawable/shape_search"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sectionThree_divider" />
+        <View
+            android:id="@+id/sectionFour_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp2h"
+            android:layout_marginTop="@dimen/dp16h"
+            android:background="#eeeeee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_map" />
+        <TextView
+            android:id="@+id/tv_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginTop="@dimen/dp4h"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/center_details_contacts"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sectionFour_divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -7,11 +7,10 @@ import com.app.newislam.model.requests.auth.forgot_password.ForgetPasswordReques
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
 import com.app.newislam.model.requests.home.ArticlesResponse
 import com.app.newislam.model.requests.home.IslamicCentersResponse
+import com.app.newislam.model.requests.home.articles.ArticleDetailsResponse
+import com.app.newislam.model.requests.home.centers.IslamicCenterDetailsResponse
 import io.reactivex.Flowable
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface Api {
     @POST(ApiEndPoints.LOGIN)
@@ -32,10 +31,21 @@ interface Api {
         @Query("pageSize") pageSize: Int
     ): Flowable<Resource<IslamicCentersResponse>>
 
+    @GET(ApiEndPoints.ISLAMIC_CENTER_DETAILS)
+    fun getIslamicCenterDetails(
+        @Path("centerId") centerId: Int
+    ): Flowable<Resource<IslamicCenterDetailsResponse>>
+
     @GET(ApiEndPoints.ARTICLES)
     fun getArticles(
         @Query("pageIndex") pageIndex: Int,
         @Query("pageSize") pageSize: Int
     ): Flowable<Resource<ArticlesResponse>>
+
+    @GET(ApiEndPoints.ARTICLE_DETAILS)
+    fun getArticles(
+        @Path("articleId") articleId: Int
+    ): Flowable<Resource<ArticleDetailsResponse>>
+
 
 }

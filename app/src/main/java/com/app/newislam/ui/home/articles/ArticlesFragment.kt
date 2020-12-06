@@ -1,4 +1,4 @@
-package com.app.newislam.ui.home.centers
+package com.app.newislam.ui.home.articles
 
 import android.icu.util.TimeUnit
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.newislam.databinding.FragmentArticlesBinding
 import com.app.newislam.databinding.FragmentIslamicCentersBinding
 import com.app.newislam.manager.base.BaseDialogFragment
 import com.app.newislam.manager.utilities.EventObserver
@@ -24,36 +25,36 @@ import kotlinx.android.synthetic.main.fragment_islamic_centers.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class CentersFragment : BaseDialogFragment() {
+class ArticlesFragment : BaseDialogFragment() {
 
-    val centersViewModel: CentersViewModel by viewModel()
-    var centersAdapter: CentersAdapter? = null
+    val articlesViewModel: ArticlesViewModel by viewModel()
+    var articlesAdapter: ArticlesAdapter? = null
     var manager: LinearLayoutManager? = null
 
-    lateinit var binding: FragmentIslamicCentersBinding
+    lateinit var binding: FragmentArticlesBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentIslamicCentersBinding.inflate(inflater, container, false)
+        binding = FragmentArticlesBinding.inflate(inflater, container, false)
         val root = binding.root
         manager = LinearLayoutManager(requireContext())
-        centersViewModel.islamicCenters.observe(this, EventObserver { event ->
-            binding.rvCenters.apply {
-                centersAdapter = CentersAdapter()
-                centersAdapter?.submitList(event)
-                centersAdapter?.mCentersList = event
-                adapter = centersAdapter
+        articlesViewModel.islamicArticles.observe(this, EventObserver { event ->
+            binding.rvArticles.apply {
+                articlesAdapter = ArticlesAdapter()
+                articlesAdapter?.submitList(event)
+                articlesAdapter?.mArticlesList = event
+                adapter = articlesAdapter
                 itemAnimator = null
                 layoutManager = manager
                 setHasFixedSize(true)
             }
         })
 
-        centersViewModel.moreIslamicCenters.observe(this, EventObserver { event ->
-            if (event.isNotEmpty()) centersAdapter?.submitList(event)
-            centersAdapter?.notifyItemInserted(event.lastIndex)
+        articlesViewModel.moreIslamicArticles.observe(this, EventObserver { event ->
+            if (event.isNotEmpty()) articlesAdapter?.submitList(event)
+            articlesAdapter?.notifyItemInserted(event.lastIndex)
 
         })
 
@@ -77,7 +78,7 @@ class CentersFragment : BaseDialogFragment() {
             .observeOn(AndroidSchedulers.mainThread())
 
         disposable(observable.subscribe({ s ->
-            centersAdapter?.filter?.filter(s)
+            articlesAdapter?.filter?.filter(s)
         }, {}))
     }
 
@@ -85,7 +86,7 @@ class CentersFragment : BaseDialogFragment() {
         var isLastPage: Boolean = false
         var isLoading: Boolean = false
         if (!binding.svCenters.hasFocus())
-            binding.rvCenters.addOnScrollListener(object :
+            binding.rvArticles.addOnScrollListener(object :
                 PaginationScrollListener(manager ?: LinearLayoutManager(requireContext())) {
                 override fun isLastPage(): Boolean {
                     return isLastPage
@@ -98,7 +99,7 @@ class CentersFragment : BaseDialogFragment() {
                 override fun loadMoreItems() {
                     isLoading = true
                     //you have to call loadmore items to get more data
-                    centersViewModel.loadMoreItems()
+                    articlesViewModel.loadMoreItems()
                     isLoading = false
                 }
             })

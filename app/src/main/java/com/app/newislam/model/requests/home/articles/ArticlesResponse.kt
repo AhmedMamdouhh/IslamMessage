@@ -12,5 +12,6 @@ data class ArticlesResponse(
 data class Articles(
     @SerializedName("id") val id: Int,
     @SerializedName("title") val title: String,
-    @SerializedName("summary") val summary: String
+    @SerializedName("summary") val summary: String,
+    @SerializedName("image") val image: String=" "
 )

@@ -97,8 +97,10 @@
     <string name="forgot_password_title">Forget password</string>
     <string name="label_submit">Submit</string>
     <string name="forgot_password_email">enter email address</string>
-
-
+    <string name="center_details_about">About</string>
+    <string name="center_details_subscribe_now">Subscribe now</string>
+    <string name="center_details_location">Location</string>
+    <string name="center_details_contacts">Contacts</string>
 
 
 </resources>

@@ -141,5 +141,9 @@
         android:id="@+id/centersFragment"
         android:name="com.app.newislam.ui.home.centers.CentersFragment"
         android:label="CentersFragment" />
+    <dialog
+        android:id="@+id/articlesFragment"
+        android:name="com.app.newislam.ui.home.articles.ArticlesFragment"
+        android:label="ArticlesFragment" />
 
 </navigation>
