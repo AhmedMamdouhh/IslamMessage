@@ -1,4 +1,4 @@
-package com.app.newislam.model.requests.home
+package com.app.newislam.model.requests.home.centers
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
@@ -22,9 +22,7 @@ data class Centers(
     @SerializedName("country") val country: String=" ",
     @SerializedName("city") val city: String=" ",
     @SerializedName("image") val image: String=" "
-) {
-
-}
+)
 
 @BindingAdapter("image", "placeholder")
 fun ImageView.setImage( url: String?, placeHolder: Drawable) {

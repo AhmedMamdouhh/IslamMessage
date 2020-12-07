@@ -1,30 +1,30 @@
 package com.app.newislam.ui.home.centers
 
-import android.icu.util.TimeUnit
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
+import android.widget.AbsListView
+import androidx.core.view.ViewCompat
+import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.app.newislam.databinding.FragmentIslamicCentersBinding
 import com.app.newislam.manager.base.BaseDialogFragment
 import com.app.newislam.manager.utilities.EventObserver
 import com.app.newislam.manager.utilities.PaginationScrollListener
+import com.app.newislam.model.requests.home.centers.Centers
 import io.reactivex.Observable
-import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.internal.util.NotificationLite.disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_islamic_centers.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class CentersFragment : BaseDialogFragment() {
+class CentersFragment : BaseDialogFragment(), CentersAdapter.OnIslamicCenterClicked {
 
     val centersViewModel: CentersViewModel by viewModel()
     var centersAdapter: CentersAdapter? = null
@@ -41,7 +41,7 @@ class CentersFragment : BaseDialogFragment() {
         manager = LinearLayoutManager(requireContext())
         centersViewModel.islamicCenters.observe(this, EventObserver { event ->
             binding.rvCenters.apply {
-                centersAdapter = CentersAdapter()
+                centersAdapter = CentersAdapter(this@CentersFragment)
                 centersAdapter?.submitList(event)
                 centersAdapter?.mCentersList = event
                 adapter = centersAdapter
@@ -56,6 +56,7 @@ class CentersFragment : BaseDialogFragment() {
             centersAdapter?.notifyItemInserted(event.lastIndex)
 
         })
+
 
         searchObserver()
         getMoreData()
@@ -102,5 +103,13 @@ class CentersFragment : BaseDialogFragment() {
                     isLoading = false
                 }
             })
+    }
+
+    override fun onCenterClicked(center: Centers) {
+        if (center != null) {
+            val action =
+                CentersFragmentDirections.actionCentersFragmentToCenterDetailsFragment(center.id)
+            findNavController().navigate(action)
+        }
     }
 }

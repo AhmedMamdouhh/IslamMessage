@@ -9,12 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.newislam.databinding.FragmentArticlesBinding
 import com.app.newislam.databinding.FragmentIslamicCentersBinding
 import com.app.newislam.manager.base.BaseDialogFragment
 import com.app.newislam.manager.utilities.EventObserver
 import com.app.newislam.manager.utilities.PaginationScrollListener
+import com.app.newislam.model.requests.home.Articles
+import com.app.newislam.ui.home.centers.CentersFragmentDirections
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -25,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_islamic_centers.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class ArticlesFragment : BaseDialogFragment() {
+class ArticlesFragment : BaseDialogFragment() ,ArticlesAdapter.OnArticleClicked{
 
     val articlesViewModel: ArticlesViewModel by viewModel()
     var articlesAdapter: ArticlesAdapter? = null
@@ -42,7 +45,7 @@ class ArticlesFragment : BaseDialogFragment() {
         manager = LinearLayoutManager(requireContext())
         articlesViewModel.islamicArticles.observe(this, EventObserver { event ->
             binding.rvArticles.apply {
-                articlesAdapter = ArticlesAdapter()
+                articlesAdapter = ArticlesAdapter(this@ArticlesFragment)
                 articlesAdapter?.submitList(event)
                 articlesAdapter?.mArticlesList = event
                 adapter = articlesAdapter
@@ -103,5 +106,13 @@ class ArticlesFragment : BaseDialogFragment() {
                     isLoading = false
                 }
             })
+    }
+
+    override fun onArticleClicked(article: Articles) {
+        if (article != null) {
+            val action =
+                ArticlesFragmentDirections.actionArticlesFragmentToArticleDetailsFragment(article.id)
+            findNavController().navigate(action)
+        }
     }
 }

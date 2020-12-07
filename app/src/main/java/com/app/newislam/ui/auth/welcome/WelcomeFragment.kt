@@ -45,14 +45,15 @@ class WelcomeFragment : Fragment() {
         observeGuestClicked()
         animateScreen()
 
-        //findNavController().navigate(R.id.centersFragment)
+       // findNavController().navigate(R.id.centersFragment)
         findNavController().navigate(R.id.articlesFragment)
+
         return welcomeBinding.root
     }
 
     private fun observeGuestClicked() {
         welcomeViewModel.observeGuestClicked.observe(viewLifecycleOwner, EventObserver {
-           findNavController().navigate(R.id.action_welcomeFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_welcomeFragment_to_homeFragment)
         })
     }
 
@@ -61,6 +62,7 @@ class WelcomeFragment : Fragment() {
             findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
         })
     }
+
     private fun observeRegisterClicked() {
         welcomeViewModel.observeRegisterClicked.observe(viewLifecycleOwner, EventObserver {
             findNavController().navigate(R.id.action_welcomeFragment_to_registrationFragment)
@@ -93,7 +95,6 @@ class WelcomeFragment : Fragment() {
         welcomeBinding.tvWelcomeGuest.animation = fade
 
     }
-
 
 
 }

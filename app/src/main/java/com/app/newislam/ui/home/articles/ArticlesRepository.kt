@@ -3,7 +3,6 @@ package com.app.newislam.ui.home.articles
 import com.app.newislam.manager.base.BaseRepository
 import com.app.newislam.manager.connection.Resource
 import com.app.newislam.model.requests.home.ArticlesResponse
-import com.app.newislam.model.requests.home.IslamicCentersResponse
 import io.reactivex.Flowable
 
 class ArticlesRepository : BaseRepository() {

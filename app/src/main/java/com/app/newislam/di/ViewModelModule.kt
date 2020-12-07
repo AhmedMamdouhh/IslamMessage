@@ -8,7 +8,9 @@ import com.app.newislam.ui.auth.register.RegisterViewModel
 import com.app.newislam.ui.auth.welcome.WelcomeViewModel
 import com.app.newislam.ui.home.HomeViewModel
 import com.app.newislam.ui.home.articles.ArticlesViewModel
+import com.app.newislam.ui.home.articles.details.ArticleDetailsViewModel
 import com.app.newislam.ui.home.centers.CentersViewModel
+import com.app.newislam.ui.home.centers.details.CenterDetailsViewModel
 import com.app.newislam.ui.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -26,4 +28,6 @@ val viewModelModule = module {
     viewModel { HomeViewModel() }
     viewModel { CentersViewModel() }
     viewModel { ArticlesViewModel() }
+    viewModel { CenterDetailsViewModel() }
+    viewModel { ArticleDetailsViewModel() }
 }

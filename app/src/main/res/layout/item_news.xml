@@ -4,6 +4,10 @@
     <data>
 
         <variable
+            name="adapter"
+            type="com.app.newislam.ui.home.articles.ArticlesAdapter" />
+
+        <variable
             name="article"
             type="com.app.newislam.model.requests.home.Articles" />
     </data>
@@ -15,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp16w"
-        android:layout_marginEnd="@dimen/dp13w">
+        android:layout_marginEnd="@dimen/dp13w"
+        android:onClick="@{()->adapter.articleClicked(article)}">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_news"

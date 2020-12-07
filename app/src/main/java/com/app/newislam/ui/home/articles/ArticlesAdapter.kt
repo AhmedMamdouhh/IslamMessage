@@ -7,12 +7,11 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.app.newislam.databinding.ItemIslamicCenterBinding
 import com.app.newislam.databinding.ItemNewsBinding
 import com.app.newislam.model.requests.home.Articles
 
 
-class ArticlesAdapter :
+class ArticlesAdapter (val listener: OnArticleClicked):
     ListAdapter<Articles, ArticlesAdapter.ArticlesViewHolder>(ArticlesDiffCallback()), Filterable {
 
     var mFilteredList: List<Articles>? = null
@@ -41,6 +40,8 @@ class ArticlesAdapter :
 
     override fun onBindViewHolder(viewHolder: ArticlesViewHolder, position: Int) {
         viewHolder.bind(getItem(position))
+        viewHolder.binding.adapter = this
+
     }
 
 
@@ -89,5 +90,13 @@ class ArticlesAdapter :
             return oldItem == newItem
         }
 
+    }
+
+    fun articleClicked(article: Articles) {
+        listener.onArticleClicked(article)
+    }
+
+    interface OnArticleClicked{
+        fun onArticleClicked(article: Articles)
     }
 }

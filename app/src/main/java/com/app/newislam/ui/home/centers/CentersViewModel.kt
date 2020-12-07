@@ -1,12 +1,11 @@
 package com.app.newislam.ui.home.centers
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.manager.base.BaseViewModel
 import com.app.newislam.manager.utilities.Event
-import com.app.newislam.model.requests.home.Centers
-import com.app.newislam.model.requests.home.IslamicCentersResponse
-import com.app.newislam.repository.auth.LoginRepository
+import com.app.newislam.model.requests.home.centers.Centers
 import org.koin.core.inject
 
 class CentersViewModel : BaseViewModel() {
@@ -14,6 +13,7 @@ class CentersViewModel : BaseViewModel() {
     private var page = 1
     private var hasNextPage = false
     private val items = arrayListOf<Centers>()
+    var centerId = 0
 
     private val centersRepository: CentersRepository by inject()
 
@@ -28,6 +28,7 @@ class CentersViewModel : BaseViewModel() {
     private val _moreIslamicCenters = MutableLiveData<Event<List<Centers>>>()
     val moreIslamicCenters: LiveData<Event<List<Centers>>>
         get() = _moreIslamicCenters
+
 
     init {
         getIslamicCenters()
@@ -66,5 +67,9 @@ class CentersViewModel : BaseViewModel() {
 
                 })
             )
+    }
+
+    fun closeCentersSheet(){
+
     }
 }

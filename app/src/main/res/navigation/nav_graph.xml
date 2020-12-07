@@ -140,10 +140,41 @@
     <dialog
         android:id="@+id/centersFragment"
         android:name="com.app.newislam.ui.home.centers.CentersFragment"
-        android:label="CentersFragment" />
+        android:label="CentersFragment">
+        <action
+            android:id="@+id/action_centersFragment_to_centerDetailsFragment"
+            app:destination="@id/centerDetailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </dialog>
     <dialog
         android:id="@+id/articlesFragment"
         android:name="com.app.newislam.ui.home.articles.ArticlesFragment"
-        android:label="ArticlesFragment" />
+        android:label="ArticlesFragment" >
+        <action
+            android:id="@+id/action_articlesFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/centerDetailsFragment"
+        android:name="com.app.newislam.ui.home.centers.details.CenterDetailsFragment"
+        android:label="CenterDetailsFragment">
+        <argument
+            android:name="centerId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/articleDetailsFragment"
+        android:name="com.app.newislam.ui.home.articles.details.ArticleDetailsFragment"
+        android:label="ArticleDetailsFragment">
+        <argument
+            android:name="articleId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </dialog>
 
 </navigation>

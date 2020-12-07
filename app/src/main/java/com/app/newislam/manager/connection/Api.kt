@@ -6,7 +6,7 @@ import com.app.newislam.model.requests.auth.login.LoginRequest
 import com.app.newislam.model.requests.auth.forgot_password.ForgetPasswordRequest
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
 import com.app.newislam.model.requests.home.ArticlesResponse
-import com.app.newislam.model.requests.home.IslamicCentersResponse
+import com.app.newislam.model.requests.home.centers.IslamicCentersResponse
 import com.app.newislam.model.requests.home.articles.ArticleDetailsResponse
 import com.app.newislam.model.requests.home.centers.IslamicCenterDetailsResponse
 import io.reactivex.Flowable
@@ -43,7 +43,7 @@ interface Api {
     ): Flowable<Resource<ArticlesResponse>>
 
     @GET(ApiEndPoints.ARTICLE_DETAILS)
-    fun getArticles(
+    fun getArticleDetails(
         @Path("articleId") articleId: Int
     ): Flowable<Resource<ArticleDetailsResponse>>
 

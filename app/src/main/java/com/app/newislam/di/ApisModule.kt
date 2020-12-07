@@ -11,13 +11,14 @@ import com.app.newislam.model.requests.auth.forgot_password.ForgetPasswordReques
 import com.app.newislam.model.requests.auth.forgot_password.ForgotPasswordErrors
 import com.app.newislam.model.requests.auth.register.RegisterErrors
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
-import com.app.newislam.model.requests.home.ArticlesResponse
 import com.app.newislam.repository.auth.ActivationCodeRepository
 import com.app.newislam.repository.auth.ForgerPasswordRepository
 import com.app.newislam.repository.auth.LoginRepository
 import com.app.newislam.repository.auth.RegisterRepository
 import com.app.newislam.ui.home.articles.ArticlesRepository
 import com.app.newislam.ui.home.centers.CentersRepository
+import com.app.newislam.ui.home.articles.details.ArticleDetailsRepository
+import com.app.newislam.ui.home.centers.details.CenterDetailsRepository
 import org.koin.dsl.module
 
 
@@ -48,7 +49,9 @@ val apiModule = module {
 
     //Home
     //centers
-    single { CentersRepository()}
+    single { CentersRepository() }
     single { ArticlesRepository() }
+    single { CenterDetailsRepository() }
+    single { ArticleDetailsRepository() }
 
 }

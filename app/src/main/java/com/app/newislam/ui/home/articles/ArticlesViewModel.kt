@@ -65,4 +65,8 @@ class ArticlesViewModel : BaseViewModel() {
                 })
             )
     }
+
+    fun closeArticlesSheet(){
+
+    }
 }

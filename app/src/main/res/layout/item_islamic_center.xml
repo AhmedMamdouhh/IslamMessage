@@ -5,13 +5,18 @@
     <data>
         <variable
             name="center"
-            type="com.app.newislam.model.requests.home.Centers" />
+            type="com.app.newislam.model.requests.home.centers.Centers" />
+
+        <variable
+            name="adapter"
+            type="com.app.newislam.ui.home.centers.CentersAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_islamic_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{()-> adapter.centerClicked(center)}"
         android:layout_marginStart="@dimen/dp16w"
         android:layout_marginEnd="@dimen/dp13w">
 
