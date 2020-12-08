@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="categoryObject"
+            type="com.app.newislam.model.entities.home.CategoryItem" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="@dimen/dp240w"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- image -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="@dimen/dp8w">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_islamic_center"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Time -->
+        <TextView
+            android:id="@+id/tv_home_single_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_categories_time"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginEnd="@dimen/dp8w"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textSize="@dimen/sp12"
+            android:textColor="@color/colorPrimary"/>
+
+        <!-- details -->
+        <TextView
+            android:id="@+id/tv_home_single_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_categories_description"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginEnd="@dimen/dp8w"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="@dimen/sp15"
+            android:textColor="@color/colorBlack"/>
+
+        <!-- location -->
+        <TextView
+            android:id="@+id/tv_home_single_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_categories_location"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginEnd="@dimen/dp8w"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textSize="@dimen/sp13"
+            android:textColor="@color/colorGrey"/>
+
+    </LinearLayout>
+
+</layout>

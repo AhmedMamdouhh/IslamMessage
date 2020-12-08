@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bannerObject"
+            type="com.app.newislam.model.entities.home.HomeBanner" />
+
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/dp8w"
+    android:layout_height="@dimen/dp140h"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="@dimen/dp8w">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp16w">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="@dimen/sp12"
+            tools:text="@string/home_banner_welcome" />
+
+        <TextView
+            android:id="@+id/tv_banner_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="@dimen/sp24"
+            app:text="@{bannerObject.homeBannerTitle}"
+            android:text="@string/home_banner_title" />
+
+        <TextView
+            android:layout_marginTop="@dimen/dp8w"
+            android:id="@+id/tv_banner_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp13"
+            android:fontFamily="@font/montserrat_regular"
+            app:text="@{bannerObject.homeBannerDescription}"
+            android:text="@string/home_banner_details"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+</layout>

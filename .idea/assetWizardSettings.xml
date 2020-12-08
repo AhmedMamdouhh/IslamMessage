@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/close/baseline_close_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Sdk/icons/material/materialicons/arrow_forward_ios/baseline_arrow_forward_ios_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,7 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_close_black" />
+                            <entry key="color" value="37b34a" />
+                            <entry key="outputName" value="ic_arrow_right_primary" />
                             <entry key="sourceFile" value="C:\Users\ahmed\Downloads\ic_services.svg" />
                           </map>
                         </option>

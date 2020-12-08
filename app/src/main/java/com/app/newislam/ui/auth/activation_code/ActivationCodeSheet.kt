@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,7 +22,7 @@ class ActivationCodeSheet : BottomSheetDialogFragment() {
     private lateinit var dialogActivationCodeBinding: DialogActivationCodeBinding
     private val activationCodeViewModel: ActivationCodeViewModel by viewModel()
     private val activationCodeRequest: ActivationCodeRequest by inject()
-    private val args : ActivationCodeSheetArgs by navArgs()
+    private val args: ActivationCodeSheetArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,20 +49,25 @@ class ActivationCodeSheet : BottomSheetDialogFragment() {
         observeSuccess()
     }
 
-    private fun getBundleEmail(){
-        activationCodeRequest.email= args.emailBundle
+    private fun getBundleEmail() {
+        activationCodeRequest.email = args.emailBundle
     }
 
-    private fun writeCodeListener(){
+    private fun writeCodeListener() {
         dialogActivationCodeBinding.pvActivationCode.doOnTextChanged { _, _, _, _ ->
-            dialogActivationCodeBinding.pvActivationCode.setLineColor(resources.getColor(R.color.colorWhite))
+            dialogActivationCodeBinding.pvActivationCode.setLineColor(
+                ContextCompat.getColor(
+                    requireActivity(),
+                    R.color.colorWhite
+                )
+            )
         }
     }
 
 
     private fun observeSuccess() {
         activationCodeViewModel.observeSuccess.observe(viewLifecycleOwner, EventObserver {
-           dismiss()
+            dismiss()
             findNavController().navigate(R.id.action_activationCodeSheet_to_homeFragment)
         })
     }

@@ -47,3 +47,12 @@ fun AppCompatActivity.bottomNavigationVisibility(isVisible: Boolean){
     }
 }
 
+fun View.gone(){
+    this.visibility = View.GONE
+}
+
+fun View.visible(){
+    this.visibility = View.VISIBLE
+}
+
+

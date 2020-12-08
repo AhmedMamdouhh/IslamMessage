@@ -41,6 +41,22 @@
     <string name="bottom_navigation_notifications">Notifications</string>
     <string name="bottom_navigation_services">Services</string>
 
+    <!-- Home -->
+    <string name="home_title">Home page</string>
+    <string name="home_banner_welcome">Welcome to</string>
+    <string name="home_banner_title">Islamic Message</string>
+    <string name="home_banner_details">It is a long established fact that a reader will be distracted by the readable.</string>
+    <string name="home_service_title">Services</string>
+    <string name="home_categories_title">Islamic centers</string>
+    <string name="home_categories_see_all">See all</string>
+    <string name="home_categories_description">West London Islamic center</string>
+    <string name="home_categories_location">England, London city</string>
+    <string name="home_categories_time">MON, 28 SEP 2020</string>
+    <!-- home categories titles -->
+    <string name="home_islamic_centers_title">Islamic centers</string>
+    <string name="home_events_title">Events</string>
+    <string name="home_news_title">News</string>
+
 
     <!--Errors -->
     <!--Login Errors -->
