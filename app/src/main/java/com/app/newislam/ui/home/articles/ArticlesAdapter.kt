@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.newislam.databinding.ItemNewsBinding
 import com.app.newislam.model.requests.home.Articles
+import java.util.*
 
 
 class ArticlesAdapter (val listener: OnArticleClicked):
@@ -57,7 +58,9 @@ class ArticlesAdapter (val listener: OnArticleClicked):
                     mArticlesList?.let {
                         val filteredList = arrayListOf<Articles>()
                         for (baseDataItem in mArticlesList!!) {
-                            if (baseDataItem.title.toLowerCase().contains(charString.toLowerCase())) {
+                            if (baseDataItem.title.toLowerCase(Locale.ROOT).contains(charString.toLowerCase(
+                                    Locale.ROOT))
+                            ) {
                                 filteredList.add(baseDataItem)
                             }
                         }

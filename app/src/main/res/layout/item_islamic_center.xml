@@ -34,6 +34,7 @@
                 android:id="@+id/iv_islamic_center"
                 bind:image="@{center.image}"
                 bind:placeholder="@{@drawable/ic_logo_green}"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </androidx.cardview.widget.CardView>

@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.manager.utilities.Constants
 import com.app.newislam.manager.connection.Resource
-import com.app.newislam.model.entities.User
+import com.app.newislam.model.entities.auth.User
 import com.google.gson.Gson
 
 data class ResponseManager constructor(

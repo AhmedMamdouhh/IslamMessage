@@ -15,6 +15,12 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="ChipTextStyle">
+        <item name="android:textSize">@dimen/dp12h</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
 
+
+    </style>
 
 </resources>

@@ -10,6 +10,6 @@ object ApiEndPoints {
     const val ACTIVATION_CODE = "${BASE_URL}${USERS}Confirm"
     const val ISLAMIC_CENTERS = "${BASE_URL}IslamicCenters"
     const val ISLAMIC_CENTER_DETAILS = "${BASE_URL}IslamicCenters/{centerId}"
-    const val ARTICLES = "${BASE_URL}Articles"
+    const val NEWS = "${BASE_URL}Articles"
     const val ARTICLE_DETAILS = "${BASE_URL}Articles/{articleId}"
 }

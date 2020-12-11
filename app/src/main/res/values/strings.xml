@@ -52,10 +52,14 @@
     <string name="home_categories_description">West London Islamic center</string>
     <string name="home_categories_location">England, London city</string>
     <string name="home_categories_time">MON, 28 SEP 2020</string>
+
     <!-- home categories titles -->
     <string name="home_islamic_centers_title">Islamic centers</string>
     <string name="home_events_title">Events</string>
     <string name="home_news_title">News</string>
+
+    <!-- Service list -->
+    <string name="service_list_search_hint">Search for Islamic centers…</string>
 
 
     <!--Errors -->
@@ -80,6 +84,11 @@
     <string name="error_message_title">Error!</string>
     <string name="success_message_title">Success</string>
     <string name="title_activity_home">MainActivity</string>
+    
+    <!-- list place holder errors -->
+    <string name="error_list_try_again">There was a problem\n please click to reload</string>
+
+
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

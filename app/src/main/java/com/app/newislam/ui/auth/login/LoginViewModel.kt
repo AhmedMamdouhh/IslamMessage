@@ -4,14 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.R
 import com.app.newislam.manager.base.BaseViewModel
-import com.app.newislam.manager.base.ResponseManager
-import com.app.newislam.manager.connection.Resource
 import com.app.newislam.manager.utilities.Event
 import com.app.newislam.manager.utilities.Validation
-import com.app.newislam.model.entities.User
 import com.app.newislam.model.requests.auth.login.LoginRequest
 import com.app.newislam.repository.auth.LoginRepository
-import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class LoginViewModel : BaseViewModel() {

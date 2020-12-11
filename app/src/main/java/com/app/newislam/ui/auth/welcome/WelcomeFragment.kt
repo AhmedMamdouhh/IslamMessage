@@ -45,8 +45,6 @@ class WelcomeFragment : Fragment() {
         observeGuestClicked()
         animateScreen()
 
-       // findNavController().navigate(R.id.centersFragment)
-        findNavController().navigate(R.id.articlesFragment)
 
         return welcomeBinding.root
     }

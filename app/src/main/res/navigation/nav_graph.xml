@@ -135,28 +135,22 @@
         android:id="@+id/homeFragment"
         android:name="com.app.newislam.ui.home.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" />
-    <!--Centers-->
-    <dialog
-        android:id="@+id/centersFragment"
-        android:name="com.app.newislam.ui.home.centers.CentersFragment"
-        android:label="CentersFragment">
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_centersFragment_to_centerDetailsFragment"
-            app:destination="@id/centerDetailsFragment"
+            android:id="@+id/action_homeFragment_to_servicesListDialog"
+            app:destination="@id/servicesListDialog"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-    </dialog>
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <!--Service list-->
     <dialog
-        android:id="@+id/articlesFragment"
-        android:name="com.app.newislam.ui.home.articles.ArticlesFragment"
-        android:label="ArticlesFragment" >
-        <action
-            android:id="@+id/action_articlesFragment_to_articleDetailsFragment"
-            app:destination="@id/articleDetailsFragment" />
-    </dialog>
+        android:id="@+id/servicesListDialog"
+        android:name="com.app.newislam.ui.home.services.ServicesListDialog"
+        android:label="ServicesListDialog" />
+
+
     <dialog
         android:id="@+id/centerDetailsFragment"
         android:name="com.app.newislam.ui.home.centers.details.CenterDetailsFragment"
@@ -176,5 +170,6 @@
             android:defaultValue="0"
             app:argType="integer" />
     </dialog>
+
 
 </navigation>

@@ -12,7 +12,7 @@
         tools:context=".ui.MainActivity">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/tb_home_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorWhite"/>
@@ -21,7 +21,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/hostFragment"
-            android:layout_below="@+id/toolbar"
+            android:layout_below="@+id/tb_home_toolbar"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

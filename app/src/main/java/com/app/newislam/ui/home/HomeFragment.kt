@@ -6,17 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.newislam.R
 import com.app.newislam.databinding.FragmentHomeBinding
 import com.app.newislam.manager.utilities.*
+import com.app.newislam.model.entities.home.HomeServiceChips
 import com.app.newislam.ui.MainActivity
 import com.app.newislam.ui.home.home_banner.HomeBannerAdapter
-import com.app.newislam.ui.home.home_categories.HomeCategoriesAdapter
+import com.app.newislam.ui.home.home_services.main_services.HomeMainServicesAdapter
+import com.google.android.material.chip.Chip
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
+
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -29,31 +33,45 @@ class HomeFragment : Fragment() {
         (activity as MainActivity).bottomNavigationVisibility(true)
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        homeViewModel.setBannerData()
-        homeViewModel.setCategoriesData()
 
         observeBannerDataSuccess()
-        observeCategoriesDataSuccess()
+        observeMainServiceDataSuccess()
+        observeChipsDataSuccess()
+
 
         return binding.root
     }
 
-    private fun observeCategoriesDataSuccess() {
-        homeViewModel.observeCategoriesDataSuccess.observe(viewLifecycleOwner, EventObserver {
-            binding.rvHomeCategories.layoutManager = LinearLayoutManager(requireActivity())
-            binding.rvHomeCategories.adapter = HomeCategoriesAdapter(it,homeViewModel,viewLifecycleOwner)
+    private fun observeChipsDataSuccess() {
+        homeViewModel.observeChipsDataSuccess.observe(viewLifecycleOwner,EventObserver{
+            createChips(it)
+        })
+    }
+
+    private fun observeMainServiceDataSuccess() {
+        homeViewModel.observeMainServicesDataSuccess.observe(viewLifecycleOwner, EventObserver {
+            binding.rvHomeMainServices.layoutManager = LinearLayoutManager(requireActivity())
+            binding.rvHomeMainServices.adapter = HomeMainServicesAdapter(it,viewLifecycleOwner)
         })
     }
 
     private fun observeBannerDataSuccess() {
         homeViewModel.observeBannerDataSuccess.observe(viewLifecycleOwner, EventObserver {
-            binding.viewpager.offscreenPageLimit = 1
-            binding.viewpager.adapter = HomeBannerAdapter(it, requireContext())
-            binding.viewpager.setPageTransformer(true, ZoomOutPageTransformer())
+            binding.vpHomeBannerPager.offscreenPageLimit = 1
+            binding.vpHomeBannerPager.adapter = HomeBannerAdapter(it, requireContext())
+            binding.vpHomeBannerPager.setPageTransformer(true, ZoomOutPageTransformer())
         })
     }
 
-
+    private fun createChips(chips: ArrayList<HomeServiceChips>) {
+        chips.map {
+            val chip = Chip(requireContext())
+            chip.text = it.homeChipsName
+            chip.setChipBackgroundColorResource(R.color.colorAccent)
+            chip.setTextAppearanceResource(R.style.ChipTextStyle)
+            binding.cgHomeServicesChips.addView(chip)
+        }
+    }
 
 
 }

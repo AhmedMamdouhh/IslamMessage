@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="homeMainServiceObject"
+            type="com.app.newislam.model.entities.home.services.HomeMainServices" />
+
+        <variable
+            name="clickListener"
+            type="com.app.newislam.ui.home.HomeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <include
+           android:id="@+id/layout_place_holder"
+           layout="@layout/layout_list_place_holder" />
+
+        <View
+            android:id="@+id/v_home_main_service_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp2h"
+            android:alpha="0.1"
+            android:background="@color/colorBlack" />
+
+        <LinearLayout
+            android:id="@+id/ll_home_main_service_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_home_categories_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8w"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:gravity="start"
+                    android:text="@string/home_categories_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/sp16"
+                    app:text="@{homeMainServiceObject.mainServicesTitle}" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8w"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:gravity="end"
+                    android:onClick="@{()-> clickListener.onSeeAllClicked()}"
+                    android:text="@string/home_categories_see_all"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sp14"
+                    app:drawableEndCompat="@drawable/ic_arrow_right_primary" />
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_services"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/dp8w"
+                android:paddingEnd="@dimen/dp8w"
+                tools:listitem="@layout/item_service" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

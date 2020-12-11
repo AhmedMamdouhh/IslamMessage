@@ -1,12 +1,12 @@
 package com.app.newislam.manager.connection
 
-import com.app.newislam.model.entities.User
+import com.app.newislam.model.entities.auth.User
+import com.app.newislam.model.entities.home.services.IslamicCenter
+import com.app.newislam.model.entities.home.services.News
 import com.app.newislam.model.requests.auth.activation_code.ActivationCodeRequest
 import com.app.newislam.model.requests.auth.login.LoginRequest
 import com.app.newislam.model.requests.auth.forgot_password.ForgetPasswordRequest
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
-import com.app.newislam.model.requests.home.ArticlesResponse
-import com.app.newislam.model.requests.home.centers.IslamicCentersResponse
 import com.app.newislam.model.requests.home.articles.ArticleDetailsResponse
 import com.app.newislam.model.requests.home.centers.IslamicCenterDetailsResponse
 import io.reactivex.Flowable
@@ -29,18 +29,18 @@ interface Api {
     fun getIslamicCenters(
         @Query("pageIndex") pageIndex: Int,
         @Query("pageSize") pageSize: Int
-    ): Flowable<Resource<IslamicCentersResponse>>
+    ): Flowable<Resource<PaginationResource<IslamicCenter>>>
 
     @GET(ApiEndPoints.ISLAMIC_CENTER_DETAILS)
     fun getIslamicCenterDetails(
         @Path("centerId") centerId: Int
     ): Flowable<Resource<IslamicCenterDetailsResponse>>
 
-    @GET(ApiEndPoints.ARTICLES)
-    fun getArticles(
+    @GET(ApiEndPoints.NEWS)
+    fun getNews(
         @Query("pageIndex") pageIndex: Int,
         @Query("pageSize") pageSize: Int
-    ): Flowable<Resource<ArticlesResponse>>
+    ): Flowable<Resource<PaginationResource<News>>>
 
     @GET(ApiEndPoints.ARTICLE_DETAILS)
     fun getArticleDetails(

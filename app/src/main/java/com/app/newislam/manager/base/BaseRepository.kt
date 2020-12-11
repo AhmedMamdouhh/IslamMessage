@@ -8,5 +8,4 @@ import org.koin.core.inject
 open class BaseRepository : KoinComponent {
     val api: Api by inject()
     val appSchedulerProvider: AppSchedulerProvider by inject()
-
 }

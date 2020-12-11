@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@color/colorWhite"
+        android:orientation="vertical"
         tools:context=".ui.home.HomeFragment">
 
         <!-- home toolbar -->
@@ -16,7 +16,7 @@
             android:layout_height="?attr/actionBarSize">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/tb_home_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorWhite" />
@@ -43,41 +43,61 @@
 
         </RelativeLayout>
 
-        <!-- home banner -->
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp140h"
-            android:layout_margin="@dimen/dp8w" />
+            android:layout_height="match_parent">
 
-        <!-- service chips title -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/home_service_title"
-            android:fontFamily="@font/montserrat_semi_bold"
-            android:textSize="@dimen/sp16"
-            android:layout_margin="@dimen/dp8w"
-            android:textColor="@color/colorBlack"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <!-- service chips -->
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipsPrograms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp8w"
-            app:chipSpacing="8dp"
-            app:singleSelection="false"/>
+                <!-- home banner -->
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp_home_banner_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp140h"
+                    android:layout_margin="@dimen/dp8w" />
 
-        <!-- categories -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home_categories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:padding="@dimen/dp8w"/>
+                <!-- service chips title -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp8w"
+                    android:layout_marginEnd="@dimen/dp8w"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:text="@string/home_service_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/sp16" />
 
+                <!-- service chips -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
 
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/cg_home_services_chips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:padding="@dimen/dp8w"
+                        app:singleLine="true"
+                        app:singleSelection="false" />
+                </HorizontalScrollView>
+
+                <!-- categories -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_home_main_services"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    tools:listitem="@layout/item_home_main_services"
+                    android:padding="@dimen/dp8w" />
+
+            </LinearLayout>
+
+        </ScrollView>
     </LinearLayout>
 
 

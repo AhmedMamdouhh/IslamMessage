@@ -11,6 +11,7 @@ object Constants{
     const val DELAY_BIG = 2000
 
     const val ACTIVATION_CODE_LENGTH = 6
+    const val PAGE_SIZE = 10
 
     const val MESSAGE = "message"
 
@@ -18,5 +19,11 @@ object Constants{
     const val SUCCESS_SHEET = "successSheet"
     const val ERROR_SHEET = "errorSheet"
     const val NO_CONNECTION_SHEET = "noConnectionSheet"
+
+    //Main services ids :
+    const val ISLAMIC_CENTER_ID = 0
+    const val EVENTS_ID = 1
+    const val NEWS_ID = 2
+
 
 }

@@ -1,47 +1,83 @@
 package com.app.newislam.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.R
 import com.app.newislam.manager.base.BaseViewModel
+import com.app.newislam.manager.utilities.Constants
 import com.app.newislam.manager.utilities.Event
 import com.app.newislam.model.entities.home.*
+import com.app.newislam.model.entities.home.services.HomeMainServices
+import com.app.newislam.ui.home.services.islamic_centers.IslamicCentersViewModel
+import com.app.newislam.ui.home.services.news.NewsViewModel
+import org.koin.core.inject
 
 class HomeViewModel : BaseViewModel() {
 
     //TODO : banner repository
+    //TODO : chips repository
+
+    val islamicCentersViewModel: IslamicCentersViewModel by inject()
+    val newsViewModel: NewsViewModel by inject()
+    //TODO : Events view model
 
     private val _observeBannerDataSuccess = MutableLiveData<Event<ArrayList<HomeBanner>>>()
-    private val _observeCategoriesDataSuccess = MutableLiveData<Event<ArrayList<HomeCategory>>>()
-    private val _observeIslamicCentersDataSuccess = MutableLiveData<Event<ArrayList<IslamicCenter>>>()
-    private val _observeEventsDataSuccess = MutableLiveData<Event<ArrayList<Events>>>()
-    private val _observeNewsDataSuccess = MutableLiveData<Event<ArrayList<News>>>()
+    private val _observeMainServicesDataSuccess = MutableLiveData<Event<ArrayList<HomeMainServices>>>()
+    private val _observeSeeAllClicked = MutableLiveData<Event<Boolean>>()
+    private val _observeChipsDataSuccess = MutableLiveData<Event<ArrayList<HomeServiceChips>>>()
+    private val _observeIslamicCentersPosition = MutableLiveData<Event<Boolean>>()
+    private val _observeEventsPosition = MutableLiveData<Event<Boolean>>()
+    private val _observeNewsPosition = MutableLiveData<Event<Boolean>>()
+
 
     init {
-        setIslamicCentersData()
-        setEventsData()
-        setNewsData()
+        setBannerData()
+        setServiceChipsData()
+        setMainServicesData()
     }
 
+    //click
+    fun onSeeAllClicked() {
+        _observeSeeAllClicked.value = Event(true)
+    }
+
+
+    //other
+    fun servicePositionFactory(serviceId: Int) {
+
+        when (serviceId) {
+            Constants.ISLAMIC_CENTER_ID -> { _observeIslamicCentersPosition.value = Event(true) }
+            Constants.EVENTS_ID -> { _observeEventsPosition.value = Event(true) }
+            Constants.NEWS_ID -> { _observeNewsPosition.value = Event(true) }
+        }
+    }
 
     //getters
     val observeBannerDataSuccess: LiveData<Event<ArrayList<HomeBanner>>>
         get() = _observeBannerDataSuccess
 
-    val observeCategoriesDataSuccess: LiveData<Event<ArrayList<HomeCategory>>>
-        get() = _observeCategoriesDataSuccess
+    val observeMainServicesDataSuccess: LiveData<Event<ArrayList<HomeMainServices>>>
+        get() = _observeMainServicesDataSuccess
 
-    val observeIslamicCentersDataSuccess: LiveData<Event<ArrayList<IslamicCenter>>>
-        get() = _observeIslamicCentersDataSuccess
+    val observeSeeAllClicked: LiveData<Event<Boolean>>
+        get() = _observeSeeAllClicked
 
-    val observeEventsDataSuccess: LiveData<Event<ArrayList<Events>>>
-        get() = _observeEventsDataSuccess
+    val observeChipsDataSuccess: LiveData<Event<ArrayList<HomeServiceChips>>>
+        get() = _observeChipsDataSuccess
 
-    val observeNewsDataSuccess: LiveData<Event<ArrayList<News>>>
-        get() = _observeNewsDataSuccess
+    val observeIslamicCentersPosition: LiveData<Event<Boolean>>
+        get() = _observeIslamicCentersPosition
+
+    val observeEventsPosition: LiveData<Event<Boolean>>
+        get() = _observeEventsPosition
+
+    val observeNewsPosition: LiveData<Event<Boolean>>
+        get() = _observeNewsPosition
+
 
     //DUMMY//
-    fun setBannerData() {
+    private fun setBannerData() {
         val homeBanner = HomeBanner()
 
         homeBanner.homeBannerTitle = "Title"
@@ -56,75 +92,31 @@ class HomeViewModel : BaseViewModel() {
 
         _observeBannerDataSuccess.value = Event(homeBannerList)
     }
+    private fun setServiceChipsData() {
+        val homeChipsArray: ArrayList<HomeServiceChips> = arrayListOf()
 
-    fun setServiceChipsData() {
+
+        homeChipsArray.add(HomeServiceChips(application.getString(R.string.islamic_centers_title)))
+        homeChipsArray.add(HomeServiceChips(application.getString(R.string.islamic_centers_title)))
+        homeChipsArray.add(HomeServiceChips(application.getString(R.string.islamic_centers_title)))
+        homeChipsArray.add(HomeServiceChips(application.getString(R.string.islamic_centers_title)))
+        homeChipsArray.add(HomeServiceChips(application.getString(R.string.islamic_centers_title)))
+        homeChipsArray.add(HomeServiceChips(application.getString(R.string.islamic_centers_title)))
+
+        _observeChipsDataSuccess.value = Event(homeChipsArray)
 
     }
+    private fun setMainServicesData() {
+        val homeCategories = ArrayList<HomeMainServices>()
 
-    fun setCategoriesData() {
-        val homeCategories  = ArrayList<HomeCategory>()
-
-        homeCategories.add(HomeCategory(application.getString(R.string.home_islamic_centers_title)))
-        homeCategories.add(HomeCategory(application.getString(R.string.home_events_title)))
-        homeCategories.add(HomeCategory(application.getString(R.string.home_news_title)))
-
+        homeCategories.add(HomeMainServices(application.getString(R.string.home_islamic_centers_title)))
+        homeCategories.add(HomeMainServices(application.getString(R.string.home_events_title)))
+        homeCategories.add(HomeMainServices(application.getString(R.string.home_news_title)))
 
 
-        _observeCategoriesDataSuccess.value = Event(homeCategories)
+
+        _observeMainServicesDataSuccess.value = Event(homeCategories)
     }
 
-    private fun setIslamicCentersData(){
-        val islamicCenter = IslamicCenter()
 
-        // islamic centers :
-        islamicCenter.islamicCenterImage =
-            "https://static.smarttravelapp.com/data/pois/6034_IslamicCenterMaldives6_1484296678.jpg"
-        islamicCenter.islamicCenterTitle = "West London Islamic center"
-        islamicCenter.islamicCenterLocation = "West London Islamic center"
-
-        val islamicList = ArrayList<IslamicCenter>()
-        islamicList.add(islamicCenter)
-        islamicList.add(islamicCenter)
-        islamicList.add(islamicCenter)
-        islamicList.add(islamicCenter)
-
-        _observeIslamicCentersDataSuccess.value = Event(islamicList)
-    }
-
-    private fun setEventsData(){
-        val event = Events()
-
-        // events :
-        event.eventImage =
-            "https://upload.wikimedia.org/wikipedia/commons/3/3c/Islamic_Center_of_America.jpg"
-        event.eventLocation = "England, London city"
-        event.eventTitle = "West London Islamic center"
-        event.eventTime = "MON, 28 SEP 2020"
-
-        val eventList = ArrayList<Events>()
-        eventList.add(event)
-        eventList.add(event)
-        eventList.add(event)
-        eventList.add(event)
-
-        _observeEventsDataSuccess.value = Event(eventList)
-    }
-
-    private fun setNewsData(){
-        val news = News()
-
-        // news:
-        news.newsImage =
-            "https://static.smarttravelapp.com/data/pois/6034_IslamicCenterMaldives6_1484296678.jpg"
-        news.newsTitle = "West London Islamic center"
-        news.newsTime = "MON, 28 SEP 2020"
-
-        val newsList = ArrayList<News>()
-        newsList.add(news)
-        newsList.add(news)
-        newsList.add(news)
-        newsList.add(news)
-
-        _observeNewsDataSuccess.value = Event(newsList)
-    }
 }

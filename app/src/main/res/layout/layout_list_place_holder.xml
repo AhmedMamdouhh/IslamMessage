@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_list_place_holder_parent"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp200h">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_list_place_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/list_loading" />
+
+    <RelativeLayout
+        android:id="@+id/tv_list_place_holder_no_connection_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.3"
+            android:background="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_list_place_holder_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/error_list_try_again"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:gravity="center"
+            android:layout_margin="@dimen/dp16w"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/montserrat_bold"/>
+
+            <ImageView
+                android:layout_below="@+id/tv_list_place_holder_title"
+                android:layout_width="@dimen/dp45w"
+                android:layout_height="@dimen/dp45h"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_refresh_white"
+                tools:ignore="ContentDescription" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

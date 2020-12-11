@@ -1,4 +1,4 @@
-package com.app.newislam.model.entities
+package com.app.newislam.model.entities.auth
 
 import com.google.gson.annotations.SerializedName
 

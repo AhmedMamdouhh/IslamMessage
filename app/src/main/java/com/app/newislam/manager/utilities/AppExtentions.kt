@@ -1,6 +1,7 @@
 package com.app.newislam.manager.utilities
 
 import android.annotation.SuppressLint
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,11 +13,11 @@ fun AppCompatActivity.toolBarVisibility(isVisible: Boolean){
 
     when(isVisible){
         true ->{
-            toolbar?.isVisible = true
+            tb_home_toolbar?.isVisible = true
             bottom_nav_view.isVisible = true
         }
         false ->{
-            toolbar?.isVisible = false
+            tb_home_toolbar?.isVisible = false
             bottom_nav_view.isVisible = false
         }
     }
