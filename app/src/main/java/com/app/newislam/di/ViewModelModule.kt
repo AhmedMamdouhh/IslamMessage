@@ -10,6 +10,8 @@ import com.app.newislam.ui.home.HomeViewModel
 import com.app.newislam.ui.home.articles.details.ArticleDetailsViewModel
 import com.app.newislam.ui.home.centers.details.CenterDetailsViewModel
 import com.app.newislam.ui.home.home_banner.HomeBannerViewModel
+import com.app.newislam.ui.home.im_services.IslamMessageServicesViewModel
+import com.app.newislam.ui.home.notifications.NotificationViewModel
 import com.app.newislam.ui.home.services.ServiceListViewModel
 import com.app.newislam.ui.home.services.islamic_centers.IslamicCentersViewModel
 import com.app.newislam.ui.home.services.news.NewsViewModel
@@ -34,4 +36,6 @@ val viewModelModule = module {
     viewModel { IslamicCentersViewModel() }
     viewModel { CenterDetailsViewModel() }
     viewModel { ArticleDetailsViewModel() }
+    viewModel { NotificationViewModel() }
+    viewModel { IslamMessageServicesViewModel() }
 }

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.app.newislam.ui.home.notifications.NotificationViewModel" />
+
+        <variable
+            name="notificaiton"
+            type="com.app.newislam.model.entities.home.notification.NotificationResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:elevation="1dp"
+        android:onClick="@{()->clickListener.notificationItemClicked()}">
+
+        <ImageView
+            android:id="@+id/iv_notification"
+            android:layout_width="@dimen/dp30w"
+            android:layout_height="@dimen/dp30h"
+            android:layout_marginStart="@dimen/dp18w"
+            android:layout_marginTop="@dimen/dp20h"
+            android:src="@drawable/ic_home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_notification_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp20h"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:fontFamily="@font/montserrat_bold"
+            android:text='@{notificaiton.title??""}'
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_notification"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text='New notification' />
+
+        <TextView
+            android:id="@+id/tv_notification_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp2h"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text='@{notificaiton.details??""}'
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_notification"
+            app:layout_constraintTop_toBottomOf="@+id/tv_notification_title"
+            tools:text='There are many variations of passages.' />
+
+        <TextView
+            android:id="@+id/tv_notification_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp4h"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:layout_marginBottom="@dimen/dp10h"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text='@{notificaiton.date??""}'
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_notification_details"
+            tools:text='10 hours' />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

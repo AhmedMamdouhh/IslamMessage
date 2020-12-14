@@ -46,6 +46,9 @@ class WelcomeFragment : Fragment() {
         animateScreen()
 
 
+      //  findNavController().navigate(R.id.notificationFragment)
+      //  findNavController().navigate(R.id.islamMessageServicesFragment)
+
         return welcomeBinding.root
     }
 

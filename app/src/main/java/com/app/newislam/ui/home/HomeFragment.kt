@@ -28,17 +28,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        if (savedInstanceState == null) {
+            (activity as MainActivity).toolBarVisibility(false)
+            (activity as MainActivity).bottomNavigationVisibility(true)
 
-        (activity as MainActivity).toolBarVisibility(false)
-        (activity as MainActivity).bottomNavigationVisibility(true)
+            binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+            observeBannerDataSuccess()
+            observeMainServiceDataSuccess()
+            observeChipsDataSuccess()
 
-        observeBannerDataSuccess()
-        observeMainServiceDataSuccess()
-        observeChipsDataSuccess()
-
-
+        }
         return binding.root
     }
 

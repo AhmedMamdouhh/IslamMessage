@@ -20,6 +20,9 @@ import com.app.newislam.repository.home.services.NewsRepository
 import com.app.newislam.repository.home.services.IslamicCentersRepository
 import com.app.newislam.ui.home.articles.details.ArticleDetailsRepository
 import com.app.newislam.ui.home.centers.details.CenterDetailsRepository
+import com.app.newislam.ui.home.im_services.IslamMessageServicesRepository
+import com.app.newislam.ui.home.notifications.NotificationRepository
+import com.app.newislam.ui.home.notifications.NotificationViewModel
 import org.koin.dsl.module
 
 
@@ -56,5 +59,7 @@ val apiModule = module {
     single { NewsRepository() }
     single { CenterDetailsRepository() }
     single { ArticleDetailsRepository() }
+    single { NotificationRepository() }
+    single { IslamMessageServicesRepository() }
 
 }
