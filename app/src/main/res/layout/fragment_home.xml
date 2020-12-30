@@ -21,14 +21,15 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorWhite" />
 
-            <ImageView
-                android:layout_width="@dimen/dp25w"
-                android:layout_height="@dimen/dp25w"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/dp8w"
-                android:layout_marginEnd="@dimen/dp8w"
-                android:contentDescription="@string/chuck_search"
-                android:src="@drawable/ic_search" />
+            <!-- TODO : show and implement search -->
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/dp25w"-->
+<!--                android:layout_height="@dimen/dp25w"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginStart="@dimen/dp8w"-->
+<!--                android:layout_marginEnd="@dimen/dp8w"-->
+<!--                android:contentDescription="@string/chuck_search"-->
+<!--                android:src="@drawable/ic_search" />-->
 
             <TextView
                 android:layout_width="wrap_content"

@@ -58,13 +58,13 @@
                     app:text="@{homeMainServiceObject.mainServicesTitle}" />
 
                 <TextView
+                    android:id="@+id/tv_home_main_services_see_all"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp8w"
                     android:layout_weight="1"
                     android:fontFamily="@font/montserrat_semi_bold"
                     android:gravity="end"
-                    android:onClick="@{()-> clickListener.onSeeAllClicked()}"
                     android:text="@string/home_categories_see_all"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/sp14"

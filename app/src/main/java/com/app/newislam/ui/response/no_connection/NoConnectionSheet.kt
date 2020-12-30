@@ -22,7 +22,7 @@ class NoConnectionSheet : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         noConnectionBinding =
             DataBindingUtil.inflate(inflater, R.layout.layout_no_connection, container, false)
         noConnectionBinding.lifecycleOwner = this

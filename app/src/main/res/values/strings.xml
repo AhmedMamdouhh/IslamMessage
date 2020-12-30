@@ -59,8 +59,39 @@
     <string name="home_news_title">News</string>
 
     <!-- Service list -->
-    <string name="service_list_search_hint">Search for Islamic centers…</string>
-
+    <string name="service_list_search_hint">Search for %s … </string>
+    
+    <!-- More -->
+    <string name="more_user_name">Ahmed Kareem</string>
+    <string name="more_user_email">ahmed.kareem@gmail.com</string>
+    <string name="more_account">Account</string>
+    <string name="more_edit_profile">Edit Profile</string>
+    <string name="more_favorites">Favorites</string>
+    <string name="more_subscriptions">Subscriptions</string>
+    <string name="more_settings">Settings</string>
+    <string name="more_change_password">Change password</string>
+    <string name="more_notifications_settings">Notifications settings</string>
+    <string name="more_language_title">Language</string>
+    <string name="more_language">English</string>
+    <string name="more_about_app">About App</string>
+    <string name="more_rate_us">Rate us</string>
+    <string name="more_share">Share app</string>
+    <string name="more_about_us">About us</string>
+    <string name="more_terms_and_conditions">Terms &amp; Conditions</string>
+    
+    <!-- profile -->
+    <string name="profile_photo_hint">Edit profile photo</string>
+    <string name="profile_name_title">Name</string>
+    <string name="profile_name">Ahmed Kareem</string>
+    <string name="profile_email_title">Email address</string>
+    <string name="profile_email">ahmed.kareem@gmail.com</string>
+    <string name="profile_phone_title">Mobile Number (Optional)</string>
+    <string name="profile_phone">Your mobile number…</string>
+    <string name="profile_phone_code">+20</string>
+    <string name="profile_gender_title">Gender</string>
+    <string name="profile_gender_male">Male</string>
+    <string name="profile_gender_female">Female</string>
+    <string name="profile_save">Save Changes</string>
 
     <!--Errors -->
     <!--Login Errors -->

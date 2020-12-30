@@ -25,5 +25,8 @@ object Constants{
     const val EVENTS_ID = 1
     const val NEWS_ID = 2
 
+    //Services
+
+
 
 }

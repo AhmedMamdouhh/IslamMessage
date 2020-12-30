@@ -21,7 +21,7 @@ class SuccessSheet : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         successBinding =
             DataBindingUtil.inflate(inflater, R.layout.layout_success, container, false)
         getBundleMessage()

@@ -15,6 +15,7 @@ import com.app.newislam.repository.auth.ActivationCodeRepository
 import com.app.newislam.repository.auth.ForgerPasswordRepository
 import com.app.newislam.repository.auth.LoginRepository
 import com.app.newislam.repository.auth.RegisterRepository
+import com.app.newislam.repository.home.banner.HomeBannerRepository
 import com.app.newislam.repository.home.services.NewsRepository
 import com.app.newislam.repository.home.services.IslamicCentersRepository
 import com.app.newislam.ui.home.articles.details.ArticleDetailsRepository
@@ -48,6 +49,8 @@ val apiModule = module {
     single { User() }
 
     //Home
+    single { HomeBannerRepository() }
+
     //centers
     single { IslamicCentersRepository() }
     single { NewsRepository() }

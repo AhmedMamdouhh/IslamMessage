@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.app.newislam.ui.auth.welcome.WelcomeViewModel" />
+            type="com.app.newislam.ui.splash.welcome.WelcomeViewModel" />
     </data>
 
     <ScrollView

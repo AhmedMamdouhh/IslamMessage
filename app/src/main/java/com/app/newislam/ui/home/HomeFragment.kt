@@ -51,12 +51,12 @@ class HomeFragment : Fragment() {
     private fun observeMainServiceDataSuccess() {
         homeViewModel.observeMainServicesDataSuccess.observe(viewLifecycleOwner, EventObserver {
             binding.rvHomeMainServices.layoutManager = LinearLayoutManager(requireActivity())
-            binding.rvHomeMainServices.adapter = HomeMainServicesAdapter(it,viewLifecycleOwner)
+            binding.rvHomeMainServices.adapter = HomeMainServicesAdapter(it,viewLifecycleOwner,homeViewModel)
         })
     }
 
     private fun observeBannerDataSuccess() {
-        homeViewModel.observeBannerDataSuccess.observe(viewLifecycleOwner, EventObserver {
+        homeViewModel.homeBannerViewModel.observeHomeBannerData.observe(viewLifecycleOwner, EventObserver {
             binding.vpHomeBannerPager.offscreenPageLimit = 1
             binding.vpHomeBannerPager.adapter = HomeBannerAdapter(it, requireContext())
             binding.vpHomeBannerPager.setPageTransformer(true, ZoomOutPageTransformer())

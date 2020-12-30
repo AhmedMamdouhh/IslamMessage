@@ -5,11 +5,11 @@ import com.app.newislam.ui.auth.activation_code.ActivationCodeViewModel
 import com.app.newislam.ui.auth.login.LoginViewModel
 import com.app.newislam.ui.auth.forgot_password.ForgotPasswordViewModel
 import com.app.newislam.ui.auth.register.RegisterViewModel
-import com.app.newislam.ui.auth.welcome.WelcomeViewModel
+import com.app.newislam.ui.splash.welcome.WelcomeViewModel
 import com.app.newislam.ui.home.HomeViewModel
 import com.app.newislam.ui.home.articles.details.ArticleDetailsViewModel
-import com.app.newislam.ui.home.centers.CentersViewModel
 import com.app.newislam.ui.home.centers.details.CenterDetailsViewModel
+import com.app.newislam.ui.home.home_banner.HomeBannerViewModel
 import com.app.newislam.ui.home.services.ServiceListViewModel
 import com.app.newislam.ui.home.services.islamic_centers.IslamicCentersViewModel
 import com.app.newislam.ui.home.services.news.NewsViewModel
@@ -28,10 +28,10 @@ val viewModelModule = module {
     viewModel { ForgotPasswordViewModel() }
     viewModel { WelcomeViewModel() }
     viewModel { HomeViewModel() }
-    viewModel { CentersViewModel() }
+    viewModel { HomeBannerViewModel() }
     viewModel { NewsViewModel() }
+    viewModel { ServiceListViewModel() }
+    viewModel { IslamicCentersViewModel() }
     viewModel { CenterDetailsViewModel() }
     viewModel { ArticleDetailsViewModel() }
-    viewModel { IslamicCentersViewModel() }
-    viewModel { ServiceListViewModel() }
 }

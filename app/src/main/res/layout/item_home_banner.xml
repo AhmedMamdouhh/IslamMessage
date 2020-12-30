@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -12,49 +11,52 @@
 
     </data>
 
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_margin="@dimen/dp8w"
-    android:layout_height="@dimen/dp140h"
-    app:cardBackgroundColor="@color/colorPrimary"
-    app:cardCornerRadius="@dimen/dp8w">
-
-    <LinearLayout
-        android:orientation="vertical"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp16w">
+        android:layout_height="@dimen/dp150h"
+        android:layout_margin="@dimen/dp8w"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="@dimen/dp8w">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:fontFamily="@font/montserrat_bold"
-            android:textSize="@dimen/sp12"
-            tools:text="@string/home_banner_welcome" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_banner_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:fontFamily="@font/montserrat_bold"
-            android:textSize="@dimen/sp24"
-            app:text="@{bannerObject.homeBannerTitle}"
-            android:text="@string/home_banner_title" />
 
-        <TextView
-            android:layout_marginTop="@dimen/dp8w"
-            android:id="@+id/tv_banner_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/sp13"
-            android:fontFamily="@font/montserrat_regular"
-            app:text="@{bannerObject.homeBannerDescription}"
-            android:text="@string/home_banner_details"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp100h"
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/dp8w">
 
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/iv_banner_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"
+                    android:src="@drawable/img_islamic_center" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_banner_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp8w"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/home_banner_title"
+                android:textColor="@color/colorWhite"
+                android:layout_marginStart="@dimen/dp8w"
+                android:layout_marginEnd="@dimen/dp8w"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textSize="@dimen/sp15"
+                app:text="@{bannerObject.homeBannerTitle}" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </layout>

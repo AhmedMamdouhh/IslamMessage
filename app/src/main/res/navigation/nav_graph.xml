@@ -34,7 +34,7 @@
     <!--welcome-->
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.app.newislam.ui.auth.welcome.WelcomeFragment"
+        android:name="com.app.newislam.ui.splash.welcome.WelcomeFragment"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_registrationFragment"
@@ -136,19 +136,15 @@
         android:name="com.app.newislam.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
+
         <action
-            android:id="@+id/action_homeFragment_to_servicesListDialog"
-            app:destination="@id/servicesListDialog"
+            android:id="@+id/action_homeFragment_to_serviceContainer"
+            app:destination="@id/serviceContainer"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
-    <!--Service list-->
-    <dialog
-        android:id="@+id/servicesListDialog"
-        android:name="com.app.newislam.ui.home.services.ServicesListDialog"
-        android:label="ServicesListDialog" />
 
 
     <dialog
@@ -169,6 +165,20 @@
             android:name="articleId"
             android:defaultValue="0"
             app:argType="integer" />
+    </dialog>
+
+    <!--Service container-->
+    <dialog
+        android:id="@+id/serviceContainer"
+        android:name="com.app.newislam.ui.home.services.ServicesContainerDialog"
+        android:label="ServiceContainer" >
+        <argument
+            android:name="serviceList"
+            app:argType="com.app.newislam.model.entities.home.services.HomeMainServices" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </dialog>
 
 

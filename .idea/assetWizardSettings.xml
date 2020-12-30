@@ -3,6 +3,11 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+        <entry key="imageWizard">
+          <value>
+            <PersistentState />
+          </value>
+        </entry>
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -18,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Sdk/icons/material/materialicons/search/baseline_search_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Sdk/icons/material/materialicons/keyboard_arrow_down/baseline_keyboard_arrow_down_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +33,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="opacityPercent" value="40" />
-                            <entry key="outputName" value="ic_search" />
-                            <entry key="sourceFile" value="C:\Users\ahmed\Downloads\ic_services.svg" />
+                            <entry key="outputName" value="ic_arrow_down" />
+                            <entry key="sourceFile" value="C:\Users\ahmed\Downloads\girl.svg" />
                           </map>
                         </option>
                       </PersistentState>

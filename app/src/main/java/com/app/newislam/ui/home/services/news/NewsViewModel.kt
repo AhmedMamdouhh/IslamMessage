@@ -1,8 +1,10 @@
 package com.app.newislam.ui.home.services.news
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.manager.base.BaseViewModel
+import com.app.newislam.manager.connection.PaginationResource
 import com.app.newislam.manager.utilities.Constants
 import com.app.newislam.manager.utilities.Event
 import com.app.newislam.model.entities.home.services.News
@@ -16,8 +18,8 @@ class NewsViewModel : BaseViewModel() {
     private val items = arrayListOf<News>()
     private val newsRepository: NewsRepository by inject()
 
-    private val _observeNews = MutableLiveData<Event<ArrayList<News>>>()
-    val observeNews: LiveData<Event<ArrayList<News>>>
+    private val _observeNews = MutableLiveData<Event<PaginationResource<News>>>()
+    val observeNews: LiveData<Event<PaginationResource<News>>>
         get() = _observeNews
 
     init {
@@ -28,9 +30,10 @@ class NewsViewModel : BaseViewModel() {
         disposable.add(
             newsRepository.getNews(page, Constants.PAGE_SIZE).subscribe({ data ->
                 if (data != null) {
-                    _observeNews.value = Event(data.data?.items!!)
+                    _observeNews.value = Event(data.data!!)
                     items.addAll(data.data?.items!!)
                     hasNextPage = data.data?.hasNextPage ?: false
+                    page = data.data!!.pageIndex + 1
                 } else responseManager.noConnection()
             }, {
                 responseManager.failed(it.message)

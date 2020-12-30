@@ -9,6 +9,7 @@ import com.app.newislam.manager.utilities.Constants
 import com.app.newislam.manager.utilities.Event
 import com.app.newislam.model.entities.home.*
 import com.app.newislam.model.entities.home.services.HomeMainServices
+import com.app.newislam.ui.home.home_banner.HomeBannerViewModel
 import com.app.newislam.ui.home.services.islamic_centers.IslamicCentersViewModel
 import com.app.newislam.ui.home.services.news.NewsViewModel
 import org.koin.core.inject
@@ -20,22 +21,21 @@ class HomeViewModel : BaseViewModel() {
 
     val islamicCentersViewModel: IslamicCentersViewModel by inject()
     val newsViewModel: NewsViewModel by inject()
+    val homeBannerViewModel : HomeBannerViewModel by inject()
+
     //TODO : Events view model
 
     private val _observeBannerDataSuccess = MutableLiveData<Event<ArrayList<HomeBanner>>>()
     private val _observeMainServicesDataSuccess = MutableLiveData<Event<ArrayList<HomeMainServices>>>()
     private val _observeSeeAllClicked = MutableLiveData<Event<Boolean>>()
     private val _observeChipsDataSuccess = MutableLiveData<Event<ArrayList<HomeServiceChips>>>()
-    private val _observeIslamicCentersPosition = MutableLiveData<Event<Boolean>>()
-    private val _observeEventsPosition = MutableLiveData<Event<Boolean>>()
-    private val _observeNewsPosition = MutableLiveData<Event<Boolean>>()
 
 
     init {
-        setBannerData()
         setServiceChipsData()
         setMainServicesData()
     }
+
 
     //click
     fun onSeeAllClicked() {
@@ -43,15 +43,6 @@ class HomeViewModel : BaseViewModel() {
     }
 
 
-    //other
-    fun servicePositionFactory(serviceId: Int) {
-
-        when (serviceId) {
-            Constants.ISLAMIC_CENTER_ID -> { _observeIslamicCentersPosition.value = Event(true) }
-            Constants.EVENTS_ID -> { _observeEventsPosition.value = Event(true) }
-            Constants.NEWS_ID -> { _observeNewsPosition.value = Event(true) }
-        }
-    }
 
     //getters
     val observeBannerDataSuccess: LiveData<Event<ArrayList<HomeBanner>>>
@@ -65,15 +56,6 @@ class HomeViewModel : BaseViewModel() {
 
     val observeChipsDataSuccess: LiveData<Event<ArrayList<HomeServiceChips>>>
         get() = _observeChipsDataSuccess
-
-    val observeIslamicCentersPosition: LiveData<Event<Boolean>>
-        get() = _observeIslamicCentersPosition
-
-    val observeEventsPosition: LiveData<Event<Boolean>>
-        get() = _observeEventsPosition
-
-    val observeNewsPosition: LiveData<Event<Boolean>>
-        get() = _observeNewsPosition
 
 
     //DUMMY//

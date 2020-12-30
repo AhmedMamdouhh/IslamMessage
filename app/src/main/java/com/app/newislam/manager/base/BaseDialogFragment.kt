@@ -3,6 +3,7 @@ package com.app.newislam.manager.base
 import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.app.newislam.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -12,6 +13,7 @@ open class BaseDialogFragment : BottomSheetDialogFragment() {
     private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
     override fun onStart() {
         super.onStart()
+        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         val dialog = dialog
         var bottomSheet: View? = null
         if (dialog != null) {

@@ -1,7 +1,5 @@
 package com.app.newislam.manager.utilities
 
-import java.util.concurrent.atomic.AtomicBoolean
-
 open class Event<out T>(private val content: T) {
 
     var hasBeenHandled = false

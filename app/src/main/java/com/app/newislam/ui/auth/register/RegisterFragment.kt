@@ -18,7 +18,6 @@ import com.app.newislam.manager.utilities.bottomNavigationVisibility
 import com.app.newislam.manager.utilities.toolBarVisibility
 import com.app.newislam.model.requests.auth.register.RegistrationRequest
 import com.app.newislam.ui.MainActivity
-import kotlinx.android.synthetic.main.toolbar.view.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -33,7 +32,7 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         (activity as MainActivity).toolBarVisibility(true)
         (activity as MainActivity).bottomNavigationVisibility(false)

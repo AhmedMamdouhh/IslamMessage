@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_service"
+    app:startDestination="@id/servicesListDialog">
+
+    <!--Service list-->
+    <fragment
+        android:id="@+id/servicesListDialog"
+        android:name="com.app.newislam.ui.home.services.ServicesListDialog"
+        android:label="ServicesListDialog" >
+        <argument
+            android:name="serviceList"
+            app:argType="com.app.newislam.model.entities.home.services.HomeMainServices" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+
+</navigation>

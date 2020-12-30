@@ -68,12 +68,12 @@ val dataModule = module {
             val request =
                 original.newBuilder()
                     .header("Content-Type", "application/json")
-                    //   .header("Accept", "*/*")
-////                            .header("language-id", apiHeader.languageId)
+                       .header("Accept", "*/*")
+//                            .header("language-id", apiHeader.languageId)
 //                            .header("language", apiHeader.language)
 //                            .header("country-id", apiHeader.countryId.toString())
 //                            .header("device-token", apiHeader.deviceToken)
-//                            .header("Authorization","_")
+                            .header("Authorization","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWhtZWQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3VzZXJkYXRhIjoiNSIsImp0aSI6IkFobWVkIiwiZXhwIjoxNjExNTc5MTUzLCJpc3MiOiJJU0xBTV9NRVNTQUdFX0FQSSIsImF1ZCI6IklTTEFNX01FU1NBR0VfTU9CSUxFIn0.OVJYeKQL_8ru3rbl7TnD1vDhghjokVagSj3QCtEMiqY")
                     .method(original.method, original.body).build()
 
             return@Interceptor chain.proceed(request)

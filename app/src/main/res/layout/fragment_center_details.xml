@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/center_toolbar"
+            android:id="@+id/tb_service_list_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorWhite"
