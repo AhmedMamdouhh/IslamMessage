@@ -40,13 +40,14 @@ class HomeFragment : Fragment() {
             observeChipsDataSuccess()
 
             //findNavController().navigate(R.id.languagesFragment)
-            findNavController().navigate(R.id.aboutFragment)
+            //findNavController().navigate(R.id.aboutFragment)
+            findNavController().navigate(R.id.termsFragment)
         }
         return binding.root
     }
 
     private fun observeChipsDataSuccess() {
-        homeViewModel.observeChipsDataSuccess.observe(viewLifecycleOwner,EventObserver{
+        homeViewModel.observeChipsDataSuccess.observe(viewLifecycleOwner, EventObserver {
             createChips(it)
         })
     }
@@ -54,16 +55,19 @@ class HomeFragment : Fragment() {
     private fun observeMainServiceDataSuccess() {
         homeViewModel.observeMainServicesDataSuccess.observe(viewLifecycleOwner, EventObserver {
             binding.rvHomeMainServices.layoutManager = LinearLayoutManager(requireActivity())
-            binding.rvHomeMainServices.adapter = HomeMainServicesAdapter(it,viewLifecycleOwner,homeViewModel)
+            binding.rvHomeMainServices.adapter =
+                HomeMainServicesAdapter(it, viewLifecycleOwner, homeViewModel)
         })
     }
 
     private fun observeBannerDataSuccess() {
-        homeViewModel.homeBannerViewModel.observeHomeBannerData.observe(viewLifecycleOwner, EventObserver {
-            binding.vpHomeBannerPager.offscreenPageLimit = 1
-            binding.vpHomeBannerPager.adapter = HomeBannerAdapter(it, requireContext())
-            binding.vpHomeBannerPager.setPageTransformer(true, ZoomOutPageTransformer())
-        })
+        homeViewModel.homeBannerViewModel.observeHomeBannerData.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                binding.vpHomeBannerPager.offscreenPageLimit = 1
+                binding.vpHomeBannerPager.adapter = HomeBannerAdapter(it, requireContext())
+                binding.vpHomeBannerPager.setPageTransformer(true, ZoomOutPageTransformer())
+            })
     }
 
     private fun createChips(chips: ArrayList<HomeServiceChips>) {

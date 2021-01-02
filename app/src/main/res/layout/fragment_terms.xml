@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.app.newislam.ui.profile.terms.TermsAndConditionsViewModel" />
+    </data>
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/dp30w"
+                android:layout_margin="@dimen/dp16h"
+                android:background="@color/colorWhite"
+                app:cardCornerRadius="@dimen/dp24w"
+                app:cardElevation="@dimen/dp4w"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{()->viewModel.onCloseClicked()}"
+                android:layout_height="@dimen/dp30h">
+                <ImageView
+                    android:padding="@dimen/dp4w"
+                    android:src="@drawable/ic_close_black"
+                    android:layout_width="@dimen/dp30h"
+                    android:layout_height="@dimen/dp30h"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:src="@drawable/ic_logo_green"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/dp50w"
+                android:layout_height="@dimen/dp50h"/>
+
+            <TextView
+                android:padding="@dimen/dp4w"
+                android:layout_margin="@dimen/dp8w"
+                android:textSize="@dimen/sp15"
+                android:textColor="@color/colorBlack"
+                android:text="Terms"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:id="@+id/tv_terms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

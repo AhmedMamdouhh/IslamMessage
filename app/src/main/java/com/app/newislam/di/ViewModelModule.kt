@@ -17,6 +17,7 @@ import com.app.newislam.ui.home.services.islamic_centers.IslamicCentersViewModel
 import com.app.newislam.ui.home.services.news.NewsViewModel
 import com.app.newislam.ui.profile.about.AboutViewModel
 import com.app.newislam.ui.profile.language.LanguagesViewModel
+import com.app.newislam.ui.profile.terms.TermsAndConditionsViewModel
 import com.app.newislam.ui.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -42,4 +43,5 @@ val viewModelModule = module {
     viewModel { IslamMessageServicesViewModel() }
     viewModel { LanguagesViewModel() }
     viewModel { AboutViewModel() }
+    viewModel { TermsAndConditionsViewModel() }
 }
