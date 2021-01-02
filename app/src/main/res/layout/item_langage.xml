@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.app.newislam.ui.profile.language.LanguagesAdapter" />
+
+        <variable
+            name="language"
+            type="com.app.newislam.model.entities.home.LanguageResponse" />
+    </data>
+
+    <TextView
+        android:text='@{language.languageName??""}'
+        android:onClick="@{()->adapter.onLanguageItemClicked(language)}"
+        android:id="@+id/tv_language_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp12h"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="@dimen/dp10w"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp17"
+        tools:text="Arabic" />
+
+</layout>

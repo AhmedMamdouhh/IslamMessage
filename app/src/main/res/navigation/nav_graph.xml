@@ -194,6 +194,18 @@
             app:argType="integer"
             android:defaultValue="0" />
     </dialog>
+    <dialog
+        tools:layout="@layout/change_language_sheet"
+        android:id="@+id/languagesFragment"
+        android:name="com.app.newislam.ui.profile.language.LanguagesFragment"
+        android:label="LanguagesFragment" />
+
+
+    <dialog
+        tools:layout="@layout/fragmnet_about"
+        android:id="@+id/aboutFragment"
+        android:name="com.app.newislam.ui.profile.about.AboutFragment"
+        android:label="About" />
 
 
 </navigation>

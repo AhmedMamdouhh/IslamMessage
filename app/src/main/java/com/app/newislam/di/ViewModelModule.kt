@@ -15,6 +15,8 @@ import com.app.newislam.ui.home.notifications.NotificationViewModel
 import com.app.newislam.ui.home.services.ServiceListViewModel
 import com.app.newislam.ui.home.services.islamic_centers.IslamicCentersViewModel
 import com.app.newislam.ui.home.services.news.NewsViewModel
+import com.app.newislam.ui.profile.about.AboutViewModel
+import com.app.newislam.ui.profile.language.LanguagesViewModel
 import com.app.newislam.ui.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -38,4 +40,6 @@ val viewModelModule = module {
     viewModel { ArticleDetailsViewModel() }
     viewModel { NotificationViewModel() }
     viewModel { IslamMessageServicesViewModel() }
+    viewModel { LanguagesViewModel() }
+    viewModel { AboutViewModel() }
 }
