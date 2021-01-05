@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.app.newislam.ui.home.feedback.FeedBackViewModel" />
+
+        <variable
+            name="feedbackRequest"
+            type="com.app.newislam.model.requests.home.feedback.FeedbackRequest" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bottom_sheet">
+
+        <ImageView
+            android:id="@+id/iv_rate_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp30h"
+            android:background="@drawable/ic_logo_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/rb_app_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16h"
+            android:numStars="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_rate_logo"
+            tools:layout_editor_absoluteY="-4dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/appCompatEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16h"
+            android:background="@drawable/shape_gray"
+            android:gravity="top"
+            android:hint="@string/happy_to_get_your_feedback"
+            android:minHeight="@dimen/dp80h"
+            android:padding="@dimen/dp8w"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rb_app_rating" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_send_feedBack"
+            android:layout_width="@dimen/dp100w"
+            android:layout_height="@dimen/dp40h"
+            android:layout_margin="@dimen/dp16h"
+            android:onClick="@{()->viewModel.sendFeedBack(feedbackRequest)}"
+            android:text="@string/forget_send"
+            android:textAllCaps="false"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatEditText" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40h"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_send_feedBack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
