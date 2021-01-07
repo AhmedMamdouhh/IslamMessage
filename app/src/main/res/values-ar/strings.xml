@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">New Islam</string>
+
+    <!--Welcome-->
+    <string name="welcome_to_islam_message">مرحبا بك \n رساله الاسلام</string>
+
+    <!--Reset password-->
+    <string name="reset_save_password">الاحتفاظ بكلمة المرور</string>
+    <string name="reset_confirm_your_password">تاكيد كلمه المرور</string>
+    <string name="reset_confirm_password">تاكيد كلمه المرور</string>
+    <string name="reset_enter_your_password">ادخل كلمه المرور</string>
+    <string name="reset_new_password">كلمه مرور جديده</string>
+
+    <!--Login-->
+    <string name="login_title">الدخول</string>
+    <string name="login_email_address">البردي الالكتروني</string>
+    <string name="login_enter_your_email">ادخل البريد الالكتروني</string>
+    <string name="login_enter_password">ادخل كلمه المرور</string>
+    <string name="login_enter_your_password">ادخل كلمه المرور</string>
+    <string name="login_forgot_password">هل نسيت كلمه المرور؟</string>
+    <string name="login_login">الدخول</string>
+    <string name="login_don_t_have_an_account">ليس لديك حساب؟</string>
+    <string name="login_register">انشاء حساب</string>
+
+    <!--Forget Password-->
+    <string name="forget_send">ارسال</string>
+    <string name="forget_enter_your_email">ادخل البريد الالكتروني</string>
+    <string name="forget_email_address"> البريد الالكتروني</string>
+    <string name="forget_please_enter_your_email_address_to_rese_nyour_password">من فضلك ادخل البريد الالكتروني \n لتغير كلمه المرور</string>
+
+    <!--Activation code-->
+    <string name="activation_code_title">تعفيل البريد الالكترونب</string>
+    <string name="activation_code_description">من فضلك ادخل الرقم الذي تم ارساله الي البريد الالكتروني</string>
+    <string name="activation_code_submit">تفعيل رقم التاكيد</string>
+    <string name="activation_code_resend_title">لم يصل اليك الرقم؟</string>
+    <string name="activation_code_resend">اعاده الارسال</string>
+
+    <!--Bottom navigation-->
+    <string name="bottom_navigation_home">الرئيسية</string>
+    <string name="bottom_navigation_more">المزيد</string>
+    <string name="bottom_navigation_notifications">الاشعارات</string>
+    <string name="bottom_navigation_services">الخدمات</string>
+
+    <!-- Home -->
+    <string name="home_title">الرئيسية</string>
+    <string name="home_banner_welcome">مرحبا بك في</string>
+    <string name="home_banner_title">رساله الاسلام</string>
+    <string name="home_banner_details">It is a long established fact that a reader will be distracted by the readable.</string>
+    <string name="home_service_title">الخدمات</string>
+    <string name="home_categories_title">المراكز الاسلاميه</string>
+    <string name="home_categories_see_all">الكل</string>
+    <string name="home_categories_description">المركز الاسلامي شرقي لندن</string>
+    <string name="home_categories_location">انجلترا..لندن</string>
+    <string name="home_categories_time">الاثنين 29 يناير</string>
+
+    <!-- home categories titles -->
+    <string name="home_islamic_centers_title">المراكز الاسلاميه</string>
+    <string name="home_events_title">الاحداث</string>
+    <string name="home_news_title">المقالات</string>
+
+    <!-- Service list -->
+    <string name="service_list_search_hint">البحث عن  %s … </string>
+
+    <!-- More -->
+    <string name="more_user_name">Ahmed Kareem</string>
+    <string name="more_user_email">ahmed.kareem@gmail.com</string>
+    <string name="more_account">الحساب</string>
+    <string name="more_edit_profile">تعديل الحساب</string>
+    <string name="more_favorites">المفضلات</string>
+    <string name="more_subscriptions">الاشتراكات</string>
+    <string name="more_settings">الاعدادات</string>
+    <string name="more_change_password">تغيير كلمة المرور</string>
+    <string name="more_notifications_settings">اعدادات الاشعارات</string>
+    <string name="more_language_title">اللغة</string>
+    <string name="more_language">الانجليزيه</string>
+    <string name="more_about_app">عن التطبيق</string>
+    <string name="more_rate_us">قيمنا</string>
+    <string name="more_share">مشاركه التطبيق</string>
+    <string name="more_about_us">عنا</string>
+    <string name="more_terms_and_conditions">الشروط والاحكام</string>
+
+    <!-- profile -->
+    <string name="profile_photo_hint">تعديل الحساب</string>
+    <string name="profile_name_title">الاسم</string>
+    <string name="profile_name">Ahmed Kareem</string>
+    <string name="profile_email_title">Email address</string>
+    <string name="profile_email">ahmed.kareem@gmail.com</string>
+    <string name="profile_phone_title">Mobile Number (Optional)</string>
+    <string name="profile_phone">رقم هاتفك..</string>
+    <string name="profile_phone_code">+20</string>
+    <string name="profile_gender_title">النوع</string>
+    <string name="profile_gender_male">ذكر</string>
+    <string name="profile_gender_female">انثي</string>
+    <string name="profile_save">حفظ التعديلات</string>
+
+    <!--Errors -->
+    <!--Login Errors -->
+    <string name="error_login_email_empty">من فضلك ادخل البريد الالكتروني</string>
+    <string name="error_login_email_valid">من فضلك ادخل البريد الالكتروني صحيحا</string>
+    <string name="error_login_password_empty">من فضلك ادخل كلمه المرور</string>
+
+    <!-- register errors -->
+    <string name="error_register_name_empty">من فضللك ادخل الاسم</string>
+    <string name="error_register_email_empty">من فضلك ادخل البريد الالكتروني</string>
+    <string name="error_register_email_wrong">من فضلك ادخل البريد الالكتروني صحيحا</string>
+    <string name="error_register_password_empty">من فضلك ادخل كلمه المرور</string>
+    <string name="error_register_password_wrong">كلمه المرور ليست اقل من خمسه ارقام او حروف</string>
+
+    <!-- activation code errors-->
+    <string name="error_activation_code_empty">من فضلك ادخل الرقم التعريفي</string>
+    <string name="error_activation_code_wrong">من فضلك ادخل الرقم التعريفي 6 ارقام</string>
+
+    <!-- base errors-->
+    <string name="error_no_connection">عفوا.. حدث خطأ في الاتصال</string>
+    <string name="error_message_title">خطأ!</string>
+    <string name="success_message_title">تم بنجاح</string>
+    <string name="title_activity_home">الصفحه الرئيسية</string>
+
+    <!-- list place holder errors -->
+    <string name="error_list_try_again">حدثت مشكله /n اعد التحميل</string>
+
+
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">التالي</string>
+    <string name="previous">السابق</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="welcome_message_second">هناك حقيقة مثبتة منذ زمن طويل وهي أن المقروء \n سيلهي القارئ عن التركيز</string>
+    <string name="welcome_create_new_account">انشئ حساب جديد</string>
+    <string name="welcome_continue_as_a_guest">الاستمرار بدون حساب</string>
+    <string name="register_fullname">الاسم كاملا</string>
+    <string name="register_have_account">لديك حساب بالفعل؟</string>
+    <string name="forgot_password_title">نسيت كلمة المرور</string>
+    <string name="label_submit">ارسال</string>
+    <string name="forgot_password_email">ادخل البريد الالكتروني</string>
+    <string name="center_details_about">عنا</string>
+    <string name="center_details_subscribe_now">اشترك الان</string>
+    <string name="center_details_location">الموقع</string>
+    <string name="center_details_contacts">ارقام التواصل</string>
+    <string name="center_details_phone_number">رقم الهاتف</string>
+    <string name="center_details_email">البريد الالكتروني</string>
+    <string name="center_details_facebook">فيسبوك</string>
+    <string name="islamic_centers_title">المراكز الاسلامية</string>
+    <string name="islamic_centers_articles">المقالات</string>
+    <string name="happy_to_get_your_feedback">سعداء برأيك</string>
+
+
+</resources>

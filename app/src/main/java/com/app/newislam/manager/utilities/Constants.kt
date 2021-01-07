@@ -1,6 +1,6 @@
 package com.app.newislam.manager.utilities
 
-object Constants{
+object Constants {
 
     const val USER_ID = "userId"
     const val USER = "user"
@@ -14,6 +14,7 @@ object Constants{
     const val PAGE_SIZE = 10
 
     const val MESSAGE = "message"
+    const val APP_LANGUAGE = "app_language"
 
     //sheet:
     const val SUCCESS_SHEET = "successSheet"
@@ -26,7 +27,6 @@ object Constants{
     const val NEWS_ID = 2
 
     //Services
-
 
 
 }

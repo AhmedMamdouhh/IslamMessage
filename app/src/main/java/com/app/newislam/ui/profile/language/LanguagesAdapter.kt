@@ -11,12 +11,8 @@ class LanguagesAdapter(private val languages: List<LanguageResponse>,private val
         LanguagesViewHolder.from(parent)
 
     override fun onBindViewHolder(holder: LanguagesViewHolder, position: Int) {
-        holder.bind(languages[position], this)
+        holder.bind(languages[position], viewModel)
     }
 
     override fun getItemCount() = languages.size
-
-    fun onLanguageItemClicked(language: LanguageResponse) {
-        viewModel.itemLanguageClicked(language)
-    }
 }

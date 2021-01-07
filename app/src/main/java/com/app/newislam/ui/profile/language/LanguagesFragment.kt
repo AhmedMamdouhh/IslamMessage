@@ -1,5 +1,6 @@
 package com.app.newislam.ui.profile.language
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +13,8 @@ import com.app.newislam.manager.utilities.EventObserver
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LanguagesFragment : BottomSheetDialogFragment(){
-    private lateinit var binding : ChangeLanguageSheetBinding
+class LanguagesFragment : BottomSheetDialogFragment() {
+    private lateinit var binding: ChangeLanguageSheetBinding
     private val viewModel by viewModel<LanguagesViewModel>()
 
 
@@ -24,14 +25,25 @@ class LanguagesFragment : BottomSheetDialogFragment(){
     ): View {
         binding = ChangeLanguageSheetBinding.inflate(layoutInflater)
 
-        viewModel.observeLanguages.observe(viewLifecycleOwner,EventObserver{
+        observeLanguages()
+        observeChangeLanguage()
+
+        return binding.root
+    }
+
+    private fun observeLanguages() {
+        viewModel.observeLanguages.observe(viewLifecycleOwner, EventObserver {
             binding.rvLangauges.apply {
-                adapter = LanguagesAdapter(it,viewModel)
+                adapter = LanguagesAdapter(it, viewModel)
                 layoutManager = LinearLayoutManager(requireContext())
             }
         })
+    }
 
-        return binding.root
+    private fun observeChangeLanguage() {
+        viewModel.observeLanguageChange.observe(viewLifecycleOwner, EventObserver {
+            startActivity(requireActivity().intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

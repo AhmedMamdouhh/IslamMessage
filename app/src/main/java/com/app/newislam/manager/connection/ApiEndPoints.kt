@@ -16,5 +16,6 @@ object ApiEndPoints {
     const val ISLAMIC_CENTERS = "${BASE_URL}IslamicCenters"
     const val ISLAMIC_CENTER_DETAILS = "${BASE_URL}IslamicCenters/{centerId}"
     const val NEWS = "${BASE_URL}Articles"
+    const val SERVICES = "${BASE_URL}services"
     const val ARTICLE_DETAILS = "${BASE_URL}Articles/{articleId}"
 }

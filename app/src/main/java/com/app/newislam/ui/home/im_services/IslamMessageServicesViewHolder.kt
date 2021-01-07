@@ -13,9 +13,9 @@ import org.koin.core.inject
 
 class IslamMessageServicesViewHolder(val binding: ItemIslamMessageServicesBinding) :
     RecyclerView.ViewHolder(binding.root), KoinComponent {
-    val servicesViewModel: IslamMessageServicesViewModel by inject()
 
-    fun bind(services: IslamMessageServicesResponse) {
+
+    fun bind(services: String, servicesViewModel: IslamMessageServicesViewModel) {
         binding.services = services
         binding.clickListener = servicesViewModel
         binding.executePendingBindings()

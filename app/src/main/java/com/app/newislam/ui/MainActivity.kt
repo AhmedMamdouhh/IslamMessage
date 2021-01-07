@@ -27,9 +27,9 @@ class MainActivity : BaseActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-    //        initializeAppBar()
-    //        initializeBottomNav()
-        setupViews()
+            initializeAppBar()
+            initializeBottomNav()
+//        setupViews()
 
     }
 
@@ -54,26 +54,26 @@ class MainActivity : BaseActivity() {
 
     }
 
-    fun setupViews() {
-        // Finding the Navigation Controller
-        var navController = supportFragmentManager
-            .findFragmentById(R.id.hostFragment) as NavHostFragment
-
-        // Setting Navigation Controller with the BottomNavigationView
-        bottom_nav_view.setupWithNavController(navController.navController)
-
-        // Setting Up ActionBar with Navigation Controller
-        var appBarConfiguration = AppBarConfiguration(
-            topLevelDestinationIds = setOf(
-                R.id.homeFragment,
-                R.id.islamMessageServicesFragment,
-                R.id.notificationFragment
-            )
-        )
-
-        findViewById<Toolbar>(R.id.tb_home_toolbar).setupWithNavController(navController.navController,
-            appBarConfiguration)
-    }
+//    fun setupViews() {
+//        // Finding the Navigation Controller
+//        var navController = supportFragmentManager
+//            .findFragmentById(R.id.hostFragment) as NavHostFragment
+//
+//        // Setting Navigation Controller with the BottomNavigationView
+//        bottom_nav_view.setupWithNavController(navController.navController)
+//
+//        // Setting Up ActionBar with Navigation Controller
+//        var appBarConfiguration = AppBarConfiguration(
+//            topLevelDestinationIds = setOf(
+//                R.id.homeFragment,
+//                R.id.islamMessageServicesFragment,
+//                R.id.notificationFragment
+//            )
+//        )
+//
+//        findViewById<Toolbar>(R.id.tb_home_toolbar).setupWithNavController(navController.navController,
+//            appBarConfiguration)
+//    }
 
 
     override fun onSupportNavigateUp(): Boolean {

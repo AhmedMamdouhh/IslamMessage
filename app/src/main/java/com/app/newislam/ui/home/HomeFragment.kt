@@ -35,14 +35,15 @@ class HomeFragment : Fragment() {
             (activity as MainActivity).bottomNavigationVisibility(true)
 
             binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+            homeViewModel.setServiceChipsData()
+            homeViewModel.setMainServicesData()
             observeBannerDataSuccess()
             observeMainServiceDataSuccess()
             observeChipsDataSuccess()
 
             //findNavController().navigate(R.id.languagesFragment)
-            //findNavController().navigate(R.id.aboutFragment)
-            findNavController().navigate(R.id.termsFragment)
+            // findNavController().navigate(R.id.aboutFragment)
+            // findNavController().navigate(R.id.termsFragment)
         }
         return binding.root
     }

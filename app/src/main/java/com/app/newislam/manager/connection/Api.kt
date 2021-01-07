@@ -2,6 +2,7 @@ package com.app.newislam.manager.connection
 
 import com.app.newislam.model.entities.auth.User
 import com.app.newislam.model.entities.home.HomeBanner
+import com.app.newislam.model.entities.home.im_services.IslamMessageServicesResponse
 import com.app.newislam.model.entities.home.services.IslamicCenter
 import com.app.newislam.model.entities.home.services.News
 import com.app.newislam.model.requests.auth.activation_code.ActivationCodeRequest
@@ -55,5 +56,10 @@ interface Api {
         @Path("articleId") articleId: Int
     ): Flowable<Resource<ArticleDetailsResponse>>
 
+    @GET(ApiEndPoints.SERVICES)
+    fun getServices(
+        @Query("pageIndex") pageIndex: Int,
+        @Query("pageSize") pageSize: Int
+    ): Flowable<Resource<ArrayList<Any>>>
 
 }

@@ -11,7 +11,7 @@
 
         <variable
             name="services"
-            type="com.app.newislam.model.entities.home.im_services.IslamMessageServicesResponse" />
+            type="java.lang.String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,15 +19,17 @@
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
         android:elevation="1dp"
+        android:layout_marginTop="@dimen/dp12h"
+        android:padding="@dimen/dp10h"
         android:onClick="@{()->clickListener.servicesItemClicked()}">
 
         <ImageView
             android:id="@+id/iv_notification"
             android:layout_width="@dimen/dp30w"
             android:layout_height="@dimen/dp30h"
-            android:layout_marginStart="@dimen/dp18w"
-            android:layout_marginTop="@dimen/dp20h"
+            android:layout_marginStart="@dimen/dp12w"
             android:src="@drawable/ic_home"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,34 +38,34 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp16w"
-            android:layout_marginTop="@dimen/dp20h"
             android:layout_marginEnd="@dimen/dp16w"
             android:fontFamily="@font/montserrat_bold"
-            android:text='@{services.title??""}'
+            android:text='@{services??""}'
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/sp16"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_notification"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_notification"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_notification"
             tools:text='New notification' />
 
-        <TextView
-            android:id="@+id/tv_notification_details"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp16w"
-            android:layout_marginTop="@dimen/dp2h"
-            android:layout_marginEnd="@dimen/dp16w"
-            android:fontFamily="@font/montserrat_semi_bold"
-            android:text='@{services.details??""}'
-            android:textColor="@color/colorGrey"
-            android:textSize="@dimen/sp12"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="@dimen/dp10h"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_notification"
-            app:layout_constraintTop_toBottomOf="@+id/tv_notification_title"
-            tools:text='There are many variations of passages.' />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_notification_details"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/dp16w"-->
+<!--            android:layout_marginTop="@dimen/dp2h"-->
+<!--            android:layout_marginEnd="@dimen/dp16w"-->
+<!--            android:fontFamily="@font/montserrat_semi_bold"-->
+<!--            android:text='@{services.details??""}'-->
+<!--            android:textColor="@color/colorGrey"-->
+<!--            android:textSize="@dimen/sp12"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_marginBottom="@dimen/dp10h"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/iv_notification"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_notification_title"-->
+<!--            tools:text='There are many variations of passages.' />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

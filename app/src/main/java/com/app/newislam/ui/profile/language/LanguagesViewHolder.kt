@@ -12,8 +12,8 @@ class LanguagesViewHolder constructor(val binding: ItemLangageBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
 
-    fun bind(language: LanguageResponse, adapter: LanguagesAdapter) {
-        binding.adapter = adapter
+    fun bind(language: LanguageResponse, viewModel: LanguagesViewModel) {
+        binding.viewModel = viewModel
         binding.language = language
     }
 

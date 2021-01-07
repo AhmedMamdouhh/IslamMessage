@@ -1,9 +1,13 @@
 package com.app.newislam.manager.base
 
 import android.app.Dialog
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.Window
@@ -13,15 +17,20 @@ import androidx.lifecycle.Observer
 import com.app.newislam.R
 import com.app.newislam.manager.connection.Resource
 import com.app.newislam.manager.utilities.Constants
+import com.app.newislam.manager.utilities.ContextUtils
 import com.app.newislam.ui.response.error.ErrorSheet
 import com.app.newislam.ui.response.no_connection.NoConnectionSheet
 import com.app.newislam.ui.response.success.SuccessSheet
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.inject
+import java.util.*
 
 abstract class BaseActivity : AppCompatActivity() {
 
     protected var loadingBar: Dialog? = null
     val baseViewModel: BaseViewModel by viewModel()
+    val sharedPreferences: SharedPreferences by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -112,5 +121,12 @@ abstract class BaseActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
         }
         return super.dispatchTouchEvent(ev)
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val localeToSwitchTo = Locale(sharedPreferences.getString(Constants.APP_LANGUAGE, "en") ?: "en")
+        val localeUpdatedContext: ContextWrapper =
+            ContextUtils.updateLocale(newBase, localeToSwitchTo)
+        super.attachBaseContext(localeUpdatedContext)
     }
 }

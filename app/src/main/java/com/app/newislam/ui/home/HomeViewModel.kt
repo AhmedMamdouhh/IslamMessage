@@ -21,27 +21,21 @@ class HomeViewModel : BaseViewModel() {
 
     val islamicCentersViewModel: IslamicCentersViewModel by inject()
     val newsViewModel: NewsViewModel by inject()
-    val homeBannerViewModel : HomeBannerViewModel by inject()
+    val homeBannerViewModel: HomeBannerViewModel by inject()
 
     //TODO : Events view model
 
     private val _observeBannerDataSuccess = MutableLiveData<Event<ArrayList<HomeBanner>>>()
-    private val _observeMainServicesDataSuccess = MutableLiveData<Event<ArrayList<HomeMainServices>>>()
+    private val _observeMainServicesDataSuccess =
+        MutableLiveData<Event<ArrayList<HomeMainServices>>>()
     private val _observeSeeAllClicked = MutableLiveData<Event<Boolean>>()
     private val _observeChipsDataSuccess = MutableLiveData<Event<ArrayList<HomeServiceChips>>>()
-
-
-    init {
-        setServiceChipsData()
-        setMainServicesData()
-    }
 
 
     //click
     fun onSeeAllClicked() {
         _observeSeeAllClicked.value = Event(true)
     }
-
 
 
     //getters
@@ -74,7 +68,8 @@ class HomeViewModel : BaseViewModel() {
 
         _observeBannerDataSuccess.value = Event(homeBannerList)
     }
-    private fun setServiceChipsData() {
+
+    fun setServiceChipsData() {
         val homeChipsArray: ArrayList<HomeServiceChips> = arrayListOf()
 
 
@@ -88,7 +83,8 @@ class HomeViewModel : BaseViewModel() {
         _observeChipsDataSuccess.value = Event(homeChipsArray)
 
     }
-    private fun setMainServicesData() {
+
+    fun setMainServicesData() {
         val homeCategories = ArrayList<HomeMainServices>()
 
         homeCategories.add(HomeMainServices(application.getString(R.string.home_islamic_centers_title)))

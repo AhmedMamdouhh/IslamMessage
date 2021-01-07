@@ -15,15 +15,24 @@ class IslamMessageServicesViewModel : BaseViewModel() {
     private val _observeSuccess = MutableLiveData<Event<Boolean>>()
     private val _observeServicesClick = MutableLiveData<Event<Boolean>>()
     private val _moreServicess = MutableLiveData<Event<List<IslamMessageServicesResponse>>>()
-    private val _servicess = MutableLiveData<Event<ArrayList<IslamMessageServicesResponse>>>()
-
-
-    init {
-        getservicess()
-    }
+    private val _servicess = MutableLiveData<ArrayList<String>>()
 
     fun getservicess() {
-        _servicess.value = Event(servicesRepository.getIslamMessageServices())
+        responseManager.loading()
+        disposable.add(
+            servicesRepository.getIslamMessageServices(1, 10).subscribe(
+                { response ->
+                    if (response != null) {
+                        if (response.data != null) {
+                            _servicess.value = (response.data as ArrayList<String> ) ?: arrayListOf<String>()
+                        }
+                    }
+                    responseManager.hideLoading()
+                }, {
+                    responseManager.hideLoading()
+                }
+            )
+        )
     }
 
 
@@ -35,7 +44,7 @@ class IslamMessageServicesViewModel : BaseViewModel() {
     val observeSuccess: LiveData<Event<Boolean>>
         get() = _observeSuccess
 
-    val servicess: LiveData<Event<ArrayList<IslamMessageServicesResponse>>>
+    val servicess: LiveData<ArrayList<String>>
         get() = _servicess
 
     val moreservicess: LiveData<Event<List<IslamMessageServicesResponse>>>

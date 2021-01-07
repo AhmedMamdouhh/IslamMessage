@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.newislam.databinding.FragmentIslamMessageServicesBinding
@@ -23,24 +24,38 @@ class IslamMessageServicesFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (savedInstanceState == null) {
-            (activity as MainActivity).toolBarVisibility(true)
-            (activity as MainActivity).bottomNavigationVisibility(true)
-            binding = FragmentIslamMessageServicesBinding.inflate(layoutInflater)
-            viewModel.servicess.observe(viewLifecycleOwner, EventObserver {
-                binding.tvIslamMessageServices.apply {
-                    layoutManager = LinearLayoutManager(requireContext())
-                    islamMessageServicesAdapter =
-                        IslamMessageServicesAdapter(it, viewLifecycleOwner)
-                    adapter = islamMessageServicesAdapter
-                    addItemDecoration(DividerItemDecoration(
-                        context,
-                        LinearLayoutManager.HORIZONTAL
-                    ))
-                }
-            })
-        }
+
+        (activity as MainActivity).toolBarVisibility(true)
+        (activity as MainActivity).bottomNavigationVisibility(true)
+
+        binding = FragmentIslamMessageServicesBinding.inflate(layoutInflater)
+        viewModel.getservicess()
+
+        observeServices()
+
+        addItemDivider()
+
         return binding.root
 
+    }
+
+    private fun addItemDivider() {
+        binding.tvIslamMessageServices.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                LinearLayoutManager.HORIZONTAL
+            )
+        )
+    }
+
+    private fun observeServices() {
+        viewModel.servicess.observe(viewLifecycleOwner, Observer {
+            binding.tvIslamMessageServices.apply {
+                layoutManager = LinearLayoutManager(requireContext())
+                islamMessageServicesAdapter =
+                    IslamMessageServicesAdapter(it, viewModel)
+                adapter = islamMessageServicesAdapter
+            }
+        })
     }
 }
