@@ -1,4 +1,4 @@
-package com.app.newislam.model.entities.home.services
+package com.app.newislam.model.entities.home
 
 import android.os.Parcelable
 import com.app.newislam.manager.connection.PaginationResource

@@ -6,11 +6,8 @@
 
         <shape>
 
-            <solid android:color="@android:color/transparent" />
+            <solid android:color="@color/colorLightGrey" />
 
-            <stroke
-                android:width="0.75dp"
-                android:color="@color/colorGrey" />
             <corners
                 android:bottomLeftRadius="@dimen/dp8w"
                 android:bottomRightRadius="@dimen/dp8w"

@@ -1,33 +1,23 @@
 package com.app.newislam.ui.home.services
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
-import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
+import androidx.navigation.NavArgument
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.app.newislam.R
 import com.app.newislam.databinding.DialogServicesContainerBinding
 import com.app.newislam.manager.base.BaseDialogFragment
-import com.app.newislam.manager.connection.PaginationResource
-import com.app.newislam.ui.home.home_services.single_service.HomeServiceAdapter
-import kotlinx.android.synthetic.main.dialog_services_container.*
+import com.app.newislam.manager.utilities.Constants
+
 
 class ServicesContainerDialog : BaseDialogFragment() {
 
     lateinit var binding: DialogServicesContainerBinding
     private val args: ServicesContainerDialogArgs by navArgs()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,15 +26,26 @@ class ServicesContainerDialog : BaseDialogFragment() {
     ): View {
         binding = DialogServicesContainerBinding.inflate(inflater, container, false)
 
-
-        getNavHost()
+        setupNavHost()
         return binding.root
     }
 
-    private fun getNavHost() {
 
-        val bundle = bundleOf("serviceList" to args.serviceList)
-        NavHostFragment.create(R.navigation.nav_service, bundle)
+    private fun setupNavHost() {
+
+        val nestedNavHostFragment =
+            childFragmentManager.findFragmentById(R.id.fcv_services_host_fragment) as? NavHostFragment
+        val navController = nestedNavHostFragment?.navController
+        val inflater = navController?.navInflater
+        val graph = inflater?.inflate(R.navigation.nav_service)
+        graph?.startDestination = R.id.servicesListDialog
+
+        val bundle = bundleOf(
+            Constants.BUNDLE_SERVICE_LIST to args.serviceList,
+            Constants.BUNDLE_SERVICE_ID to args.serviceId
+        )
+
+        navController?.setGraph(graph!!, bundle)
     }
 
 

@@ -1,4 +1,4 @@
-package com.app.newislam.ui.splash.welcome
+package com.app.newislam.ui.welcome
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

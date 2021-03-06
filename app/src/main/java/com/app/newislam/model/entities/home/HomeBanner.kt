@@ -1,11 +1,14 @@
 package com.app.newislam.model.entities.home
 
+import android.os.Parcelable
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-class HomeBanner : BaseObservable() {
+@Parcelize
+class HomeBanner : BaseObservable() , Parcelable {
 
     @SerializedName("title")
     @get:Bindable

@@ -8,7 +8,7 @@
 
         <variable
             name="homeMainServiceObject"
-            type="com.app.newislam.model.entities.home.services.HomeMainServices" />
+            type="com.app.newislam.model.entities.home.HomeMainServices" />
 
         <variable
             name="clickListener"

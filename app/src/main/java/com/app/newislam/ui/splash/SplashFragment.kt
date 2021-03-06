@@ -26,7 +26,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.hypot
 
 class SplashFragment : Fragment() {
-    val splashViewModel: SplashViewModel by viewModel()
     private val responseManager: ResponseManager by inject()
 
     lateinit var splashBinding: FragmentSplashBinding
@@ -36,7 +35,7 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         splashBinding = FragmentSplashBinding.inflate(inflater, container, false)
         return splashBinding.root
     }
@@ -58,21 +57,14 @@ class SplashFragment : Fragment() {
                 if (responseManager.isAuthenticated()) findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
                 else findNavController().navigate(R.id.action_splashFragment_to_welcomeFragment)
             }
-
             override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) { }
-
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) { }
-
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) { }
         })
 
         animateSplash()
     }
 
-    override fun onResume() {
-        super.onResume()
-        motionLayout.startLayoutAnimation()
-    }
 
     private fun animateSplash() {
         splashBinding.ivSplashLogo.post(Runnable {

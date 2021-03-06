@@ -57,9 +57,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
                 app:error="@{activationObject.activationCodeErrors.confirmationTokenError}"
-                app:hintAnimationEnabled="true"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:hintAnimationEnabled="true">
 
                 <com.chaos.view.PinView
                     android:id="@+id/pv_activation_code"
@@ -67,10 +68,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dp8w"
+                    android:background="@android:color/transparent"
                     android:cursorVisible="true"
                     android:gravity="center"
                     android:inputType="phone"
-                    android:layout_marginBottom="@dimen/dp8w"
                     android:itemBackground="@color/colorLightGrey"
                     android:padding="@dimen/dp8w"
                     android:text="@={activationObject.confirmationToken}"
@@ -81,19 +83,26 @@
                     app:lineColor="@color/colorWhite" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <TextView
+            <com.google.android.material.circularreveal.cardview.CircularRevealCardView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp40h"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/dp16w"
                 android:layout_margin="@dimen/dp8w"
-                android:background="@drawable/shape_green"
-                android:fontFamily="@font/montserrat_bold"
-                android:gravity="center"
-                android:onClick="@{()-> activationListener.onActivationCodeVerifyClicked(pvActivationCode,activationObject)}"
-                android:text="@string/activation_code_submit"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/sp16" />
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardElevation="@dimen/dp4w">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp40h"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:onClick="@{()-> activationListener.onActivationCodeVerifyClicked(pvActivationCode,activationObject)}"
+                    android:text="@string/activation_code_submit"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/sp16" />
+            </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

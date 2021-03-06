@@ -25,6 +25,7 @@ class MainActivity : BaseActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
+
         initializeAppBar()
     }
 

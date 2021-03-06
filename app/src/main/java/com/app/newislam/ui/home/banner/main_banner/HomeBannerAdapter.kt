@@ -1,4 +1,4 @@
-package com.app.newislam.ui.home.home_banner
+package com.app.newislam.ui.home.banner.main_banner
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,10 +8,12 @@ import androidx.cardview.widget.CardView
 import androidx.viewpager.widget.PagerAdapter
 import com.app.newislam.databinding.ItemHomeBannerBinding
 import com.app.newislam.model.entities.home.HomeBanner
+import com.app.newislam.ui.home.banner.HomeBannerViewModel
 
 class HomeBannerAdapter(
     private val homeBannerList: ArrayList<HomeBanner>,
-    private val context: Context
+    private val context: Context,
+    private val homeBannerViewModel: HomeBannerViewModel
 ) :
     PagerAdapter() {
 
@@ -23,6 +25,7 @@ class HomeBannerAdapter(
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val binding = ItemHomeBannerBinding.inflate(LayoutInflater.from(context), container, false)
         binding.bannerObject = homeBannerList[position]
+        binding.bannerListener = homeBannerViewModel
 
         container.addView(binding.root)
         return binding.root

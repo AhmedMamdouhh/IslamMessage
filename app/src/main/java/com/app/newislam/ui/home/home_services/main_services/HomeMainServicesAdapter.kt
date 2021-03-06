@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.app.newislam.databinding.ItemHomeMainServicesBinding
-import com.app.newislam.model.entities.home.services.HomeMainServices
+import com.app.newislam.model.entities.home.HomeMainServices
 import com.app.newislam.ui.home.HomeViewModel
 import kotlin.collections.ArrayList
 

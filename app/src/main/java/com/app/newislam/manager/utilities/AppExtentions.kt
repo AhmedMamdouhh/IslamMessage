@@ -4,12 +4,16 @@ import android.annotation.SuppressLint
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.NavGraph
+import com.app.newislam.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 @SuppressLint("RestrictedApi")
 fun AppCompatActivity.toolBarVisibility(isVisible: Boolean){
 
+    tb_home_toolbar.setNavigationIcon(R.drawable.ic_arrow_left_solid)
 
     when(isVisible){
         true ->{
@@ -42,5 +46,6 @@ fun View.gone(){
 fun View.visible(){
     this.visibility = View.VISIBLE
 }
+
 
 

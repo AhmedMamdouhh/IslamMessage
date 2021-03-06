@@ -22,11 +22,26 @@
     <string name="login_don_t_have_an_account">Don\'t have an account?</string>
     <string name="login_register">Register</string>
 
+    <!-- Register -->
+    <string name="register_title">Registration</string>
+    <string name="register_full_name">Full name</string>
+    <string name="register_password">Password</string>
+    <string name="register_submit">Register</string>
+    <string name="register_login">Login</string>
+    <string name="register_have_account">Already have account? </string>
+
     <!--Forget Password-->
-    <string name="forget_send">Send</string>
-    <string name="forget_enter_your_email">Enter your email</string>
-    <string name="forget_email_address">Email address</string>
-    <string name="forget_please_enter_your_email_address_to_rese_nyour_password">Please enter your email address to rese\nyour password.</string>
+    <string name="forgot_password_title">Forget password</string>
+    <string name="forgot_password_email">Email address</string>
+    <string name="forgot_password_description">Please enter your email address to reset your password.</string>
+    <string name="forgot_password_send">Send</string>
+
+    <!-- New password -->
+    <string name="new_password_title">Reset password</string>
+    <string name="new_password_confirm_title">Confirm password</string>
+    <string name="new_password_password_title">New password</string>
+    <string name="new_password_description">Please enter the 6 digits code to reset your password.</string>
+    <string name="new_password_reset">Reset</string>
 
     <!--Activation code-->
     <string name="activation_code_title">Verify your email</string>
@@ -110,6 +125,16 @@
     <string name="error_activation_code_empty">Please enter your code!</string>
     <string name="error_activation_code_wrong">Please enter your 6 digits code!</string>
 
+    <!-- forgot password errors -->
+    <string name="error_forgot_password_empty">Please enter your email!</string>
+    <string name="error_forgot_password_wrong">Please enter a valid email!</string>
+
+    <!-- new password errors -->
+    <string name="error_new_password_empty">Please enter new password!</string>
+    <string name="error_new_password_size">Password must be at least 5 characters long!</string>
+    <string name="error_new_password_confirm_empty">Please confirm your password!</string>
+    <string name="error_new_password_confirm_wrong">Password are not matching</string>
+
     <!-- base errors-->
     <string name="error_no_connection">Oops , there\'s no Network connection</string>
     <string name="error_message_title">Error!</string>
@@ -132,11 +157,7 @@
     <string name="welcome_message_second">It is a long established fact that a reader\nwill be distracted by the readable</string>
     <string name="welcome_create_new_account">Create new account</string>
     <string name="welcome_continue_as_a_guest">Continue as a guest</string>
-    <string name="register_fullname">Full name</string>
-    <string name="register_have_account">Already have account? </string>
-    <string name="forgot_password_title">Forget password</string>
     <string name="label_submit">Submit</string>
-    <string name="forgot_password_email">enter email address</string>
     <string name="center_details_about">About</string>
     <string name="center_details_subscribe_now">Subscribe now</string>
     <string name="center_details_location">Location</string>

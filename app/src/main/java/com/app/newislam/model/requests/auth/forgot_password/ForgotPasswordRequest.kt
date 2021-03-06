@@ -5,7 +5,7 @@ import androidx.databinding.Bindable
 import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
 
-class ForgetPasswordRequest (val forgotPasswordErrors: ForgotPasswordErrors):BaseObservable(){
+class ForgotPasswordRequest (val forgotPasswordErrors: ForgotPasswordErrors):BaseObservable(){
 
 
     @get:Bindable

@@ -1,10 +1,8 @@
-package com.app.newislam.ui.home.home_banner
+package com.app.newislam.ui.home.banner
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.newislam.manager.base.BaseViewModel
-import com.app.newislam.manager.connection.Resource
-import com.app.newislam.manager.utilities.Constants
 import com.app.newislam.manager.utilities.Event
 import com.app.newislam.model.entities.home.HomeBanner
 import com.app.newislam.repository.home.banner.HomeBannerRepository
@@ -14,14 +12,16 @@ class HomeBannerViewModel : BaseViewModel() {
 
     private val homeBannerRepository: HomeBannerRepository by inject()
     private val _observeHomeBannerData = MutableLiveData<Event<ArrayList<HomeBanner>>>()
+    private val _observeHomeBannerClicked = MutableLiveData<Event<HomeBanner>>()
 
    init {
        getBannerData()
    }
 
 
-    val observeHomeBannerData: LiveData<Event<ArrayList<HomeBanner>>>
-        get() = _observeHomeBannerData
+    fun onBannerClicked(homeBannerId : HomeBanner){
+        _observeHomeBannerClicked.value = Event(homeBannerId)
+    }
 
 
     private fun getBannerData() {
@@ -38,4 +38,10 @@ class HomeBannerViewModel : BaseViewModel() {
         )
 
     }
+
+    val observeHomeBannerData: LiveData<Event<ArrayList<HomeBanner>>>
+        get() = _observeHomeBannerData
+
+    val observeHomeBannerClicked: LiveData<Event<HomeBanner>>
+        get() = _observeHomeBannerClicked
 }

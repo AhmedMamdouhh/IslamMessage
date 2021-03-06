@@ -58,7 +58,6 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
     implementation 'com.google.android.material:material:1.2.1'
 
     //retrofit
@@ -103,17 +102,11 @@ dependencies {
     implementation "com.chaos.view:pinview:1.4.3"
 
 
-
-
     def koin_version = "2.1.5"
     implementation(
-            // Koin for Android
             "org.koin:koin-android:$koin_version",
-            // or Koin for Lifecycle scoping
             "org.koin:koin-androidx-scope:$koin_version",
-            // or Koin for Android Architecture ViewModel
             "org.koin:koin-androidx-viewmodel:$koin_version",
-            // or Koin for Android Fragment Factory (unstable version)
             "org.koin:koin-androidx-fragment:$koin_version",
     )
 

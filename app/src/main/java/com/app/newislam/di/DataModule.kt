@@ -38,7 +38,6 @@ val dataModule = module {
     }
 
 
-
     single {
         ApiHeader(
             deviceToken = "",

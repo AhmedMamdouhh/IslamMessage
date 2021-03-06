@@ -9,54 +9,63 @@
             name="bannerObject"
             type="com.app.newislam.model.entities.home.HomeBanner" />
 
+        <variable
+            name="bannerListener"
+            type="com.app.newislam.ui.home.banner.HomeBannerViewModel" />
+
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp150h"
         android:layout_margin="@dimen/dp8w"
-        app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="@dimen/dp8w">
+        app:cardCornerRadius="@dimen/dp8w"
+        android:onClick="@{()-> bannerListener.onBannerClicked(bannerObject)}"
+        app:cardElevation="@dimen/dp8w">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
 
-            <androidx.cardview.widget.CardView
+            <ImageView
+                android:id="@+id/iv_banner_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp100h"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                app:cardCornerRadius="@dimen/dp8w">
+                android:scaleType="fitXY"
+                android:src="@drawable/img_islamic_center"
+                app:imageUrl="@{bannerObject.homeBannerImage}"
+                tools:ignore="ContentDescription" />
 
-                <ImageView
-                    android:id="@+id/iv_banner_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:layout_gravity="center"
-                    android:src="@drawable/img_islamic_center" />
 
-            </androidx.cardview.widget.CardView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40h"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/gradient_banner_title" />
 
             <TextView
                 android:id="@+id/tv_banner_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp8w"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="@string/home_banner_title"
-                android:textColor="@color/colorWhite"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
                 android:layout_marginStart="@dimen/dp8w"
                 android:layout_marginEnd="@dimen/dp8w"
-                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp8w"
+                android:fontFamily="@font/montserrat_bold"
                 android:gravity="center"
                 android:singleLine="true"
+                android:text="@string/home_banner_title"
+                android:textColor="@color/colorWhite"
                 android:textSize="@dimen/sp15"
                 app:text="@{bannerObject.homeBannerTitle}" />
 
-        </LinearLayout>
+        </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
 </layout>

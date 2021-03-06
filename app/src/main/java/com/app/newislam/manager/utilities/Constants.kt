@@ -6,9 +6,10 @@ object Constants{
     const val USER = "user"
     const val PASSWORD_LENGTH = 6
 
+    const val VERY_SMALL_DELAY = 500
     const val DELAY_SMALL = 1000
     const val DELAY_MEDIUM = 1500
-    const val DELAY_BIG = 2000
+    const val DELAY_BIG = 3000
 
     const val ACTIVATION_CODE_LENGTH = 6
     const val PAGE_SIZE = 10
@@ -27,6 +28,10 @@ object Constants{
 
     //Services
 
+
+    //Bundle keys
+    const val BUNDLE_SERVICE_LIST = "serviceList"
+    const val BUNDLE_SERVICE_ID = "serviceId"
 
 
 }

@@ -34,7 +34,7 @@
     <!--welcome-->
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.app.newislam.ui.splash.welcome.WelcomeFragment"
+        android:name="com.app.newislam.ui.welcome.WelcomeFragment"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_registrationFragment"
@@ -65,15 +65,8 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.app.newislam.ui.auth.login.LoginFragment"
-        android:label="Login"
         tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragmentSheet"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment"
@@ -86,18 +79,24 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_passwordContainerDialog"
+            app:destination="@id/passwordContainerDialog"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
-    <!--forgot password-->
-    <dialog
-        android:id="@+id/forgotPasswordFragmentSheet"
-        android:name="com.app.newislam.ui.auth.forgot_password.ForgotPasswordSheet"
-        tools:layout="@layout/dialog_forgot_password" />
+
     <!--register-->
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.app.newislam.ui.auth.register.RegisterFragment"
-        android:label="Register"
         tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
@@ -144,7 +143,26 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_homeFragment_to_homeBannerDetailsDialog"
+            app:destination="@id/homeBannerDetailsDialog"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+
     </fragment>
+    <!-- banner details -->
+    <dialog
+        android:id="@+id/homeBannerDetailsDialog"
+        android:name="com.app.newislam.ui.home.banner.banner_details.HomeBannerDetailsDialog"
+        android:label="HomeBannerDetailsDialog" >
+        <argument
+            android:name="homeBannerObject"
+            app:argType="com.app.newislam.model.entities.home.HomeBanner"
+            app:nullable="true"/>
+
+    </dialog>
 
 
     <dialog
@@ -174,12 +192,18 @@
         android:label="ServiceContainer" >
         <argument
             android:name="serviceList"
-            app:argType="com.app.newislam.model.entities.home.services.HomeMainServices" />
+            app:argType="com.app.newislam.model.entities.home.HomeMainServices"
+            app:nullable="true"/>
         <argument
             android:name="serviceId"
             app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="-1" />
     </dialog>
+    <!-- password container -->
+    <dialog
+        android:id="@+id/passwordContainerDialog"
+        android:name="com.app.newislam.ui.auth.password_container.PasswordContainerDialog"
+        android:label="PasswordContainerDialog" />
 
 
 </navigation>

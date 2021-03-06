@@ -39,11 +39,10 @@ class RegisterFragment : Fragment() {
 
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         binding.userObject = registerRequest
-        binding.viewModel = registerViewModel
+        binding.registerListener = registerViewModel
 
 
 
-        animateScreen()
         observeSuccess()
         observeLoginClicked()
 
@@ -63,21 +62,4 @@ class RegisterFragment : Fragment() {
         })
  }
 
-    private fun animateScreen() {
-        val fromRight = AnimationUtils.loadAnimation(activity, R.anim.enter_from_right)
-        fromRight.duration = Constants.DELAY_SMALL.toLong()
-        binding.tilRegisterEmail.animation = fromRight
-        binding.tilRegisterPassword.animation = fromRight
-
-        val fromLeft = AnimationUtils.loadAnimation(activity, R.anim.enter_from_left)
-        fromLeft.duration = Constants.DELAY_SMALL.toLong()
-        binding.tilRegisterName.animation = fromLeft
-        binding.btnRegister.animation=fromLeft
-
-
-        val fade = AnimationUtils.loadAnimation(activity, R.anim.bounce)
-        fade.duration = Constants.DELAY_SMALL.toLong()
-        binding.llLoginAskContainer.animation = fade
-
-    }
 }

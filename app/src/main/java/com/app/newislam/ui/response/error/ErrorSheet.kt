@@ -23,7 +23,7 @@ class ErrorSheet : BottomSheetDialogFragment()  {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         errorBinding =
             DataBindingUtil.inflate(inflater, R.layout.layout_error, container, false)
         getBundleMessage()
@@ -31,7 +31,7 @@ class ErrorSheet : BottomSheetDialogFragment()  {
 
         Handler(Looper.getMainLooper()).postDelayed({
             dismiss()
-        },2000)
+        }, Constants.DELAY_BIG.toLong())
 
         return errorBinding.root
     }

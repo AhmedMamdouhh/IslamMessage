@@ -5,7 +5,7 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="registerListener"
             type="com.app.newislam.ui.auth.register.RegisterViewModel" />
 
         <variable
@@ -14,29 +14,45 @@
     </data>
 
 
-    <LinearLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_register_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/dp16w"
         android:layout_marginEnd="@dimen/dp16w"
-        android:orientation="vertical">
+        app:layoutDescription="@xml/fragment_register_scene">
+
+        <TextView
+            android:id="@+id/tv_register_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/register_title"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp16w"
+            android:textColorHint="@color/colorGrey"
+            app:boxBackgroundMode="outline"
+            app:error="@{userObject.registerErrors.emailError}"
+            app:errorEnabled="true"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/colorPrimary"
-            android:textColorHint="@color/colorBlackTransparent"
-            app:error="@{userObject.registerErrors.emailError}"
-            app:errorEnabled="true">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_register_title">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp60h"
-                android:layout_marginBottom="@dimen/dp8w"
-                android:background="@drawable/border_black_empty"
+                android:layout_height="@dimen/dp55h"
+                android:background="@drawable/shape_light_grey"
                 android:hint="@string/login_email_address"
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
@@ -52,19 +68,21 @@
             android:id="@+id/til_register_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/colorGrey"
+            app:boxBackgroundMode="outline"
+            app:error="@{userObject.registerErrors.fullNameError}"
+            app:errorEnabled="true"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/colorPrimary"
-            android:textColorHint="@color/colorBlackTransparent"
-            app:error="@{userObject.registerErrors.fullNameError}"
-            app:errorEnabled="true">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_register_email">
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp60h"
-                android:layout_marginBottom="@dimen/dp8w"
-                android:background="@drawable/border_black_empty"
-                android:hint="@string/register_fullname"
-                android:importantForAutofill="no"
+                android:layout_height="@dimen/dp55h"
+                android:background="@drawable/shape_light_grey"
+                android:hint="@string/register_full_name"
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingStart="@dimen/dp8w"
@@ -78,22 +96,25 @@
             android:id="@+id/til_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/colorBlackTransparent"
-            app:hintAnimationEnabled="true"
-            app:hintTextColor="@color/colorPrimary"
+            android:textColorHint="@color/colorGrey"
+            app:boxBackgroundMode="outline"
             app:error="@{userObject.registerErrors.passwordError}"
             app:errorEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_register_name"
             app:passwordToggleEnabled="true">
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp60h"
-                android:background="@drawable/border_black_empty"
-                android:hint="@string/login_enter_password"
-                android:importantForAutofill="no"
+                android:layout_height="@dimen/dp55h"
+                android:layout_marginBottom="@dimen/dp8w"
+                android:background="@drawable/shape_light_grey"
+                android:hint="@string/register_password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:layout_marginBottom="@dimen/dp8w"
                 android:paddingStart="@dimen/dp8w"
                 android:paddingEnd="@dimen/dp8w"
                 android:text="@={userObject.password}"
@@ -101,48 +122,58 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <Button
-            android:id="@+id/btn_register"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_register_submit_container"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp40h"
-            android:layout_marginStart="@dimen/dp8w"
-            android:layout_marginTop="@dimen/dp20h"
-            android:layout_marginEnd="@dimen/dp8w"
-            android:background="@drawable/shape_green"
-            android:onClick="@{() -> viewModel.onRegisterClicked(userObject)}"
-            android:text="@string/login_register"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->registerListener.onRegisterClicked(userObject)}"
+            app:cardCornerRadius="@dimen/dp16w"
+            app:cardElevation="@dimen/dp4w"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_login_forgot_password" />
+            app:layout_constraintTop_toBottomOf="@+id/til_register_password">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45w"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:text="@string/register_submit"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/sp16" />
+
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
-            android:id="@+id/ll_login_ask_container"
+            android:id="@+id/ll_register_login_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp24h"
             android:gravity="center"
-            android:onClick="@{()->viewModel.onLoginClick()}"
-            android:orientation="horizontal">
+            android:onClick="@{()->registerListener.onLoginClick()}"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_register_submit_container">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp2h"
                 android:text="@string/register_have_account"
-                android:textColor="#000"
+                android:textColor="@color/colorBlack"
                 android:textSize="@dimen/sp14" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/login_login"
-                android:textColor="#37B34A"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/sp14" />
         </LinearLayout>
-    </LinearLayout>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </layout>

@@ -12,7 +12,7 @@ import com.app.newislam.manager.utilities.Constants
 import com.app.newislam.manager.utilities.EventObserver
 import com.app.newislam.manager.utilities.gone
 import com.app.newislam.manager.utilities.visible
-import com.app.newislam.model.entities.home.services.HomeMainServices
+import com.app.newislam.model.entities.home.HomeMainServices
 import com.app.newislam.ui.home.HomeFragmentDirections
 import com.app.newislam.ui.home.HomeViewModel
 import com.app.newislam.ui.home.home_services.single_service.HomeServiceAdapter
@@ -52,7 +52,7 @@ class HomeMainServicesViewHolder(
                     })
             }
             Constants.EVENTS_ID -> {
-                homeViewModel.islamicCentersViewModel.observeIslamicCenters.observe(
+                homeViewModel.eventsViewModel.observeEvents.observe(
                     viewLifecycleOwner,
                     EventObserver {
                         homeMainServicesList[Constants.EVENTS_ID].subServicesList = it
@@ -76,6 +76,7 @@ class HomeMainServicesViewHolder(
         val action = HomeFragmentDirections.actionHomeFragmentToServiceContainer(mainService,adapterPosition)
         (context as com.app.newislam.ui.MainActivity).findNavController(R.id.hostFragment)
             .navigate(action)
+
 //        val action = HomeFragmentDirections.act()
 //        (context as com.app.newislam.ui.MainActivity).findNavController(R.id.hostFragment)
 //            .navigate(action.actionId,ServicesListDialogArgs(homeMainServicesList[adapterPosition], adapterPosition).toBundle())

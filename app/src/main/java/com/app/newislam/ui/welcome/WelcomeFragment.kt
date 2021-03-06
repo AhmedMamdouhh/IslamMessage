@@ -1,4 +1,4 @@
-package com.app.newislam.ui.splash.welcome
+package com.app.newislam.ui.welcome
 
 import android.os.Bundle
 import android.util.Log
@@ -43,8 +43,6 @@ class WelcomeFragment : Fragment() {
         observeRegisterClicked()
         observeLoginClicked()
         observeGuestClicked()
-        animateScreen()
-
 
         return welcomeBinding.root
     }
@@ -74,25 +72,6 @@ class WelcomeFragment : Fragment() {
     }
 
 
-    private fun animateScreen() {
-        val fromRight = AnimationUtils.loadAnimation(activity, R.anim.enter_from_right)
-        fromRight.duration = Constants.DELAY_SMALL.toLong()
-        welcomeBinding.tvWelcomeTitle.animation = fromRight
-        welcomeBinding.btnWelcomeNewAccount.animation = fromRight
-
-
-        val fromLeft = AnimationUtils.loadAnimation(activity, R.anim.enter_from_left)
-        fromLeft.duration = Constants.DELAY_SMALL.toLong()
-        welcomeBinding.tvWelcomeDescription.animation = fromLeft
-        welcomeBinding.btnWelcomeLogin.animation = fromLeft
-
-
-        val fade = AnimationUtils.loadAnimation(activity, R.anim.bounce)
-        fade.duration = Constants.DELAY_SMALL.toLong()
-        welcomeBinding.ivWelcomeLogo.animation = fade
-        welcomeBinding.tvWelcomeGuest.animation = fade
-
-    }
 
 
 }

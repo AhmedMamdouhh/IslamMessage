@@ -29,7 +29,7 @@ class SuccessSheet : BottomSheetDialogFragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             dismiss()
-        },2000)
+        },Constants.DELAY_BIG.toLong())
 
         return successBinding.root
     }

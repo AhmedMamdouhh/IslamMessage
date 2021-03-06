@@ -8,15 +8,8 @@
     <fragment
         android:id="@+id/servicesListDialog"
         android:name="com.app.newislam.ui.home.services.ServicesListDialog"
-        android:label="ServicesListDialog" >
-        <argument
-            android:name="serviceList"
-            app:argType="com.app.newislam.model.entities.home.services.HomeMainServices" />
-        <argument
-            android:name="serviceId"
-            app:argType="integer"
-            android:defaultValue="0" />
-    </fragment>
+        android:label="ServicesListDialog" />
+
 
 
 </navigation>

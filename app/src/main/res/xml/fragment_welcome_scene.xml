@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:autoTransition="animateToEnd"
+        motion:duration="2000">
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:motionTarget="@+id/iv_welcome_logo"
+                motion:framePosition="30"
+                android:alpha="0.0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_welcome_title"
+                motion:framePosition="20"
+                android:scaleX="0.0"
+                android:scaleY="0.0"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_welcome_description"
+                motion:framePosition="40"
+                android:scaleX="0.0"
+                android:scaleY="0.0"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_welcome_new_account"
+                motion:framePosition="70"
+                android:scaleX="0.0"
+                android:scaleY="0.0"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_welcome_new_account"
+                motion:framePosition="90"
+                android:scaleX="1.2"
+                android:scaleY="1.2"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_welcome_login"
+                motion:framePosition="80"
+                android:scaleX="0.0"
+                android:scaleY="0.0"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_welcome_login"
+                motion:framePosition="90"
+                android:scaleX="1.2"
+                android:scaleY="1.2"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_welcome_guest"
+                motion:framePosition="50"
+                android:alpha="0.0"/>
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/iv_welcome_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp40h"
+            android:alpha="0.0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/tv_welcome_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:scaleX="0.0"
+            android:scaleY="0.0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/iv_welcome_logo" />
+        <Constraint
+            android:id="@+id/tv_welcome_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp20h"
+            android:layout_marginEnd="@dimen/dp16w"
+            android:scaleX="0.0"
+            android:scaleY="0.0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_welcome_title" />
+        <Constraint
+            android:id="@+id/tv_welcome_new_account"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45h"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginTop="@dimen/dp70h"
+            android:layout_marginEnd="@dimen/dp8w"
+            android:scaleX="0.0"
+            android:scaleY="0.0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_welcome_description" />
+        <Constraint
+            android:id="@+id/tv_welcome_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45h"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginTop="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp8w"
+            android:scaleX="0.0"
+            android:scaleY="0.0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_welcome_new_account" />
+        <Constraint
+            android:id="@+id/tv_welcome_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp8h"
+            android:layout_marginBottom="@dimen/dp22h"
+            motion:layout_constraintTop_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/iv_welcome_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp40h"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/tv_welcome_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp16w"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/iv_welcome_logo" />
+        <Constraint
+            android:id="@+id/tv_welcome_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginTop="@dimen/dp20h"
+            android:layout_marginEnd="@dimen/dp16w"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_welcome_title" />
+        <Constraint
+            android:id="@+id/tv_welcome_new_account"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45h"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginTop="@dimen/dp70h"
+            android:layout_marginEnd="@dimen/dp8w"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_welcome_description" />
+        <Constraint
+            android:id="@+id/tv_welcome_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45h"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginTop="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp8w"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_welcome_new_account" />
+        <Constraint
+            android:id="@+id/tv_welcome_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp8h"
+            android:layout_marginBottom="@dimen/dp22h"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/btn_welcome_login" />
+    </ConstraintSet>
+</MotionScene>

@@ -29,8 +29,8 @@ class HomeServiceViewHolder<T>(
             }
 
             is Events -> {
-                binding.tvServiceLocation.text = homeCategory.country
-                binding.tvServiceName.text = homeCategory.name
+                binding.tvServiceLocation.text = homeCategory.address
+                binding.tvServiceName.text = homeCategory.title
                 binding.tvServiceDate.gone()
             }
 

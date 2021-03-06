@@ -1,14 +1,15 @@
 package com.app.newislam.model.entities.home.services
 
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
-import com.app.newislam.BR
 import com.google.gson.annotations.SerializedName
 
 data class Events(
     @SerializedName("id") val id: Int,
-    @SerializedName("name") val name: String,
-    @SerializedName("country") var country: String = "",
-    @SerializedName("date") val date: String = " ",
-    @SerializedName("image") val image: String = " "
+    @SerializedName("title") val title: String,
+    @SerializedName("overview") val overview: String,
+    @SerializedName("address") val address: String,
+    @SerializedName("lng") var lng: Double ,
+    @SerializedName("lat") val date: Double,
+    @SerializedName("imageFileName") val image: String = " ",
+    @SerializedName("dateTime") val dateTime: String = " ",
+    @SerializedName("islamicCenter") val islamicCenter: IslamicCenter
 )

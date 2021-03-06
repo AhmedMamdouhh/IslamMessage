@@ -12,7 +12,7 @@
     </style>
 
     <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@android:color/transparent</item>
+        <item name="android:background">@drawable/shape_bottom_sheet</item>
     </style>
 
     <style name="ChipTextStyle">
